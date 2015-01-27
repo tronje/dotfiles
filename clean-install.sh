@@ -9,7 +9,13 @@ path=~/dotfiles
 
 # delete files in order to be able to create symlinks later
 # make sure to backup these files if you're not sure what you're doing
-rm ~/.i3/config ~/.zshr ~/.vimrc ~/.gvimrc ~/.config/i3status/config ~/.config/termite/config ~/.rtorrent.rc
+rm ~/.i3/config
+rm ~/.zshrc
+rm ~/.vimrc
+rm ~/.gvimrc
+rm ~/.config/i3status/config
+rm ~/.config/termite/config
+rm ~/.rtorrent.rc
 
 ln -s $path/rtorrent.rc ~/.rtorrent.rc
 ln -s $path/vimrc ~/.vimrc
