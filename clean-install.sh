@@ -16,6 +16,7 @@ rm ~/.gvimrc
 rm ~/.config/i3status/config
 rm ~/.config/termite/config
 rm ~/.rtorrent.rc
+rm ~/.dircolors
 
 ln -s $path/rtorrent.rc ~/.rtorrent.rc
 ln -s $path/vimrc ~/.vimrc
@@ -23,3 +24,4 @@ ln -s $path/zshrc ~/.zshrc
 ln -s $path/i3/config ~/.i3/config
 ln -s $path/config/i3status/config ~/.config/i3status/config
 ln -s $path/config/termite/config ~/.config/termite/config
+ln -s $path/dircolors ~/.dircolors
