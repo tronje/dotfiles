@@ -263,3 +263,6 @@ set guioptions-=T " remove toolbar
 " cycle through buffers
 nmap <silent> <tab> :bnext<CR>
 nmap <silent> <s-tab> :bprevious<CR>
+
+hi Normal ctermbg=NONE
+hi NonText ctermbg=NONE
