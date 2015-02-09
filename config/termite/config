@@ -3,4 +3,4 @@ font = Sauce Code Powerline Light 10
 
 [colors]
 foreground = #ffffff
-background = rgba(42, 42, 42, 0.9)
+background = rgba(42, 42, 42, 0.93)

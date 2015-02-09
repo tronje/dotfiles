@@ -126,6 +126,8 @@ alias valmem='valgrind --tool=memcheck'
 alias valcache='valgrind --tool=cachegrind'
 alias gpic='gpicview'
 
+alias mybar='bar -p -B "#E62A2A2A" -f "-xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1,-misc-stlarch-medium-r-normal--10-100-75-75-c-80-iso10646-1"'
+
 alias piratevpn='sudo openvpn /etc/openvpn/Privacy-Netherlands.ovpn'
 
 # I don't have wine anymore...

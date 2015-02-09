@@ -35,6 +35,9 @@ bindsym $mod+q kill
 #bindsym $mod+d exec dmenu_run
 bindsym $mod+d exec i3-dmenu-desktop
 
+# lock
+bindsym XF86Launch1 exec i3lock
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down

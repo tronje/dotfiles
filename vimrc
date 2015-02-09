@@ -105,13 +105,14 @@ set scrolloff=2         " keep 2 lines spacing between cursor and edge"
 "set gfn=Bitstream\ Vera\ Sans\ Mono\ 8
 "set gfn=GohuFont\ 8
 "set gfn=TamzenForPowerline\ 14
-"set gfn=Sauce\ Code\ Powerline\ Light\ 11
+"set gfn=Source\ Code\ Pro\ Light\ 11
 set number              " show line numbers
 syntax on               " enable syntax highlighting
 "set synmaxcol=200       " for performance reason, don't highlight long lines
 
 " set airline theme
 let g:airline_theme='bubblegum'
+"let g:airline_powerline_fonts = 1
 
 " Minimap stuff
 "autocmd VimEnter * :Minimap " run Minimap on startup
