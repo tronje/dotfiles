@@ -1,4 +1,4 @@
-from subprocess import check_output
+from subprocess import check_output, call
 import time
 import sys
 
@@ -26,7 +26,7 @@ or don't specify a font to use the default.
 
 # Update-interval in seconds
 ## float or integer
-interval = 0.1
+interval = 0.25
 
 # Some colors
 ## the first two values are alpha values, which is
@@ -103,6 +103,16 @@ def getWMInfo():
             ret += " " + str(i) + " "
     return ret
 
+# Sound levels
+# TODO
+def getSound():
+    volume = int(check_output(['ponymix','get-volume']))
+    if call(['ponymix','is-muted']):
+        return "\ue050 " + str(volume)
+    else:
+        return "\ue04F " + str(volume)
+
+
 # Loop that prints everything
 while(True):
     print("%{l}"\
@@ -110,7 +120,7 @@ while(True):
             + "%{c}"\
             + "%{F" + color_white + "}" + getTime() \
             + "%{r}"\
-            + getTemperature() + dlm + getBattery() + dlm + getDate() + " ")
+            + getSound() + dlm + getTemperature() + dlm + getBattery() + dlm + getDate() + " ")
 
     sys.stdout.flush()
     time.sleep(interval)
