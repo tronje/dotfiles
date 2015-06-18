@@ -120,11 +120,12 @@ alias spac='sudo pacman'
 alias svim='sudo vim'
 alias clip='xclip -selection clipboard'
 alias gls='git status'
-alias netrestart='sudo systemctl restart netctl-auto@wlp3s0'
+alias wifi='sudo systemctl restart netctl-auto@wlp3s0'
 alias graka='PRIMUS_UPLOAD=0 vblank_mode=0 primusrun'
 alias valmem='valgrind --tool=memcheck'
 alias valcache='valgrind --tool=cachegrind'
 alias gpic='gpicview'
+alias clippy='cowsay -f clippy'
 
 alias mybar='bar -p -B "#E62A2A2A" -f "-xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1,-misc-stlarch-medium-r-normal--10-100-75-75-c-80-iso10646-1"'
 
@@ -135,7 +136,7 @@ alias piratevpn='sudo openvpn /etc/openvpn/Privacy-Netherlands.ovpn'
 
 #alias battlenet='setarch i386 -3 -L -B -R optirun -b primus wine .wine/drive_c/Program\ Files/Battle.net/Battle.net\ Launcher.exe'
 
-alias winesteam='PRIMUS_UPLOAD=0 vblank_mode=0 primusrun wine $HOME/.wine/drive_c/Program\ Files/Steam/Steam.exe'
+#alias winesteam='PRIMUS_UPLOAD=0 vblank_mode=0 primusrun wine $HOME/.wine/drive_c/Program\ Files/Steam/Steam.exe'
 
 #alias winesteam='optirun -b primus wine .wine/drive_c/Program\ Files/Steam/Steam.exe'
 

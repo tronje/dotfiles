@@ -96,7 +96,7 @@ def getWMInfo():
     ret = "%{F" + color_orange + "}"
     curr_desktop =\
             int(check_output(['bspc','query','--desktops','--desktop']))
-    for i in range(1,10):
+    for i in range(1,7):
         if i == curr_desktop:
             ret += "<" + str(i) + ">"
         else:
