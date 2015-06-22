@@ -114,6 +114,7 @@ autoload -U zmv
 
 # non-global aliases:
 alias ls='ls --group-directories-first --color=auto'
+alias cd='cd -v'
 alias sc='sudo systemctl'
 alias pac='pacman'
 alias spac='sudo pacman'
