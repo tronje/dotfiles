@@ -33,10 +33,11 @@ bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec i3-dmenu-desktop
+#bindsym $mod+d exec i3-dmenu-desktop
+bindsym $mod+d exec j4-dmenu-desktop --dmenu="dmenu -i -l 3 -w 250 -sb \#00a000 -sf white"
 
 # lock
-bindsym XF86Launch1 exec i3lock
+bindsym XF86Launch1 exec i3lock -c 222222
 
 # change focus
 bindsym $mod+h focus left
@@ -85,7 +86,6 @@ bindsym $mod+space floating toggle
 bindsym $mod+Tab workspace back_and_forth
 
 # switch to workspace
-bindsym $mod+grave workspace 0
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
@@ -98,7 +98,6 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+asciitilde move container to workspace 0
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
@@ -153,6 +152,13 @@ bindsym $mod+F1 scratchpad show
 
 popup_during_fullscreen leave_fullscreen
 
+bindsym XF86AudioMute        exec ponymix toggle && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec ponymix decrease 5 && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioRaiseVolume exec ponymix increase 5 && pkill -RTMIN+1 i3blocks
+
+bindsym XF86MonBrightnessUp   exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+
 # colors
 client.focused #333333 #222222 #ffffff
 client.focused_inactive #333333 #222222 #393939
@@ -162,9 +168,11 @@ client.urgent #333333 #222222 #ffa500
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        #status_command i3status
+        status_command i3blocks -c /home/tronje/.i3/i3blocks.conf
         position top
-        font pango: Sauce Code Powerline Medium 10
+        #font pango: Sauce Code Powerline Medium 10
+        font pango: Roboto 10
         colors {
             background #333333
             statusline #ffffff
@@ -179,3 +187,4 @@ bar {
 # autostart
 #exec --no-startup-id xcompmgr
 #exec --no-startup-id feh --bg-scale Pictures/Wallpapers/orangutan.jpg
+exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/02\ -\ gfg1yIN.jpg
