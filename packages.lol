@@ -122,6 +122,7 @@ farstream-0.1
 feh
 ffmpeg
 fftw
+figlet
 file
 filesystem
 filezilla
@@ -165,7 +166,6 @@ ghostscript
 giblib
 giflib
 gimp
-girara
 git
 glew
 glfw
@@ -1016,7 +1016,6 @@ xz
 yajl
 yaourt
 youtube-dl
-zathura
 zenity
 zip
 zita-alsa-pcmi
