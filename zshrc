@@ -36,3 +36,11 @@ man() {
 # need this for termite to have colored ls
 eval $(dircolors ~/.dircolors)
 #eval $(dircolors ~/.dircolors.ansi-universal)
+
+# handy function to display all 256 color codes
+# nice for customizing one's prompt
+function spectrum_ls() {
+    for code in {000..255}; do
+        print -P -- "$code: %F{$code}Lorem ipsum dolor sit amet%f"
+    done
+}
