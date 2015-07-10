@@ -174,7 +174,7 @@ bar {
         position top
         #font pango: Sauce Code Powerline Medium 10
         #font pango: Roboto 10
-        font pango: Input Mono 8
+        font pango: Input Mono 9
         colors {
             background #333333
             statusline #ffffff
