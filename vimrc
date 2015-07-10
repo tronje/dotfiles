@@ -226,12 +226,12 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 nnoremap <silent> <F8> :TagbarToggle<CR>
 
-" vim-latex
-" make sure code isn't folded in latex because it's annoying
+" make sure code isn't folded in certain files because it's annoying
 autocmd Filetype tex setlocal nofoldenable
+autocmd Filetype mkd setlocal nofoldenable
 
 " vim-latex-live-preview
-let g:livepreview_previewer = 'okular'
+let g:livepreview_previewer = 'evince'
 
 " nerdtree
 nnoremap <silent> <F6> :NERDTreeToggle<CR>
