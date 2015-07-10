@@ -1,5 +1,6 @@
 [options]
 font = Sauce Code Powerline Light 10
+#font = Input Mono 9
 
 [colors]
 foreground = #ffffff
