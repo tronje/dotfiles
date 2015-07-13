@@ -65,6 +65,7 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'xuhdev/vim-latex-live-preview'
 NeoBundle 'rhysd/vim-clang-format'
+NeoBundle 'godlygeek/tabular'
 
 NeoBundle 'Valloric/YouCompleteMe', {
     \ 'build': {
