@@ -228,7 +228,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 nnoremap <silent> <F8> :TagbarToggle<CR>
 
 " make sure code isn't folded because it's annoying
-set nofoldenable
+"set nofoldenable
+set foldlevelstart=99
 
 " vim-latex-live-preview
 let g:livepreview_previewer = 'evince'
