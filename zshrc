@@ -14,7 +14,7 @@ fi
 
 source /usr/share/autojump/autojump.zsh
 source /home/tronje/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /home/tronje/.zaliases
+source /home/tronje/.alias.sh
 # *somewhere* there;s an annoying alias on rm
 unalias rm
 
