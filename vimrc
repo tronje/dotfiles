@@ -222,7 +222,7 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
 let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-l>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 nnoremap <silent> <F8> :TagbarToggle<CR>
