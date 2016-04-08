@@ -20,6 +20,7 @@ floating_modifier $mod
 hide_edge_borders both
 workspace_auto_back_and_forth yes
 for_window [class="chromium"] border pixel 1
+for_window [class="Thunderbird"] border pixel 1
 
 #scratchpad
 bindsym $mod+shift+z move scratchpad 
@@ -174,7 +175,8 @@ bar {
         #status_command i3status
         status_command i3blocks -c /home/tronje/.i3/i3blocks.conf
         position top
-        font pango: Sauce Code Powerline Medium 10
+        #font pango: Sauce Code Powerline Medium 10
+        font pango: Source Code Pro for Powerline Medium 10
         #font pango: Roboto 10
         #font pango: Input Mono 9
         colors {
@@ -193,4 +195,4 @@ bar {
 #exec --no-startup-id feh --bg-scale Pictures/Wallpapers/orangutan.jpg
 #exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/02\ -\ gfg1yIN.jpg
 exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/torvalds.png
-exec --no-startup-id compton -CGb
+exec --no-startup-id compton -fCGb -D 1
