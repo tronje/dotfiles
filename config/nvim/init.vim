@@ -7,7 +7,6 @@ Plug 'groenewege/vim-less'
 Plug 'plasticboy/vim-markdown', {'depends': 'godlygeek/tabular'}
 Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'lervag/vim-latex'
-Plug 'chase/vim-ansible-yaml'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/html5.vim'
@@ -16,6 +15,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'fatih/vim-go'
 Plug 'cespare/vim-toml'
+Plug 'neovimhaskell/haskell-vim'
 
 " Looks
 Plug 'bling/vim-airline'
@@ -56,7 +56,7 @@ Plug 'rhysd/vim-clang-format'
 Plug 'godlygeek/tabular'
 Plug 'scrooloose/nerdcommenter'
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer --system-libclang --system-boost' }
+Plug 'Valloric/YouCompleteMe', { 'do': 'python2 install.py --clang-completer --gocode-completer --racer-completer --system-boost --system-libclang' }
 
 call plug#end()
 
@@ -161,6 +161,8 @@ let g:user_emmet_leader_key='<C-X>'
 " vim-airline
 set laststatus=2
 let g:airline_powerline_fonts = 1
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#left_sep = ' '
 "let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -206,6 +208,7 @@ set completeopt=menuone,menu,longest,preview
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
+let g:ycm_python_binary_path = "/usr/bin/python3"
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-l>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
