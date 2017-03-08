@@ -1,19 +1,22 @@
+# misc
 alias ls='ls --group-directories-first --color=auto'
 alias cp='cp -v'
 alias sc='sudo systemctl'
+alias scu='systemctl --user'
 alias pac='pacman'
 alias spac='sudo pacman'
-alias svim='sudo vim'
 alias clip='xclip -selection clipboard'
-alias wifi='sudo systemctl restart netctl-auto@wlp3s0'
-alias graka='PRIMUS_UPLOAD=0 vblank_mode=0 primusrun'
-alias valmem='valgrind --tool=memcheck'
-alias valcache='valgrind --tool=cachegrind'
-alias gpic='gpicview'
-alias clippy='cowsay -f clippy'
-alias piratevpn='sudo openvpn /etc/openvpn/Privacy-Netherlands.ovpn'
+alias wifi='sudo systemctl restart netctl-auto@wlp4s0'
+alias vi='nvim'
+alias vim='nvim'
+alias sido='sudo'
+alias df='sudo btrfs filesystem usage -h /'
+alias weather='curl -s wttr.in/Hamburg'
 
 # git aliases
 alias g='git'
 alias gls='git status'
 alias gl='git log --topo-order --stat --pretty=format:"${_git_log_medium_format}"'
+
+# emacs
+alias em='emacsclient -nw -s /tmp/emacs1000/server'
