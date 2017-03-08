@@ -213,4 +213,3 @@ bar {
 #exec --no-startup-id feh --bg-scale pics/wallpapers/amsterdam.jpg
 exec --no-startup-id feh --bg-scale pics/wallpapers/Solarized-Mountains.png
 exec --no-startup-id compton -CGb --no-fading-openclose
-exec --no-startup-id redshift-gtk
