@@ -44,7 +44,7 @@ markup=none
 [volume]
 #label=VOL
 label=♪
-command=/home/tronje/dotfiles/i3/volume.py
+command=/home/tronje/dotfiles/config/i3/volume.py
 #instance=Master
 #instance=PCM
 interval=once
