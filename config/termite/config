@@ -1,9 +1,32 @@
 [options]
-#font = Sauce Code Powerline Light 10
-#font = Input Mono 9
-font = Source Code Pro for Powerline Medium 10
+#font = monospace 20
+#font = Anonymous Pro for Powerline Regular 18
+font = Input Mono 16
+#font = Fira Code 16
 
 [colors]
-foreground = #ffffff
-#background = rgba(42, 42, 42, 1)
-background = rgba(42, 42, 42, 0.97)
+foreground = #fcfbe3
+background = rgba(42, 42, 42, 0.95)
+cursor = #93a1a1
+
+# better green than the solarized green-brown below
+color2 = #50a000
+# much better blue than default
+color4 = #268bd2
+
+color0 = #073642
+color1 = #dc322f
+#color2 = #859900
+color3 = #b58900
+color4 = #268bd2
+color5 = #d33682
+color6 = #2aa198
+color7 = #eee8d5
+color8 = #002b36
+color9 = #cb4b16
+color10 = #586e75
+color11 = #657b83
+color12 = #839496
+color13 = #6c71c4
+color14 = #93a1a1
+color15 = #fdf6e3
