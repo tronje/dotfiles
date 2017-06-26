@@ -56,8 +56,9 @@ Plug 'rhysd/vim-clang-format'
 Plug 'godlygeek/tabular'
 Plug 'scrooloose/nerdcommenter'
 
-Plug 'Valloric/YouCompleteMe', { 'do': 'python2 install.py --clang-completer --gocode-completer --racer-completer'}
-"Plug 'Valloric/YouCompleteMe', { 'do': 'python2 install.py --clang-completer --gocode-completer --racer-completer --system-libclang --system-boost'}
+"Plug 'Valloric/YouCompleteMe', { 'do': 'python2 install.py --clang-completer --gocode-completer --racer-completer'}
+Plug 'ajh17/VimCompletesMe'
+Plug 'racer-rust/vim-racer'
 
 call plug#end()
 
@@ -71,7 +72,7 @@ set mouse=a             " make sure mouse is used in all cases.
 set t_Co=256            " set 256 color
 "colorscheme tronlight   " define syntax color scheme
 colorscheme gruvbox
-let g:gruvbox_contrast_dark='medium'
+let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light='hard'
 set shortmess+=I        " disable the welcome screen
 set clipboard+=unnamed  " yank and copy to X clipboard
@@ -141,6 +142,7 @@ set hlsearch            " highlight all search results
 set incsearch           " increment search
 set ignorecase          " case-insensitive search
 set smartcase           " upper-case sensitive search
+vnoremap // y/<C-R>"<CR>
 
 
 " vim-clang-format
@@ -162,9 +164,10 @@ let g:user_emmet_leader_key='<C-X>'
 " vim-airline
 set laststatus=2
 let g:airline_powerline_fonts = 1
+" uncomment to turn off powerline arrow things which sometimes look terrible
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline#extensions#tabline#enabled = 1
+ let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#left_sep = ' '
 "let g:airline#extensions#tabline#left_alt_sep = '|'
 
@@ -194,6 +197,10 @@ nmap <C-k> <Plug>CtrlSFPrompt
 " syntastic
 let g:syntastic_check_on_open = 1         " Don't check for errors until save
 let g:syntastic_python_checkers = ['flake8', 'python']
+
+
+" vim-racer
+let g:racer_cmd = "/home/tronje/.cargo/bin/racer"
 
 
 " rainbow
@@ -258,3 +265,5 @@ nmap <silent> <s-tab> :bprevious<CR>
 " because they annoy me
 map <PageUp> <Nop>
 map <PageDown> <Nop>
+imap <PageUp> <Nop>
+imap <PageDown> <Nop>
