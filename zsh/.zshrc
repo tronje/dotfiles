@@ -37,4 +37,7 @@ function spectrum_ls() {
 
 autoload -Uz promptinit
 promptinit
-prompt skwp
+#prompt skwp
+#prompt paradox
+#prompt kylewest
+prompt tronje

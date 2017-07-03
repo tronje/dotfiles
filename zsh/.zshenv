@@ -21,7 +21,7 @@ export ANDROID_HOME=${ANDROID_SDK}
 export PATH=$PATH:$ANDROID_SDK/tools:$ANDROID_NDK
 
 # cargo stuff
-export PATH=$PATH:/home/tronje/.cargo/bin
+export PATH=$PATH:/home/tronje/.cargo/bin:/home/tronje/.local/bin:/home/tronje/.cabal/bin
 export RUST_SRC_PATH=/home/tronje/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
 
 # Ensure that a non-login, non-interactive shell has a defined environment.

@@ -31,13 +31,6 @@ if [[ -z "$LANG" ]]; then
   export LANG='en_US.UTF-8'
 fi
 
-#
-# Paths
-#
-
-# add cargo stuff to PATH
-export PATH=$PATH:/home/tronje/.cargo/bin
-
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 

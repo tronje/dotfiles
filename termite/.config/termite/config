@@ -11,7 +11,8 @@ font = Fira Mono 16
 foreground      = #eff0eb
 foreground_bold = #eff0eb
 cursor          = #eff0eb
-background      = #20232c
+#background      = #20232c
+background = rgba(32, 35, 44, 0.95)
 
 # black
 color0  = #000000
