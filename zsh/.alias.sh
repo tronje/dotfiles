@@ -18,5 +18,5 @@ alias g='git'
 alias gls='git status'
 alias gl='git log --topo-order --stat --pretty=format:"${_git_log_medium_format}"'
 
-# emacs
-alias em='emacsclient -nw -s /tmp/emacs1000/server'
+# cargo
+alias clippy='rustup run nightly cargo clippy'
