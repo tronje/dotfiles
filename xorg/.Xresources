@@ -7,6 +7,17 @@ Xft.antialias: 1
 Xft.rgba: rgb
 
 ! ------------------------------------------------------------------------------
+! ROFI Settings
+! ------------------------------------------------------------------------------
+rofi.modi: run,window,ssh
+rofi.terminal: termite
+rofi.run-command: {cmd}
+rofi.ssh-client: ssh
+rofi.ssh-command: {terminal} -e '{ssh-client} {host}'
+rofi.run-shell-command: {terminal} -e '{cmd}'
+rofi.case-sensitive: false
+
+! ------------------------------------------------------------------------------
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
 rofi.color-enabled: true
