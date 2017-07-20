@@ -34,8 +34,8 @@ Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-" Plug 'scrooloose/syntastic'
-Plug 'w0rp/ale'
+Plug 'scrooloose/syntastic'
+" Plug 'w0rp/ale'
 Plug 'thinca/vim-quickrun'
 Plug 'sjl/gundo.vim'
 Plug 'xuhdev/vim-latex-live-preview'
@@ -161,12 +161,12 @@ let g:airline_right_sep=''
 
 " syntastic
 " let g:syntastic_check_on_open = 1         " Don't check for errors until save
-" let g:syntastic_python_checkers = ['flake8', 'python']
-" autocmd FileType rust let g:syntastic_rust_checkers = ['rustc']
+let g:syntastic_python_checkers = ['flake8', 'python']
+autocmd FileType rust let g:syntastic_rust_checkers = ['rustc']
 
 
 " ale
-let g:ale_lint_on_text_changed = 'never'
+" let g:ale_lint_on_text_changed = 'never'
 
 
 " vim-racer
