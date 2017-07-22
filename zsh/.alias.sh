@@ -20,3 +20,4 @@ alias gl='git log --topo-order --stat --pretty=format:"${_git_log_medium_format}
 
 # cargo
 alias clippy='rustup run nightly cargo clippy'
+alias c='cargo'
