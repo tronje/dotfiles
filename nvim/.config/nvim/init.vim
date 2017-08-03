@@ -22,6 +22,7 @@ Plug 'morhetz/gruvbox'
 "not working atm
 "Plug 'koron/minimap-vim'
 Plug 'severin-lemaignan/vim-minimap'
+Plug 'vim-airline/vim-airline-themes'
 
 " Functionality
 "Plug 'Raimondi/delimitMate'
@@ -42,6 +43,7 @@ Plug 'xuhdev/vim-latex-live-preview'
 Plug 'rhysd/vim-clang-format'
 Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
+Plug 'qpkorr/vim-bufkill'
 
 "Plug 'Valloric/YouCompleteMe', { 'do': 'python2 install.py --clang-completer --gocode-completer --racer-completer'}
 Plug 'ajh17/VimCompletesMe'
@@ -85,8 +87,8 @@ syntax on               " enable syntax highlighting
 "set synmaxcol=200       " for performance reason, don't highlight long lines
 
 " set airline theme
-"let g:airline_theme='bubblegum'
-let g:airline_theme='gruvbox'
+let g:airline_theme='wombat'
+" let g:airline_theme='gruvbox'
 "let g:airline_powerline_fonts = 1
 
 " Minimap stuff
