@@ -9,9 +9,10 @@ Plug 'lervag/vim-latex'
 "Plug 'hail2u/vim-css3-syntax'
 Plug 'rust-lang/rust.vim'
 "Plug 'octol/vim-cpp-enhanced-highlight'
-"Plug 'fatih/vim-go'
+Plug 'fatih/vim-go'
 Plug 'cespare/vim-toml'
 "Plug 'neovimhaskell/haskell-vim'
+Plug 'elmcast/elm-vim'
 
 " Looks
 Plug 'bling/vim-airline'
@@ -46,7 +47,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'qpkorr/vim-bufkill'
 
 "Plug 'Valloric/YouCompleteMe', { 'do': 'python2 install.py --clang-completer --gocode-completer --racer-completer'}
-Plug 'ajh17/VimCompletesMe'
+" Plug 'ajh17/VimCompletesMe'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'sebastianmarkow/deoplete-rust'
 Plug 'racer-rust/vim-racer'
 
 call plug#end()
@@ -97,7 +100,7 @@ let g:minimap_highlight='StatusLine'
 
 " cursor settings
 set cursorline        " highlight cursor line
-set cursorcolumn      " highlight cursor column
+" set cursorcolumn      " highlight cursor column
 
 " wrap like other editors
 set wrap                " word wrap
@@ -157,8 +160,10 @@ let g:airline_powerline_fonts = 1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
  let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#left_sep = ' '
-"let g:airline#extensions#tabline#left_alt_sep = '|'
+" let g:airline#extensions#tabline#left_sep = ''
+" let g:airline#extensions#tabline#right_sep = ''
+" let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#left_alt_sep = ''
 
 
 " syntastic
@@ -179,6 +184,20 @@ let g:racer_cmd = "/home/tronje/.cargo/bin/racer"
 set ofu=syntaxcomplete#Complete
 set complete+=k         " enable dictionary completion
 set completeopt=menuone,menu,longest,preview
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#disable_auto_complete = 1
+let g:deoplete#sources#rust#racer_binary='/home/tronje/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='/home/tronje/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
+
+" inoremap <silent><expr> <TAB> deoplete#mappings#manual_complete()
+inoremap <silent><expr> <TAB>
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ deoplete#mappings#manual_complete()
+function! s:check_back_space() abort "{{{
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction"}}}
 
 
 " automatically open and close the popup menu / preview window
