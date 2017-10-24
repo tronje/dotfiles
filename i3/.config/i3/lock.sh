@@ -8,9 +8,12 @@ fi
 # do a blur
 if [ $1 = "blur" ]; then
     img=/tmp/lock.png
-    scrot -q 1 $img
-    convert $img -blur 0x1.5 $img
-    i3lock -i $img
+    lock=/home/tronje/.config/i3/lock_resized.png
+    scrot $img
+    # convert $img -blur 0x3 $img
+    convert $img -filter Gaussian -resize 50% -define filter:sigma=2 -resize 200% $img
+    composite -gravity center $lock $img $img
+    i3lock -u -i $img
     rm $img
     exit 0
 fi

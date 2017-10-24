@@ -9,9 +9,10 @@ Plug 'plasticboy/vim-markdown', {'depends': 'godlygeek/tabular'}
 "Plug 'hail2u/vim-css3-syntax'
 Plug 'rust-lang/rust.vim'
 "Plug 'octol/vim-cpp-enhanced-highlight'
-"Plug 'fatih/vim-go'
+Plug 'fatih/vim-go'
 Plug 'cespare/vim-toml'
 "Plug 'neovimhaskell/haskell-vim'
+Plug 'elmcast/elm-vim'
 
 " Looks
 Plug 'bling/vim-airline'
@@ -22,6 +23,7 @@ Plug 'morhetz/gruvbox'
 "not working atm
 "Plug 'koron/minimap-vim'
 Plug 'severin-lemaignan/vim-minimap'
+Plug 'vim-airline/vim-airline-themes'
 
 " Functionality
 "Plug 'Raimondi/delimitMate'
@@ -34,17 +36,20 @@ Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-" Plug 'scrooloose/syntastic'
-Plug 'w0rp/ale'
+Plug 'scrooloose/syntastic'
+" Plug 'w0rp/ale'
 Plug 'thinca/vim-quickrun'
 Plug 'sjl/gundo.vim'
 Plug 'xuhdev/vim-latex-live-preview'
 Plug 'rhysd/vim-clang-format'
 Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
+Plug 'qpkorr/vim-bufkill'
 
 "Plug 'Valloric/YouCompleteMe', { 'do': 'python2 install.py --clang-completer --gocode-completer --racer-completer'}
-Plug 'ajh17/VimCompletesMe'
+" Plug 'ajh17/VimCompletesMe'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'sebastianmarkow/deoplete-rust'
 Plug 'racer-rust/vim-racer'
 
 call plug#end()
@@ -85,8 +90,8 @@ syntax on               " enable syntax highlighting
 "set synmaxcol=200       " for performance reason, don't highlight long lines
 
 " set airline theme
-"let g:airline_theme='bubblegum'
-let g:airline_theme='gruvbox'
+let g:airline_theme='wombat'
+" let g:airline_theme='gruvbox'
 "let g:airline_powerline_fonts = 1
 
 " Minimap stuff
@@ -95,7 +100,7 @@ let g:minimap_highlight='StatusLine'
 
 " cursor settings
 set cursorline        " highlight cursor line
-set cursorcolumn      " highlight cursor column
+" set cursorcolumn      " highlight cursor column
 
 " wrap like other editors
 set wrap                " word wrap
@@ -155,18 +160,20 @@ let g:airline_powerline_fonts = 1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
  let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#left_sep = ' '
-"let g:airline#extensions#tabline#left_alt_sep = '|'
+" let g:airline#extensions#tabline#left_sep = ''
+" let g:airline#extensions#tabline#right_sep = ''
+" let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#left_alt_sep = ''
 
 
 " syntastic
 " let g:syntastic_check_on_open = 1         " Don't check for errors until save
-" let g:syntastic_python_checkers = ['flake8', 'python']
-" autocmd FileType rust let g:syntastic_rust_checkers = ['rustc']
+let g:syntastic_python_checkers = ['flake8', 'python']
+autocmd FileType rust let g:syntastic_rust_checkers = ['rustc']
 
 
 " ale
-let g:ale_lint_on_text_changed = 'never'
+" let g:ale_lint_on_text_changed = 'never'
 
 
 " vim-racer
@@ -177,6 +184,20 @@ let g:racer_cmd = "/home/tronje/.cargo/bin/racer"
 set ofu=syntaxcomplete#Complete
 set complete+=k         " enable dictionary completion
 set completeopt=menuone,menu,longest,preview
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#disable_auto_complete = 1
+let g:deoplete#sources#rust#racer_binary='/home/tronje/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='/home/tronje/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
+
+" inoremap <silent><expr> <TAB> deoplete#mappings#manual_complete()
+inoremap <silent><expr> <TAB>
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ deoplete#mappings#manual_complete()
+function! s:check_back_space() abort "{{{
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction"}}}
 
 
 " automatically open and close the popup menu / preview window

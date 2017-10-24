@@ -1,6 +1,10 @@
+extern crate libnotify;
+
+
 use std::io::prelude::*;
 use std::fs::File;
 use std::env;
+
 
 const PATH: &'static str = "/sys/class/power_supply/BAT";
 const POWER: &'static str = "power_now";
@@ -71,6 +75,11 @@ fn main() {
         println!("{}", CYAN);
     } else if real_cap < 10 {
         println!("{}", RED);
+        // libnotify::init("batstat").unwrap();
+        // let n = libnotify::Notification::new("Battery low!", None, None);
+        // n.set_urgency(libnotify::Urgency::Critical);
+        // n.show().unwrap();
+        // libnotify::uninit();
     } else if real_cap < 25 {
         println!("{}", ORANGE);
     } else if real_cap < 70 {
