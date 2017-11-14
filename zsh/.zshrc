@@ -1,24 +1,28 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+export NVIM_TUI_ENABLE_TRUE_COLOR=1
+export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+# Ensure that a non-login, non-interactive shell has a defined environment.
+if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
 
 # Customize to your needs...
 
+# enables Vi mode when hitting ESC
+bindkey -v
+
+# autojump allows jumping to directories with 'j'
 source /usr/share/autojump/autojump.zsh
+
+# this enables syntax highlighting, as the name suggests
+source .zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# .alias.sh just contains some aliases, nothing fancy
 source /home/tronje/.alias.sh
 
+# add dir with some completions to fpath
 fpath+=/home/tronje/.zfunc
 
-# somewhere there's an annoying alias on rm
-unalias rm
 
 export MAKEFLAGS="-j4"
 export LESS="-RI"
@@ -35,9 +39,5 @@ function spectrum_ls() {
     done
 }
 
-autoload -Uz promptinit
-promptinit
-#prompt skwp
-#prompt paradox
-#prompt kylewest
-prompt tronje
+
+
