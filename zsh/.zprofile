@@ -6,11 +6,7 @@
 # Browser
 #
 
-if [[ "$OSTYPE" == darwin* ]]; then
-  export BROWSER='open'
-fi
-
-export BROWSER='chromium'
+export BROWSER='firefox'
 
 #
 # Editors
@@ -52,7 +48,6 @@ path=(
   /home/tronje/.cargo/bin
   /home/tronje/.local/bin
   /home/tronje/.node_modules/bin
-  /home/tronje/.gem/ruby/2.4.0/bin
   $path
 )
 
