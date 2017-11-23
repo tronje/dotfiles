@@ -51,6 +51,12 @@ path=(
   $path
 )
 
+# add dir with some completions to fpath
+fpath=(
+  /home/tronje/.zsh-completions
+  $fpath
+)
+
 #
 # Less
 #

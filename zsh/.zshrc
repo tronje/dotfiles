@@ -20,16 +20,18 @@ source .zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # .alias.sh just contains some aliases, nothing fancy
 source /home/tronje/.alias.sh
 
-# add dir with some completions to fpath
-fpath+=/home/tronje/.zfunc
-
 
 export MAKEFLAGS="-j4"
 export LESS="-RI"
 
-autoload -U colors && colors
-
+# history settings
+export HISTFILE=/home/tronje/.zsh_history
+export HISTSIZE=25000
 setopt HIST_IGNORE_DUPS
+setopt HIST_EXPIRE_DUPS_FIRST
+
+
+autoload -U colors && colors
 
 eval $(dircolors ~/.dircolors)
 
@@ -42,13 +44,19 @@ function spectrum_ls() {
 
 ## Prompt customization ##
 
+# abbreviated path in prompt
+# if $PWD is longer than 15 symbols, it's abbreviated with '...'
+function abbr_path_prompt () {
+  REPLY='%15<...<%~%<<%  '
+}
+
 # git status indicator
 function git_info () {
 	local inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
 	if [ "$inside_git_repo" ]; then
         local branch="$(git rev-parse --abbrev-ref HEAD)"
 		if [[ -n $(git status --short) ]]; then
-			REPLY="[%F{yellow}${branch#\* }%f %F{red}!%f] "
+			REPLY="[%F{yellow}${branch#\* }%f%F{red}!%f] "
 		else
 			REPLY="[%F{yellow}${branch#\* }%f] "
 		fi
@@ -57,23 +65,22 @@ function git_info () {
 	fi
 }
 
-# abbreviated path in prompt
-# if $PWD is longer than 15 symbols, it's abbreviated with '...'
-function abbr_path_prompt () {
-  REPLY='%15<...<%~%<<%  '
-}
-
-function percent_char () {
-	REPLY='% '
+# number of suspended jobs
+function delimiter_jobs () {
+    if [[ -n $(jobs) ]]; then
+        REPLY='%B%F{red}*%f%b %# '
+    else
+        REPLY='%# '
+    fi
 }
 
 # add the git status and the abbreviated path funtions to grml_theme
-grml_theme_add_token gitinfo -f git_info '%B' '%b'
 grml_theme_add_token abbreviated-path -f abbr_path_prompt '%B' '%b'
-# grml_theme_add_token percent -f percent_char
+grml_theme_add_token gitinfo -f git_info '%B' '%b'
+grml_theme_add_token delimiter -f delimiter_jobs '' ''
 
 # and update the left-hand side of the prompt
-zstyle ':prompt:grml:left:setup' items rc user at host abbreviated-path gitinfo percent
+zstyle ':prompt:grml:left:setup' items rc user at host abbreviated-path gitinfo delimiter
 
 
 #
