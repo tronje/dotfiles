@@ -1,19 +1,12 @@
 #
 # Executes commands at login pre-zshrc.
 #
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
 
 #
 # Browser
 #
 
-if [[ "$OSTYPE" == darwin* ]]; then
-  export BROWSER='open'
-fi
-
-export BROWSER='chromium'
+export BROWSER='firefox'
 
 #
 # Editors
@@ -31,6 +24,16 @@ if [[ -z "$LANG" ]]; then
   export LANG='en_US.UTF-8'
 fi
 
+# rust stuff
+export RUST_SRC_PATH=/home/tronje/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
+
+# go
+export GOPATH=/home/tronje/misc/go
+
+# node
+export npm_config_prefix=/home/tronje/.node_modules
+
+
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 
@@ -45,8 +48,13 @@ path=(
   /home/tronje/.cargo/bin
   /home/tronje/.local/bin
   /home/tronje/.node_modules/bin
-  /home/tronje/.gem/ruby/2.4.0/bin
   $path
+)
+
+# add dir with some completions to fpath
+fpath=(
+  /home/tronje/.zsh-completions
+  $fpath
 )
 
 #
@@ -75,8 +83,11 @@ fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
 
+# unlock ssh key
+eval `ssh-agent`
+ssh-add /home/tronje/.ssh/id_rsa
+
 # auto start xinit on login
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
   exec startx
 fi
-

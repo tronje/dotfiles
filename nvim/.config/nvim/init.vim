@@ -1,7 +1,14 @@
+" Tronje's init.vim
+" Some stuff in here is excluse to neovim, like the name and location of the
+" file, but also `deoplete` and possibly other things.
+"
+" This is not the greatest vimrc ever, but it's okay.
+
+
+""" VimPlug
 call plug#begin(expand('~/.config/nvim/plug'))
 
 " Language support
-Plug 'groenewege/vim-less'
 Plug 'plasticboy/vim-markdown', {'depends': 'godlygeek/tabular'}
 "Plug 'lervag/vimtex'
 "Plug 'pangloss/vim-javascript'
@@ -9,7 +16,7 @@ Plug 'plasticboy/vim-markdown', {'depends': 'godlygeek/tabular'}
 "Plug 'hail2u/vim-css3-syntax'
 Plug 'rust-lang/rust.vim'
 "Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'fatih/vim-go'
+" Plug 'fatih/vim-go'
 Plug 'cespare/vim-toml'
 "Plug 'neovimhaskell/haskell-vim'
 Plug 'elmcast/elm-vim'
@@ -20,50 +27,50 @@ Plug 'bling/vim-airline'
 "Plug 'gorodinskiy/vim-coloresque' " breaks . keyword
 "Plug 'luochen1990/rainbow'
 Plug 'morhetz/gruvbox'
-"not working atm
-"Plug 'koron/minimap-vim'
-Plug 'severin-lemaignan/vim-minimap'
 Plug 'vim-airline/vim-airline-themes'
 
 " Functionality
 "Plug 'Raimondi/delimitMate'
-"Plug 'tpope/vim-fugitive'
-"Plug 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
+Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'michaeljsmith/vim-indent-object'
 Plug 'Valloric/MatchTagAlways'
 Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/syntastic'
-" Plug 'w0rp/ale'
-Plug 'thinca/vim-quickrun'
-Plug 'sjl/gundo.vim'
-Plug 'xuhdev/vim-latex-live-preview'
+Plug 'xuhdev/vim-latex-live-preview', { 'for':'tex' }
 Plug 'rhysd/vim-clang-format'
 Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
 Plug 'qpkorr/vim-bufkill'
+Plug 'majutsushi/tagbar'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tacahiroy/ctrlp-funky'
 
-"Plug 'Valloric/YouCompleteMe', { 'do': 'python2 install.py --clang-completer --gocode-completer --racer-completer'}
-" Plug 'ajh17/VimCompletesMe'
+" Completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'sebastianmarkow/deoplete-rust'
 Plug 'racer-rust/vim-racer'
+Plug 'zchee/deoplete-jedi'
+
+" has to be loaded last
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
 " Required:
 filetype plugin indent on
+""" /VimPlug
 
-" basics
+
+""" basics
+set encoding=utf8
 set title               " set window title
 let mapleader = ","     " map leader to ,
 set mouse=a             " make sure mouse is used in all cases.
 set t_Co=256            " set 256 color
-"colorscheme tronlight   " define syntax color scheme
-colorscheme gruvbox
+colorscheme gruvbox     " font colors scheme
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light='hard'
 set shortmess+=I        " disable the welcome screen
@@ -81,22 +88,8 @@ set matchpairs+=<:>     " match < and > as well
 set mat=5               " show matching brackets for 0.5 seconds
 set scrolloff=2         " keep 2 lines spacing between cursor and edge"
 set background=dark     " we don't like bright white terminals
-"set gfn=Bitstream\ Vera\ Sans\ Mono\ 8
-"set gfn=GohuFont\ 8
-"set gfn=TamzenForPowerline\ 14
-"set gfn=Source\ Code\ Pro\ Light\ 11
 set number              " show line numbers
 syntax on               " enable syntax highlighting
-"set synmaxcol=200       " for performance reason, don't highlight long lines
-
-" set airline theme
-let g:airline_theme='wombat'
-" let g:airline_theme='gruvbox'
-"let g:airline_powerline_fonts = 1
-
-" Minimap stuff
-"autocmd VimEnter * :Minimap " run Minimap on startup
-let g:minimap_highlight='StatusLine'
 
 " cursor settings
 set cursorline        " highlight cursor line
@@ -135,9 +128,19 @@ set incsearch           " increment search
 set ignorecase          " case-insensitive search
 set smartcase           " upper-case sensitive search
 vnoremap // y/<C-R>"<CR>
+"
+" make sure code isn't folded because it's annoying
+"set nofoldenable
+set foldlevelstart=99
+
+" map : to ; in normal mode
+map ; :
+
+set grepprg=rg\ --color=never
+""" /basics
 
 
-" vim-clang-format
+""" vim-clang-format
 let g:clang_format#style_options = {
             \ "AllowShortIfStatementsOnASingleLine" : "true",
             \ "AlwaysBreakTemplateDeclarations" : "true",
@@ -147,43 +150,48 @@ let g:clang_format#style_options = {
 " map to <Leader>cf in C++ code
 autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+""" /vim-clang-format
 
 
-" emmet-vim
-let g:user_emmet_leader_key='<C-X>'
+""" vim-airline
+" set airline theme
+" let g:airline_theme='wombat'
+let g:airline_theme='gruvbox'
+" let g:airline_theme='simple'
+let g:airline_powerline_fonts = 1
 
-
-" vim-airline
 set laststatus=2
+
 let g:airline_powerline_fonts = 1
 " uncomment to turn off powerline arrow things which sometimes look terrible
 let g:airline_left_sep=''
 let g:airline_right_sep=''
- let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#left_sep = ''
 " let g:airline#extensions#tabline#right_sep = ''
 " let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#left_alt_sep = ''
+""" /vim-airline
 
 
-" syntastic
+""" syntastic
 " let g:syntastic_check_on_open = 1         " Don't check for errors until save
 let g:syntastic_python_checkers = ['flake8', 'python']
 autocmd FileType rust let g:syntastic_rust_checkers = ['rustc']
+""" /syntastic
 
 
-" ale
-" let g:ale_lint_on_text_changed = 'never'
-
-
-" vim-racer
+""" vim-racer
 let g:racer_cmd = "/home/tronje/.cargo/bin/racer"
+""" /vim-racer
 
 
+""" deoplete
 " auto completion stuff
 set ofu=syntaxcomplete#Complete
 set complete+=k         " enable dictionary completion
 set completeopt=menuone,menu,longest,preview
+
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#disable_auto_complete = 1
 let g:deoplete#sources#rust#racer_binary='/home/tronje/.cargo/bin/racer'
@@ -202,26 +210,62 @@ endfunction"}}}
 
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+""" /deoplete
 
 
-" make sure code isn't folded because it's annoying
-"set nofoldenable
-set foldlevelstart=99
-
-
-" vim-latex-live-preview
+""" vim-latex-live-preview
 let g:livepreview_previewer = 'evince'
+""" /vim-latex-live-preview
 
 
-" nerdtree
+""" NERDTree
 nnoremap <silent> <F6> :NERDTreeToggle<CR>
 inoremap <silent> <F6> <esc>:NERDTreeToggle<CR>a
+""" /NERDTree
 
 
-" map : to ; in normal mode
-map ; :
+""" Tagbar
+nmap <F8> :TagbarToggle<CR>
+
+let g:tagbar_type_rust = {
+            \ 'ctagstype' : 'rust',
+            \ 'kinds' : [
+            \'T:types,type definitions',
+            \'f:functions,function definitions',
+            \'g:enum,enumeration names',
+            \'s:structure names',
+            \'m:modules,module names',
+            \'c:consts,static constants',
+            \'t:traits',
+            \'i:impls,trait implementations',
+            \]
+            \}
+""" /Tagbar
 
 
+""" CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_user_command = 'rg %s --files -i --color=never --glob ''!.git'' --glob ''!.DS_Store'' --glob ''!node_modules'' --hidden --no-messages -g ""'
+let g:ctrlp_extensions = ['funky']
+let g:ctrlp_use_caching = 0
+
+" ctrlp-funky
+nnoremap <C-l> :CtrlPFunky<cr>
+let g:ctrlp_funky_matchtype = 'path'
+let g:ctrlp_funky_syntax_highlight = 1
+""" /CtrlP
+
+
+""" Dev-icons
+let g:webdevicons_enable = 1
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+""" /Dev-icons
+
+
+""" misc
 " spell check
 map <F12> :w<CR>:!aspell -c %<CR><CR>:e<CR><CR>
 
@@ -239,15 +283,12 @@ autocmd FileType python let python_highlight_all = 1
 autocmd FileType python let python_highlight_space_errors = 1
 autocmd FileType python let python_slow_sync = 1
 autocmd Filetype tex,latex :set dictionary=~/.vim/dict/latex.dict
-"autocmd Filetype tex,latex :set textwidth=99
 
-" gui
-set guioptions-=m " remove menubar
-set guioptions-=T " remove toolbar
 
 " cycle through buffers
 nmap <silent> <tab> :bnext<CR>
 nmap <silent> <s-tab> :bprevious<CR>
+
 
 " disable page up, page down keys
 " because they annoy me
@@ -255,3 +296,5 @@ map <PageUp> <Nop>
 map <PageDown> <Nop>
 imap <PageUp> <Nop>
 imap <PageDown> <Nop>
+
+""" the end
