@@ -35,14 +35,28 @@ autoload -U colors && colors
 
 eval $(dircolors ~/.dircolors)
 
-function spectrum_ls() {
+function spectrum_ls () {
     for code in {000..255}; do
         print -P -- "$code: %F{$code}Lorem ipsum dolor sit amet%f"
     done
 }
 
+function newdir () {
+    local dirname=$(date | md5sum | cut -b 1-10)
+    mkdir -v /tmp/$dirname
+    cd /tmp/$dirname
+}
+
 
 ## Prompt customization ##
+
+# virtualenv info
+function virtual_env_prompt () {
+    REPLY=${VIRTUAL_ENV+${VIRTUAL_ENV:t} }
+}
+
+# disables prompt mangling in virtual_env/bin/activate
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # abbreviated path in prompt
 # if $PWD is longer than 15 symbols, it's abbreviated with '...'
@@ -74,13 +88,14 @@ function delimiter_jobs () {
     fi
 }
 
-# add the git status and the abbreviated path funtions to grml_theme
+# add the custom tokens to the theme
+grml_theme_add_token virtual_env -f virtual_env_prompt '' ''
 grml_theme_add_token abbreviated-path -f abbr_path_prompt '%B' '%b'
 grml_theme_add_token gitinfo -f git_info '%B' '%b'
 grml_theme_add_token delimiter -f delimiter_jobs '' ''
 
 # and update the left-hand side of the prompt
-zstyle ':prompt:grml:left:setup' items rc user at host abbreviated-path gitinfo delimiter
+zstyle ':prompt:grml:left:setup' items rc user at host virtual_env abbreviated-path gitinfo delimiter
 
 
 #
