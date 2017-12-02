@@ -9,7 +9,6 @@
 call plug#begin(expand('~/.config/nvim/plug'))
 
 " Language support
-Plug 'groenewege/vim-less'
 Plug 'plasticboy/vim-markdown', {'depends': 'godlygeek/tabular'}
 Plug 'lervag/vim-latex'
 "Plug 'pangloss/vim-javascript'
@@ -17,7 +16,7 @@ Plug 'lervag/vim-latex'
 "Plug 'hail2u/vim-css3-syntax'
 Plug 'rust-lang/rust.vim'
 "Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'fatih/vim-go'
+" Plug 'fatih/vim-go'
 Plug 'cespare/vim-toml'
 "Plug 'neovimhaskell/haskell-vim'
 Plug 'elmcast/elm-vim'
@@ -32,18 +31,15 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Functionality
 "Plug 'Raimondi/delimitMate'
-"Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'michaeljsmith/vim-indent-object'
 Plug 'Valloric/MatchTagAlways'
 Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/syntastic'
-Plug 'thinca/vim-quickrun'
-Plug 'sjl/gundo.vim'
-Plug 'xuhdev/vim-latex-live-preview'
+Plug 'xuhdev/vim-latex-live-preview', { 'for':'tex' }
 Plug 'rhysd/vim-clang-format'
 Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
@@ -159,8 +155,9 @@ autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 
 """ vim-airline
 " set airline theme
-let g:airline_theme='wombat'
-" let g:airline_theme='gruvbox'
+" let g:airline_theme='wombat'
+let g:airline_theme='gruvbox'
+" let g:airline_theme='simple'
 let g:airline_powerline_fonts = 1
 
 set laststatus=2
