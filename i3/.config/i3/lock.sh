@@ -12,7 +12,11 @@ if [ $1 = "blur" ]; then
     scrot $img
     # convert $img -blur 0x3 $img
     convert $img -filter Gaussian -resize 50% -define filter:sigma=2 -resize 200% $img
-    composite -gravity center $lock $img $img
+    if [ $(xrandr | rg -c "\bconnected\b") -ge 2 ]; then
+        composite -geometry +0+400 -gravity North $lock $img $img
+    else
+        composite -gravity center $lock $img $img
+    fi
     i3lock -u -i $img
     rm $img
     exit 0
