@@ -20,6 +20,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
 "Plug 'neovimhaskell/haskell-vim'
 Plug 'elmcast/elm-vim'
+Plug 'mitsuhiko/vim-python-combined'
 
 " Looks
 Plug 'bling/vim-airline'
