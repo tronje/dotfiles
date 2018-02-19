@@ -66,17 +66,7 @@ function abbr_path_prompt () {
 
 # git status indicator
 function git_info () {
-	local inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
-	if [ "$inside_git_repo" ]; then
-        local branch="$(git status | head -1 | cut -d ' ' -f 3)"
-		if [[ -n $(git status --short) ]]; then
-			REPLY="[%F{yellow}${branch#\* }%f%F{red}!%f] "
-		else
-			REPLY="[%F{yellow}${branch#\* }%f] "
-		fi
-	else
-		REPLY=''
-	fi
+    REPLY=`git-prompt-helper`
 }
 
 # number of suspended jobs
