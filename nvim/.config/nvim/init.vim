@@ -52,7 +52,6 @@ Plug 'tacahiroy/ctrlp-funky'
 " Completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'sebastianmarkow/deoplete-rust'
-Plug 'racer-rust/vim-racer'
 Plug 'zchee/deoplete-jedi'
 
 " has to be loaded last
@@ -178,13 +177,8 @@ let g:airline#extensions#tabline#left_alt_sep = ''
 """ syntastic
 " let g:syntastic_check_on_open = 1         " Don't check for errors until save
 let g:syntastic_python_checkers = ['flake8', 'python']
-autocmd FileType rust let g:syntastic_rust_checkers = ['rustc']
+autocmd FileType rust let g:syntastic_rust_checkers = ['cargo']
 """ /syntastic
-
-
-""" vim-racer
-let g:racer_cmd = "/home/tronje/.cargo/bin/racer"
-""" /vim-racer
 
 
 """ deoplete
