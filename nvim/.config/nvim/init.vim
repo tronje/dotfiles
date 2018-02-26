@@ -136,6 +136,15 @@ set foldlevelstart=99
 " map : to ; in normal mode
 map ; :
 
+" for git log files, K should open a terminal with commit info
+autocmd FileType git nnoremap K
+            \ yiw
+            \ :botright new <bar>
+            \ :setlocal buftype=nofile bufhidden=wipe nobuflisted <bar>
+            \ :read !git show <C-r>0<CR>
+            \ :setlocal nomodifiable<CR>
+            \ :setlocal syntax=git<CR>
+
 set grepprg=rg\ --color=never
 """ /basics
 
