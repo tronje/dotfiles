@@ -15,7 +15,7 @@ bindkey -v
 source /usr/share/autojump/autojump.zsh
 
 # this enables syntax highlighting, as the name suggests
-source .zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/tronje/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # .alias.sh just contains some aliases, nothing fancy
 source /home/tronje/.alias.sh
