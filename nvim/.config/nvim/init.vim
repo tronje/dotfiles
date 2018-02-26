@@ -142,6 +142,7 @@ autocmd FileType git nnoremap K
             \ :botright new <bar>
             \ :setlocal buftype=nofile bufhidden=wipe nobuflisted <bar>
             \ :read !git show <C-r>0<CR>
+            \ gg0d_
             \ :setlocal nomodifiable<CR>
             \ :setlocal syntax=git<CR>
 
