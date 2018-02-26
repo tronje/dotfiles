@@ -146,6 +146,10 @@ autocmd FileType git nnoremap K
             \ :setlocal syntax=git<CR>
 
 set grepprg=rg\ --color=never
+
+" for the built-in terminal (:term), bind ESC to return to normal mode
+" ...the normal key combo is a bit ridiculous
+tnoremap <Esc> <C-\><C-n>
 """ /basics
 
 
