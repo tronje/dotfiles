@@ -36,6 +36,8 @@ fi
 # set keyboard layout to US with international symbols on altgr
 setxkbmap -layout us -variant altgr-intl
 
+conky --daemonize
+
 #twm &
 #xclock -geometry 50x50-1+1 &
 #xterm -geometry 80x50+494+51 &
