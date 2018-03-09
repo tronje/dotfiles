@@ -1,0 +1,8 @@
+[Unit]
+Description=Run wallpaper switch periodically
+
+[Timer]
+OnUnitActiveSec=30m
+
+[Install]
+WantedBy=timers.target
