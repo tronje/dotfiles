@@ -201,10 +201,17 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
+"" language-specific stuff
+" python
 let g:syntastic_python_checkers = ['flake8', 'python']
+
+" rust
 autocmd FileType rust let g:syntastic_rust_checkers = ['cargo']
 
-" eye candy
+" latex
+autocmd FileType tex,latex let g:syntastic_auto_loc_list = 0
+
+"" eye candy
 let g:syntastic_error_symbol = '✘'
 let g:syntastic_style_error_symbol = '!'
 let g:syntastic_warning_symbol = '⚠'
