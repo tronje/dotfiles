@@ -91,6 +91,9 @@ set background=dark     " we don't like bright white terminals
 set number              " show line numbers
 syntax on               " enable syntax highlighting
 
+" make background transparent
+hi Normal ctermbg=NONE
+
 " cursor settings
 set cursorline        " highlight cursor line
 " set cursorcolumn      " highlight cursor column
@@ -189,9 +192,23 @@ let g:airline#extensions#tabline#left_alt_sep = ''
 
 
 """ syntastic
-" let g:syntastic_check_on_open = 1         " Don't check for errors until save
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
 let g:syntastic_python_checkers = ['flake8', 'python']
 autocmd FileType rust let g:syntastic_rust_checkers = ['cargo']
+
+" eye candy
+let g:syntastic_error_symbol = '✘'
+let g:syntastic_style_error_symbol = '!'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_style_warning_symbol = '‽'
 """ /syntastic
 
 
