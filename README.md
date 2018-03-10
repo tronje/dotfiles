@@ -27,7 +27,7 @@ I most likely forgot a whole bunch of stuff here. You will notice if something i
 * python-neovim
 * python2-neovim
 * [vim-plug](https://github.com/junegunn/vim-plug)
-* [ripgrep](https://github.com/BurntSushi/ripgrep), which you should have anyway
+* [ripgrep](https://github.com/BurntSushi/ripgrep)
 * a [NERDFont](https://github.com/ryanoasis/nerd-fonts), I have ttf-nerd-fonts-symbols from the AUR
 * rust-src (`rustup component add rust-src`)
 * racer (`cargo install racer`)
@@ -40,4 +40,8 @@ I most likely forgot a whole bunch of stuff here. You will notice if something i
 * Fira Mono font
 
 ### zsh
-* grml zsh config
+* grml-zsh-config
+
+### conky
+* conky (obviously)
+* [this script](https://gist.github.com/tronje/21c4c1ecf7a9afb133f1814336ac3d48)

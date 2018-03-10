@@ -20,6 +20,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
 "Plug 'neovimhaskell/haskell-vim'
 Plug 'elmcast/elm-vim'
+Plug 'mitsuhiko/vim-python-combined'
 
 " Looks
 Plug 'bling/vim-airline'
@@ -51,7 +52,6 @@ Plug 'tacahiroy/ctrlp-funky'
 " Completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'sebastianmarkow/deoplete-rust'
-Plug 'racer-rust/vim-racer'
 Plug 'zchee/deoplete-jedi'
 
 " has to be loaded last
@@ -90,6 +90,9 @@ set scrolloff=2         " keep 2 lines spacing between cursor and edge"
 set background=dark     " we don't like bright white terminals
 set number              " show line numbers
 syntax on               " enable syntax highlighting
+
+" make background transparent
+hi Normal ctermbg=NONE
 
 " cursor settings
 set cursorline        " highlight cursor line
@@ -136,7 +139,21 @@ set foldlevelstart=99
 " map : to ; in normal mode
 map ; :
 
+" for git log files, K should open a terminal with commit info
+autocmd FileType git nnoremap K
+            \ yiw
+            \ :botright new <bar>
+            \ :setlocal buftype=nofile bufhidden=wipe nobuflisted <bar>
+            \ :read !git show <C-r>0<CR>
+            \ gg0d_
+            \ :setlocal nomodifiable<CR>
+            \ :setlocal syntax=git<CR>
+
 set grepprg=rg\ --color=never
+
+" for the built-in terminal (:term), bind ESC to return to normal mode
+" ...the normal key combo is a bit ridiculous
+tnoremap <Esc> <C-\><C-n>
 """ /basics
 
 
@@ -175,15 +192,24 @@ let g:airline#extensions#tabline#left_alt_sep = ''
 
 
 """ syntastic
-" let g:syntastic_check_on_open = 1         " Don't check for errors until save
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
 let g:syntastic_python_checkers = ['flake8', 'python']
-autocmd FileType rust let g:syntastic_rust_checkers = ['rustc']
+autocmd FileType rust let g:syntastic_rust_checkers = ['cargo']
+
+" eye candy
+let g:syntastic_error_symbol = '✘'
+let g:syntastic_style_error_symbol = '!'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_style_warning_symbol = '‽'
 """ /syntastic
-
-
-""" vim-racer
-let g:racer_cmd = "/home/tronje/.cargo/bin/racer"
-""" /vim-racer
 
 
 """ deoplete

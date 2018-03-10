@@ -15,7 +15,7 @@ fi
 source /usr/share/autojump/autojump.zsh
 
 # this enables syntax highlighting, as the name suggests
-source .zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/tronje/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # .alias.sh just contains some aliases, nothing fancy
 source /home/tronje/.alias.sh
@@ -66,17 +66,7 @@ function abbr_path_prompt () {
 
 # git status indicator
 function git_info () {
-	local inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
-	if [ "$inside_git_repo" ]; then
-        local branch="$(git rev-parse --abbrev-ref HEAD)"
-		if [[ -n $(git status --short) ]]; then
-			REPLY="[%F{yellow}${branch#\* }%f%F{red}!%f] "
-		else
-			REPLY="[%F{yellow}${branch#\* }%f] "
-		fi
-	else
-		REPLY=''
-	fi
+    REPLY=`git-prompt-helper`
 }
 
 # number of suspended jobs

@@ -25,6 +25,7 @@ for_window [class="Chromium"] border pixel 1
 for_window [class="chromium"] border pixel 1
 for_window [class="Thunderbird"] border pixel 1
 for_window [class="Termite"] border pixel 1
+for_window [class="Alacritty"] border pixel 1
 for_window [class="Thunar"] border pixel 1
 for_window [class="Spotify"] border pixel 1
 
@@ -224,5 +225,4 @@ bar {
 # autostart
 #exec --no-startup-id xcompmgr
 #exec --no-startup-id feh --bg-scale pics/wallpapers/amsterdam.jpg
-exec --no-startup-id feh --bg-scale pics/wallpapers/new_york_01.jpg
 exec --no-startup-id compton -CGb --no-fading-openclose

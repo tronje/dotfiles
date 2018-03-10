@@ -12,7 +12,8 @@ foreground_bold = #eff0eb
 cursor          = #eff0eb
 #background      = #20232c
 # background = rgba(32, 35, 44, 0.95)
-background = rgba(43, 41, 46, 1)
+# background = rgba(43, 41, 46, 0.95)
+background = rgba(40, 40, 40, 0.95)
 
 # black
 color0  = #000000

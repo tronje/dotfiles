@@ -38,6 +38,7 @@ setxkbmap -layout us -variant altgr-intl
 
 # set screen layout
 /home/tronje/.screenlayout/default.sh
+conky --daemonize
 
 #twm &
 #xclock -geometry 50x50-1+1 &
