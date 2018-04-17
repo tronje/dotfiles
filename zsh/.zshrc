@@ -41,12 +41,6 @@ function spectrum_ls () {
     done
 }
 
-function newdir () {
-    local dirname=$(date | md5sum | cut -b 1-10)
-    mkdir -v /tmp/$dirname
-    cd /tmp/$dirname
-}
-
 
 ## Prompt customization ##
 
@@ -61,7 +55,8 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 # abbreviated path in prompt
 # if $PWD is longer than 15 symbols, it's abbreviated with '...'
 function abbr_path_prompt () {
-  REPLY='%15<...<%~%<<%  '
+  # REPLY='%15<...<%~%<<%  '
+  REPLY="`dir-prompt-helper` "
 }
 
 # git status indicator
