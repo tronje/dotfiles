@@ -200,7 +200,7 @@ bar {
     # font pango: Fira Mono 15
     colors {
         #background #333333
-        background #000009
+        background #333330
         statusline #ffffff
 
         #                    border background text
@@ -209,15 +209,15 @@ bar {
         # inactive_workspace #333333 #222222 #888888
         # urgent_workspace   #ee0000 #333333 #ffffff
 
-        # focused_workspace  #000009 #000009 #fcfbe3
-        # active_workspace   #000009 #000009 #aaaaaa
-        # inactive_workspace #000009 #000009 #aaaaaa
-        # urgent_workspace   #000009 #000009 #dc143c
+        # focused_workspace  #333330 #333330 #fcfbe3
+        # active_workspace   #333330 #333330 #aaaaaa
+        # inactive_workspace #333330 #333330 #aaaaaa
+        # urgent_workspace   #333330 #333330 #dc143c
 
-        focused_workspace  #000009 #fcfbe3 #000009
-        active_workspace   #000009 #000009 #fcfbe3
-        inactive_workspace #000009 #000009 #fcfbe3
-        urgent_workspace   #000009 #000009 #dc143c
+        focused_workspace  #333330 #fcfbe3 #333330
+        active_workspace   #333330 #333330 #fcfbe3
+        inactive_workspace #333330 #333330 #fcfbe3
+        urgent_workspace   #333330 #333330 #dc143c
    }
    tray_output eDP1
    tray_output HDMI2
@@ -226,5 +226,5 @@ bar {
 # autostart
 #exec --no-startup-id xcompmgr
 #exec --no-startup-id feh --bg-scale pics/wallpapers/amsterdam.jpg
-exec --no-startup-id feh --bg-scale pics/wallpapers/space_guy.jpg
-exec --no-startup-id compton -CGb --no-fading-openclose
+# exec --no-startup-id feh --bg-scale pics/wallpapers/space_guy.jpg
+exec --no-startup-id compton
