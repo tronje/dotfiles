@@ -54,7 +54,7 @@ bindsym $mod+q kill
 #    -color-active "#424140" "#f1f2f0" "#424140" "#ffa500" "#424140" \
 #    -color-urgent "#424140" "#f1f2f0" "#424140" "#ffa500" "#424140"
 
-bindsym $mod+d exec rofi -show run -hide-scollbar
+bindsym $mod+d exec rofi -show combi
 #bindsym $mod+d exec rofi -show run -bg "#424140" -bgalt "#424140" -fg "#f2f1f0" -bc black -hlbg "#ffa500" -hlfg "#424140"
 
 # lock
@@ -226,5 +226,5 @@ bar {
 # autostart
 #exec --no-startup-id xcompmgr
 #exec --no-startup-id feh --bg-scale pics/wallpapers/amsterdam.jpg
-# exec --no-startup-id feh --bg-scale pics/wallpapers/space_guy.jpg
+exec --no-startup-id feh --bg-scale pics/wallpapers/space_guy.jpg
 exec --no-startup-id compton

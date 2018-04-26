@@ -9,19 +9,24 @@ Xft.rgba: rgb
 ! ------------------------------------------------------------------------------
 ! ROFI Settings
 ! ------------------------------------------------------------------------------
-rofi.modi: run,window,ssh
+rofi.combi-modi: window,run,ssh
+rofi.modi: combi
 rofi.terminal: termite
 rofi.run-command: {cmd}
 rofi.ssh-client: ssh
 rofi.ssh-command: {terminal} -e '{ssh-client} {host}'
 rofi.run-shell-command: {terminal} -e '{cmd}'
 rofi.case-sensitive: false
+rofi.hide-scrollbar: true
+rofi.font: Fira Mono 14
 
-! ------------------------------------------------------------------------------
-! ROFI Color theme
-! ------------------------------------------------------------------------------
+! ROFI Colors
 rofi.color-enabled: true
-rofi.color-window: argb:fc424140, #002b36, #000000
-rofi.color-normal: #424140, #f2f1f0, #424140, #ffa500, #424140
-rofi.color-active: #424140, #f2f1f0, #424140, #268bd2, #fdf6e3
-rofi.color-urgent: #424140, #f2f1f0, #424140, #dc322f, #fdf6e3
+
+! ---------------  background     border   separator
+rofi.color-window: #333330, #002b36, #000000
+
+! ---------------  bg       fg       bg-alt   hl-bg    hl-fg
+rofi.color-normal: #333330, #f2f1f0, #333330, #fcfbe3, #333330
+rofi.color-active: #333330, #f2f1f0, #333330, #268bd2, #fdf6e3
+rofi.color-urgent: #333330, #f2f1f0, #333330, #dc322f, #fdf6e3
