@@ -17,9 +17,13 @@ font pango: Input Mono 14
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-#settings for i3
-hide_edge_borders smart
+# go back to last workspace when 'switching' to current workspace
 workspace_auto_back_and_forth yes
+
+# border settings
+hide_edge_borders smart
+
+# individual border settings
 for_window [class="Firefox"] border pixel 1
 for_window [class="Chromium"] border pixel 1
 for_window [class="chromium"] border pixel 1
@@ -54,7 +58,7 @@ bindsym $mod+q kill
 #    -color-active "#424140" "#f1f2f0" "#424140" "#ffa500" "#424140" \
 #    -color-urgent "#424140" "#f1f2f0" "#424140" "#ffa500" "#424140"
 
-bindsym $mod+d exec rofi -show run -hide-scollbar
+bindsym $mod+d exec rofi -show combi
 #bindsym $mod+d exec rofi -show run -bg "#424140" -bgalt "#424140" -fg "#f2f1f0" -bc black -hlbg "#ffa500" -hlfg "#424140"
 
 # lock
@@ -67,6 +71,9 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+
+# focus a window (in-between of float and fullscreen)
+bindsym $mod+slash exec /home/tronje/.config/i3/focus.py
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -199,7 +206,7 @@ bar {
     font pango: Fire Mono 14
     colors {
         #background #333333
-        background #000009
+        background #333330
         statusline #ffffff
 
         #                    border background text
@@ -208,15 +215,15 @@ bar {
         # inactive_workspace #333333 #222222 #888888
         # urgent_workspace   #ee0000 #333333 #ffffff
 
-        # focused_workspace  #000009 #000009 #fcfbe3
-        # active_workspace   #000009 #000009 #aaaaaa
-        # inactive_workspace #000009 #000009 #aaaaaa
-        # urgent_workspace   #000009 #000009 #dc143c
+        # focused_workspace  #333330 #333330 #fcfbe3
+        # active_workspace   #333330 #333330 #aaaaaa
+        # inactive_workspace #333330 #333330 #aaaaaa
+        # urgent_workspace   #333330 #333330 #dc143c
 
-        focused_workspace  #000009 #fcfbe3 #000009
-        active_workspace   #000009 #000009 #fcfbe3
-        inactive_workspace #000009 #000009 #fcfbe3
-        urgent_workspace   #000009 #000009 #dc143c
+        focused_workspace  #333330 #fcfbe3 #333330
+        active_workspace   #333330 #333330 #fcfbe3
+        inactive_workspace #333330 #333330 #fcfbe3
+        urgent_workspace   #333330 #333330 #dc143c
    }
    tray_output eDP1
    tray_output HDMI2
@@ -225,4 +232,4 @@ bar {
 # autostart
 #exec --no-startup-id xcompmgr
 #exec --no-startup-id feh --bg-scale pics/wallpapers/amsterdam.jpg
-exec --no-startup-id compton -CGb --no-fading-openclose
+exec --no-startup-id compton
