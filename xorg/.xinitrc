@@ -40,6 +40,8 @@ setxkbmap -layout us -variant altgr-intl
 /home/tronje/.screenlayout/default.sh
 conky --daemonize
 
+systemctl --user start wallpaper-switch.service
+
 #twm &
 #xclock -geometry 50x50-1+1 &
 #xterm -geometry 80x50+494+51 &
