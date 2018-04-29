@@ -9,7 +9,7 @@ fi
 # Customize to your needs...
 
 # enables Vi mode when hitting ESC
-# bindkey -v
+bindkey -v
 
 # autojump allows jumping to directories with 'j'
 source /usr/share/autojump/autojump.zsh
