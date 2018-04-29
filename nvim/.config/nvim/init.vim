@@ -21,6 +21,7 @@ Plug 'cespare/vim-toml'
 "Plug 'neovimhaskell/haskell-vim'
 Plug 'elmcast/elm-vim'
 Plug 'mitsuhiko/vim-python-combined'
+Plug 'vim-scripts/django.vim'
 
 " Looks
 Plug 'bling/vim-airline'
@@ -54,9 +55,6 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'sebastianmarkow/deoplete-rust'
 Plug 'zchee/deoplete-jedi'
 
-" has to be loaded last
-Plug 'ryanoasis/vim-devicons'
-
 call plug#end()
 
 " Required:
@@ -65,7 +63,6 @@ filetype plugin indent on
 
 
 """ basics
-set encoding=utf8
 set title               " set window title
 let mapleader = ","     " map leader to ,
 set mouse=a             " make sure mouse is used in all cases.
@@ -289,13 +286,6 @@ nnoremap <C-l> :CtrlPFunky<cr>
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
 """ /CtrlP
-
-
-""" Dev-icons
-let g:webdevicons_enable = 1
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-let g:DevIconsEnableFoldersOpenClose = 1
-""" /Dev-icons
 
 
 """ misc
