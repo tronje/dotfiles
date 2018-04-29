@@ -30,6 +30,7 @@ for_window [class="chromium"] border pixel 1
 for_window [class="Thunderbird"] border pixel 1
 for_window [class="Termite"] border pixel 1
 for_window [class="Alacritty"] border pixel 1
+for_window [class="kitty"] border pixel 1
 for_window [class="Thunar"] border pixel 1
 for_window [class="Spotify"] border pixel 1
 
@@ -40,7 +41,7 @@ bindsym $mod+a scratchpad show
 
 #background change
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec kitty
 bindsym $mod+Shift+Return exec thunar
 # kill focused window
 bindsym $mod+q kill
