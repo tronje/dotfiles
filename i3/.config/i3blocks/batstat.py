@@ -10,12 +10,6 @@ ENERGY = "/energy_now"
 CAP = "/capacity"
 STAT = "/status"
 
-GREEN = "#89e066"
-YELLOW = "#eddf72"
-ORANGE = "#cb4b16"
-RED = "#ef5455"
-CYAN = "#85d6d7"
-
 
 def main():
     battery = int(sys.argv[1])
@@ -43,25 +37,32 @@ def main():
     # if time is not None:
     #     string += f" {time}"
 
+    # gotta print it twice because of i3blocks /shrug
     print(string)
     print(string)
 
 
 def get_color(percentage):
+    green = "#89e066"
+    yellow = "#eddf72"
+    orange = "#ff9966"
+    red = "#ef5455"
+    cyan = "#85d6d7"
+
     # the ranges are skewed a bit because my batteries never
     # charge beyond 85%.
 
     if percentage < 10:
-        return RED
+        return red
     elif percentage < 35:
-        return ORANGE
+        return orange
     elif percentage <= 50:
-        return YELLOW
+        return yellow
     elif percentage > 65:
-        return GREEN
+        return green
     else:
         # fallback - should never be necessary, but better to have it
-        return CYAN
+        return cyan
 
 
 def get_drawing(percentage, color):
