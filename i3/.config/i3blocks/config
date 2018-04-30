@@ -83,7 +83,7 @@ color=#fdf6e3
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 [iface]
 #instance=wlan0
-color=#00baa0
+color=#85d6d7
 interval=10
 #separator=false
 
@@ -105,8 +105,8 @@ separator=false
 [netctl-profile]
 command=netctl-auto list | grep '\*' | cut -d " " -f 2
 interval=10
-#color=#6c71c4
-color=#d33682
+color=#e180cc
+# color=#d33682
 
 # CPU usage
 #
@@ -136,11 +136,13 @@ color=#d33682
 
 # custom battery indicator
 [custombatteryzero]
-command=/home/tronje/.config/i3blocks/batstat/target/release/batstat 0
+command=/home/tronje/.config/i3blocks/batstat.py 0
+markup=pango
 interval=30
 
 [custombatteryone]
-command=/home/tronje/.config/i3blocks/batstat/target/release/batstat 1
+command=/home/tronje/.config/i3blocks/batstat.py 1
+markup=pango
 interval=30
 
 # Date Time
