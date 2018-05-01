@@ -79,9 +79,9 @@ def get_color(percentage):
         return red
     elif percentage < 35:
         return orange
-    elif percentage <= 50:
+    elif percentage <= 55:
         return yellow
-    elif percentage > 65:
+    elif percentage > 55:
         return green
     else:
         # fallback - should never be necessary, but better to have it
