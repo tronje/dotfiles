@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
+import os
 import sys
 
-from subprocess import check_output
+from subprocess import call, check_output
 
 PATH = "/sys/class/power_supply/BAT"
 POWER = "/power_now"
@@ -11,7 +12,7 @@ CAP = "/capacity"
 STAT = "/status"
 
 
-def main():
+def get_info():
     battery = int(sys.argv[1])
 
     acpi = check_output(["acpi"]).decode().splitlines()
@@ -20,15 +21,37 @@ def main():
 
     percentage = int(info[1].replace('%', ''))
 
-    # try:
-    #     time = info[2].split()[0]
-    #
-    #     if time[0] == '0':
-    #         time = time[1:]
-    #
-    #     time = time[:time.rfind(':')]
-    # except IndexError:
-    #     time = None
+    try:
+        time = info[2].split()[0]
+
+        time = time[:time.rfind(':')]
+        time = time.split(':')
+
+        hours = time[0].strip('0')
+        minutes = time[1].strip('0')
+
+        time = f"{hours}h {minutes}m"
+    except IndexError:
+        time = None
+
+    return battery, percentage, time
+
+
+def send_notification(info):
+    battery, percentage, time = info
+
+    title = f"Battery {battery}"
+
+    if time is not None:
+        msg = f"{percentage}% ({time})"
+    else:
+        msg = f"{percentage}%"
+
+    call(["notify-send", title, msg, "-t", "1500"])
+
+
+def print_drawing(info):
+    percentage = info[1]
 
     color = get_color(percentage)
 
@@ -86,4 +109,10 @@ def get_drawing(percentage, color):
 
 
 if __name__ == "__main__":
-    main()
+    button_pressed = os.environ['BLOCK_BUTTON']
+    info = get_info()
+
+    if button_pressed == '1':
+        send_notification(info)
+
+    print_drawing(info)
