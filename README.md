@@ -16,10 +16,9 @@ I most likely forgot a whole bunch of stuff here. You will notice if something i
 
 ### i3
 * [i3blocks](https://github.com/vivien/i3blocks)
-* termite
+* [kitty](https://github.com/kovidgoyal/kitty)
 * [rofi](https://github.com/DaveDavenport/rofi)
 * ponymix
-* feh
 * compton
 
 ### nvim
@@ -35,13 +34,14 @@ I most likely forgot a whole bunch of stuff here. You will notice if something i
 
 ### systemd
 * redshift-gtk
+* [wallpaper-switcher](https://github.com/tronje/wallpaper-switcher)
 
-### termite
+### termite & kitty
+* (the corresponding terminal of course)
 * Fira Mono font
 
 ### zsh
 * grml-zsh-config
 
 ### conky
-* conky (obviously)
 * [this script](https://gist.github.com/tronje/21c4c1ecf7a9afb133f1814336ac3d48)
