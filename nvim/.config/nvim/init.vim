@@ -13,7 +13,7 @@ Plug 'plasticboy/vim-markdown', {'depends': 'godlygeek/tabular'}
 "Plug 'lervag/vimtex'
 "Plug 'pangloss/vim-javascript'
 "Plug 'othree/html5.vim'
-"Plug 'hail2u/vim-css3-syntax'
+Plug 'hail2u/vim-css3-syntax'
 Plug 'rust-lang/rust.vim'
 "Plug 'octol/vim-cpp-enhanced-highlight'
 " Plug 'fatih/vim-go'
