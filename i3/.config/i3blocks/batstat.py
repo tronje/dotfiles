@@ -5,12 +5,6 @@ import sys
 
 from subprocess import call, check_output
 
-PATH = "/sys/class/power_supply/BAT"
-POWER = "/power_now"
-ENERGY = "/energy_now"
-CAP = "/capacity"
-STAT = "/status"
-
 
 def get_info():
     battery = int(sys.argv[1])
@@ -18,6 +12,8 @@ def get_info():
     acpi = check_output(["acpi"]).decode().splitlines()
     info = acpi[battery]
     info = list(map(lambda s: s.strip(), info.split(',')))
+
+    charging = True if "Charging" in info[0] else False
 
     percentage = int(info[1].replace('%', ''))
 
@@ -27,18 +23,18 @@ def get_info():
         time = time[:time.rfind(':')]
         time = time.split(':')
 
-        hours = time[0].strip('0')
-        minutes = time[1].strip('0')
+        hours = time[0]
+        minutes = time[1]
 
         time = f"{hours}h {minutes}m"
     except IndexError:
         time = None
 
-    return battery, percentage, time
+    return charging, battery, percentage, time
 
 
 def send_notification(info):
-    battery, percentage, time = info
+    _, battery, percentage, time = info
 
     title = f"Battery {battery}"
 
@@ -51,14 +47,12 @@ def send_notification(info):
 
 
 def print_drawing(info):
-    percentage = info[1]
+    charging = info[0]
+    percentage = info[2]
 
     color = get_color(percentage)
 
-    string = get_drawing(percentage, color)
-
-    # if time is not None:
-    #     string += f" {time}"
+    string = get_drawing(charging, percentage, color)
 
     # gotta print it twice because of i3blocks /shrug
     print(string)
@@ -75,37 +69,42 @@ def get_color(percentage):
     # the ranges are skewed a bit because my batteries never
     # charge beyond 85%.
 
-    if percentage < 10:
+    if percentage < 21:
         return red
-    elif percentage < 35:
+    elif percentage < 42:
         return orange
-    elif percentage <= 55:
+    elif percentage < 63:
         return yellow
-    elif percentage > 55:
+    elif percentage >= 63:
         return green
     else:
         # fallback - should never be necessary, but better to have it
         return cyan
 
 
-def get_drawing(percentage, color):
+def get_drawing(charging, percentage, color):
     span = f'<span foreground="{color}">'
 
     # the ranges are skewed a bit because my batteries never
     # charge beyond 85%.
 
     if percentage <= 5:
-        return "[     ]"
+        ret = "[     ]"
     elif percentage <= 17:
-        return f"[{span}#</span>    ]"
+        ret = "[{}#</span>    ]"
     elif percentage <= 34:
-        return f"[{span}##</span>   ]"
+        ret = "[{}##</span>   ]"
     elif percentage <= 51:
-        return f"[{span}###</span>  ]"
+        ret = "[{}###</span>  ]"
     elif percentage <= 68:
-        return f"[{span}####</span> ]"
+        ret = "[{}####</span> ]"
     else:
-        return f"[{span}#####</span>]"
+        ret = "[{}#####</span>]"
+
+    if charging:
+        ret = ret.replace(' ', '+')
+
+    return ret.format(span)
 
 
 if __name__ == "__main__":

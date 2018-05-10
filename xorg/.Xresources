@@ -9,7 +9,7 @@ Xft.rgba: rgb
 ! ------------------------------------------------------------------------------
 ! ROFI Settings
 ! ------------------------------------------------------------------------------
-rofi.combi-modi: window,run,ssh
+rofi.combi-modi: run,window,ssh
 rofi.modi: combi
 rofi.terminal: termite
 rofi.run-command: {cmd}
