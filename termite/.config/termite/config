@@ -2,6 +2,7 @@
 #font = monospace 20
 #font = Input Mono 16
 font = Fira Mono 17
+scrollback_lines = 10000
 
 ### Snazzy (converted from Terminal.app)
 [colors]
