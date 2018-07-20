@@ -15,13 +15,15 @@ Plug 'lervag/vim-latex'
 "Plug 'othree/html5.vim'
 "Plug 'hail2u/vim-css3-syntax'
 Plug 'rust-lang/rust.vim'
-"Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'octol/vim-cpp-enhanced-highlight'
 " Plug 'fatih/vim-go'
 Plug 'cespare/vim-toml'
 "Plug 'neovimhaskell/haskell-vim'
 Plug 'elmcast/elm-vim'
 Plug 'mitsuhiko/vim-python-combined'
 Plug 'vim-scripts/django.vim'
+Plug 'solarnz/thrift.vim'
+Plug 'vim-jp/vim-cpp'
 
 " Looks
 Plug 'bling/vim-airline'
@@ -48,7 +50,10 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'qpkorr/vim-bufkill'
 Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'nixprime/cpsm', {'do': './install.sh'}
 Plug 'tacahiroy/ctrlp-funky'
+Plug 'vim-scripts/a.vim'
+Plug 'romainl/vim-qf'
 
 " Completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -108,13 +113,14 @@ set backupdir=/tmp      " backup dir
 set directory=/tmp      " swap file directory
 
 " tabs and indenting
-set expandtab           " insert spaces instead of tab chars
+" set expandtab           " insert spaces instead of tab chars
 set tabstop=4           " a n-space tab width
 set shiftwidth=4        " allows the use of < and > for VISUAL indenting
-set softtabstop=4       " counts n spaces when DELETE or BCKSPCE is used
+" set softtabstop=4       " counts n spaces when DELETE or BCKSPCE is used
 set autoindent          " auto indents next new line
 set smarttab            " remember indent
-set listchars=tab:→,trail:¸ " show trail spaces and tabstchars
+set listchars=tab:→·    " show trail spaces and tabstchars
+set list
 nnoremap <silent> <F2> :set list!<CR>
 inoremap <silent> <F2> <esc>:set list!<CR>a
 
@@ -136,7 +142,7 @@ set foldlevelstart=99
 " map : to ; in normal mode
 map ; :
 
-" for git log files, K should open a terminal with commit info
+" for git log files, K should open a buffer with commit info
 autocmd FileType git nnoremap K
             \ yiw
             \ :botright new <bar>
@@ -146,7 +152,11 @@ autocmd FileType git nnoremap K
             \ :setlocal nomodifiable<CR>
             \ :setlocal syntax=git<CR>
 
-set grepprg=rg\ --color=never
+" set :grep command to ripgrep
+set grepprg=rg\ --vimgrep
+
+" autocorrect :rg to :Rg for ease of typing
+cnoreabbrev rg grep
 
 " for the built-in terminal (:term), bind ESC to return to normal mode
 " ...the normal key combo is a bit ridiculous
@@ -194,7 +204,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
@@ -275,17 +285,35 @@ let g:tagbar_type_rust = {
 
 """ CtrlP
 let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = 'rg %s --files -i --color=never --glob ''!.git'' --glob ''!.DS_Store'' --glob ''!node_modules'' --hidden --no-messages -g ""'
 let g:ctrlp_extensions = ['funky']
 let g:ctrlp_use_caching = 0
+
+" ctrlp's buffer search
+nnoremap <C-b> :CtrlPBuffer<cr>
+
+" cpsm
+let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
 
 " ctrlp-funky
 nnoremap <C-l> :CtrlPFunky<cr>
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
 """ /CtrlP
+
+
+""" a.vim
+nmap <silent> <C-a> :A<cr>
+""" /a.vim
+
+
+""" vim-cpp-enhanced-highlight
+let g:cpp_class_scope_highlight = 1
+let g:cpp_experimental_template_highlight = 1
+let g:cpp_no_function_highlight = 0
+""" /vim-cpp-enhanced-highlight
 
 
 """ misc
@@ -299,6 +327,10 @@ autocmd BufReadPost *
             \   exe "normal! g`\"" |
             \ endif
 augroup END
+
+" highlight trailing whitespace
+highlight ExtraWhitespace term=standout ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 
 
 " file types
@@ -315,9 +347,9 @@ nmap <silent> <s-tab> :bprevious<CR>
 
 " disable page up, page down keys
 " because they annoy me
-map <PageUp> <Nop>
-map <PageDown> <Nop>
-imap <PageUp> <Nop>
-imap <PageDown> <Nop>
+" map <PageUp> <Nop>
+" map <PageDown> <Nop>
+" imap <PageUp> <Nop>
+" imap <PageDown> <Nop>
 
 """ the end
