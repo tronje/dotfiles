@@ -7,8 +7,7 @@ import i3
 # screen width divided by golden ratio
 WIDTH = 1582
 
-# screen height divided by golden ratio
-HEIGHT = 890
+HEIGHT = 1300
 
 
 def create_tmp(current_id):
