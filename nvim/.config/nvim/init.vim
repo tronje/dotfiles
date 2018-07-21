@@ -94,7 +94,7 @@ set number              " show line numbers
 syntax on               " enable syntax highlighting
 
 " make background transparent
-hi Normal ctermbg=NONE
+" hi Normal ctermbg=NONE
 
 " cursor settings
 set cursorline        " highlight cursor line
@@ -207,6 +207,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+
+autocmd FileType c let g:syntastic_auto_loc_list = 0
 
 "" language-specific stuff
 " python
