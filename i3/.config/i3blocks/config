@@ -41,41 +41,54 @@ markup=none
 # The first parameter sets the step (and units to display)
 # The second parameter overrides the mixer selection
 # See the script for details.
-[volume]
-#label=VOL
-label=♪
-command=/home/tronje/.config/i3/volume.py
-#instance=Master
-#instance=PCM
-interval=once
-signal=1
-color=#fdf6e3
+# [volume]
+# #label=VOL
+# label=♪
+# command=/home/tronje/.config/i3/volume.py
+# #instance=Master
+# #instance=PCM
+# interval=once
+# signal=1
+# color=#fdf6e3
 
-[brightness]
-label=☀
-command=xbacklight -get | cut -d "." -f 1
-interval=once
-signal=2
-color=#fdf6e3
+# [brightness]
+# label=☀
+# command=xbacklight -get | cut -d "." -f 1
+# interval=once
+# signal=2
+# color=#fdf6e3
 
+
+# CPU usage
+#
+# The script may be called with -w and -c switches to specify thresholds,
+# see the script for details.
+[cpu_usage]
+label=CPU
+interval=10
+min_width=CPU: 100.00%
+separator=false
+
+[load_average]
+interval=10
 
 # Memory usage
 #
 # The type defaults to "mem" if the instance is not specified.
-#[memory]
-#label=⛃
-#label=MEM
-#interval=30
+[memory]
+label=⛃
+label=MEM
+interval=30
 
 # Disk usage
 #
 # The directory defaults to $HOME if the instance is not specified.
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
-#[disk]
-#label=disk
-#instance=/
-#interval=60
+[disk]
+label=disk
+instance=/
+interval=60
 
 # Network interface monitoring
 #
@@ -87,14 +100,14 @@ color=#85d6d7
 interval=10
 #separator=false
 
-[wifi]
-instance=wlp4s0
-interval=10
-separator=false
+# [wifi]
+# instance=wlp4s0
+# interval=10
+# separator=false
 
-#[bandwidth]
-#instance=eth0
-#interval=5
+[bandwidth]
+instance=enp5s0
+interval=5
 
 #[ssid]
 #command=iw dev wlp4s0 link | grep SSID | cut -d " " -f 2
@@ -102,24 +115,11 @@ separator=false
 ##color=#6c71c4
 #color=#d33682
 
-[netctl-profile]
-command=netctl-auto list | grep '\*' | cut -d " " -f 2
-interval=10
-color=#e180cc
-# color=#d33682
-
-# CPU usage
-#
-# The script may be called with -w and -c switches to specify thresholds,
-# see the script for details.
-#[cpu_usage]
-#label=CPU
-#interval=10
-#min_width=CPU: 100.00%
-#separator=false
-
-#[load_average]
-#interval=10
+# [netctl-profile]
+# command=netctl-auto list | grep '\*' | cut -d " " -f 2
+# interval=10
+# color=#e180cc
+# # color=#d33682
 
 # Battery indicator
 #
@@ -134,16 +134,16 @@ color=#e180cc
 #instance=1
 #interval=30
 
-# custom battery indicator
-[custombatteryzero]
-command=/home/tronje/.config/i3blocks/batstat.py 0
-markup=pango
-interval=30
-
-[custombatteryone]
-command=/home/tronje/.config/i3blocks/batstat.py 1
-markup=pango
-interval=30
+# # custom battery indicator
+# [custombatteryzero]
+# command=/home/tronje/.config/i3blocks/batstat.py 0
+# markup=pango
+# interval=30
+#
+# [custombatteryone]
+# command=/home/tronje/.config/i3blocks/batstat.py 1
+# markup=pango
+# interval=30
 
 # Date Time
 #
