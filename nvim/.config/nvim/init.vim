@@ -11,19 +11,19 @@ call plug#begin(expand('~/.config/nvim/plug'))
 " Language support
 Plug 'plasticboy/vim-markdown', {'depends': 'godlygeek/tabular'}
 Plug 'lervag/vim-latex'
-"Plug 'pangloss/vim-javascript'
-"Plug 'othree/html5.vim'
-"Plug 'hail2u/vim-css3-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'othree/html5.vim'
+Plug 'hail2u/vim-css3-syntax'
 Plug 'rust-lang/rust.vim'
+Plug 'vim-jp/vim-cpp'
 Plug 'octol/vim-cpp-enhanced-highlight'
-" Plug 'fatih/vim-go'
+"Plug 'fatih/vim-go'
 Plug 'cespare/vim-toml'
 "Plug 'neovimhaskell/haskell-vim'
-Plug 'elmcast/elm-vim'
+"Plug 'elmcast/elm-vim'
 Plug 'mitsuhiko/vim-python-combined'
-Plug 'vim-scripts/django.vim'
+"Plug 'vim-scripts/django.vim'
 Plug 'solarnz/thrift.vim'
-Plug 'vim-jp/vim-cpp'
 
 " Looks
 Plug 'bling/vim-airline'
@@ -233,7 +233,7 @@ set complete+=k         " enable dictionary completion
 set completeopt=menuone,menu,longest,preview
 
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#disable_auto_complete = 1
+let g:deoplete#disable_auto_complete = 0
 let g:deoplete#sources#rust#racer_binary='/home/tronje/.cargo/bin/racer'
 let g:deoplete#sources#rust#rust_source_path='/home/tronje/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 
@@ -311,7 +311,7 @@ nmap <silent> <C-a> :A<cr>
 
 """ vim-cpp-enhanced-highlight
 let g:cpp_class_scope_highlight = 1
-let g:cpp_experimental_template_highlight = 1
+let g:cpp_experimental_template_highlight = 0
 let g:cpp_no_function_highlight = 0
 """ /vim-cpp-enhanced-highlight
 
