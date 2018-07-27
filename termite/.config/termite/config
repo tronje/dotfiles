@@ -13,7 +13,8 @@ cursor          = #eff0eb
 #background      = #20232c
 # background = rgba(32, 35, 44, 0.95)
 # background = rgba(43, 41, 46, 0.95)
-background = rgba(40, 40, 37, 0.95)
+# background = rgba(40, 40, 37, 0.95)
+background = #282828
 
 # black
 color0 = #000000
