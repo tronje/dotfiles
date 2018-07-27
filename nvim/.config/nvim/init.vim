@@ -72,6 +72,7 @@ set title               " set window title
 let mapleader = ","     " map leader to ,
 set mouse=a             " make sure mouse is used in all cases.
 set t_Co=256            " set 256 color
+set termguicolors       " True Color support
 colorscheme gruvbox     " font colors scheme
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light='hard'
