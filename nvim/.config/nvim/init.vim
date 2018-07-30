@@ -335,6 +335,9 @@ augroup END
 highlight ExtraWhitespace term=standout ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
+" don't highlight in git logs
+autocmd FileType git call clearmatches()
+
 
 " file types
 autocmd FileType python let python_highlight_all = 1
