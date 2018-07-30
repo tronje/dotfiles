@@ -162,6 +162,9 @@ cnoreabbrev rg grep
 " for the built-in terminal (:term), bind ESC to return to normal mode
 " ...the normal key combo is a bit ridiculous
 tnoremap <Esc> <C-\><C-n>
+
+" insert a checkmark
+nnoremap <leader>ok a <C-k>OK<Esc>
 """ /basics
 
 
