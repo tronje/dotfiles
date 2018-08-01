@@ -24,6 +24,7 @@ Plug 'cespare/vim-toml'
 Plug 'mitsuhiko/vim-python-combined'
 "Plug 'vim-scripts/django.vim'
 Plug 'solarnz/thrift.vim'
+Plug 'kergoth/vim-bitbake'
 
 " Looks
 Plug 'bling/vim-airline'
