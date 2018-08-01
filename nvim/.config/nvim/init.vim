@@ -31,6 +31,7 @@ Plug 'tronje/kernel.vim'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'tronje/dart.vim'
 Plug 'lifepillar/pgsql.vim'
+Plug 'kergoth/vim-bitbake'
 
 " Looks
 Plug 'bling/vim-airline'
