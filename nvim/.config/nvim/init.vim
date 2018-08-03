@@ -146,13 +146,12 @@ map ; :
 
 " for git log files, K should open a buffer with commit info
 autocmd FileType git nnoremap K
-            \ yiw
             \ :botright new <bar>
             \ :setlocal buftype=nofile bufhidden=wipe nobuflisted <bar>
-            \ :read !git show <C-r>0<CR>
+            \ :read !git show <C-r><C-w><CR>
             \ gg0d_
             \ :setlocal nomodifiable<CR>
-            \ :setlocal syntax=git<CR>
+            \ :setlocal filetype=git<CR>
 
 " set :grep command to ripgrep
 set grepprg=rg\ --vimgrep
