@@ -45,6 +45,10 @@ function glv () {
     git log $@ | nvim -R -
 }
 
+function fvi () {
+	nvim $(fd $@ | fzy)
+}
+
 
 ## Prompt customization ##
 
