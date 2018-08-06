@@ -17,6 +17,11 @@ source /usr/share/autojump/autojump.zsh
 # this enables syntax highlighting, as the name suggests
 source /home/tronje/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# enable fzf keybindings
+# ^T is quite useful, in particular
+source /usr/share/fzf/key-bindings.zsh
+export FZF_CTRL_T_COMMAND="fd -H" # use fd with hidden files for this command
+
 # .alias.sh just contains some aliases, nothing fancy
 source /home/tronje/.alias.sh
 
