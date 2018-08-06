@@ -41,6 +41,14 @@ function spectrum_ls () {
     done
 }
 
+function glv () {
+    if (( $# == 0 )) then
+        git log | nvim -R -
+    else
+        git log $1 | nvim -R -
+    fi
+}
+
 
 ## Prompt customization ##
 
