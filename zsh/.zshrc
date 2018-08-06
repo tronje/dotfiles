@@ -42,11 +42,7 @@ function spectrum_ls () {
 }
 
 function glv () {
-    if (( $# == 0 )) then
-        git log | nvim -R -
-    else
-        git log $1 | nvim -R -
-    fi
+    git log $@ | nvim -R -
 }
 
 
