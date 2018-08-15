@@ -145,7 +145,7 @@ set foldlevelstart=99
 map ; :
 
 " for git log files, K should open a buffer with commit info
-autocmd FileType git nnoremap K
+autocmd FileType git nmap K
             \ :botright new <bar>
             \ :setlocal buftype=nofile bufhidden=wipe nobuflisted <bar>
             \ :read !git show <C-r><C-w><CR>
