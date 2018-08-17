@@ -32,7 +32,6 @@ alias gco='git checkout'
 alias gls='git status'
 alias gl='git log --topo-order --stat --pretty=format:"${_git_log_medium_format}"'
 alias glg='git log --topo-order --all --graph --pretty=format:"${_git_log_oneline_format}"'
-alias glv='git log | nvim -R -'
 
 # cargo
 alias clippy='rustup run nightly cargo clippy'
@@ -43,3 +42,4 @@ alias newdir='eval $(/home/tronje/prj/newdir/newdir.py)'
 alias py='python'
 alias weather='curl -s wttr.in/Hamburg'
 alias icat='kitty icat --align=left'
+alias ipython='ipython --no-confirm-exit'

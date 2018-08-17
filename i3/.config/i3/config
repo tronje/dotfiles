@@ -226,9 +226,22 @@ bar {
         inactive_workspace #333330 #333330 #fcfbe3
         urgent_workspace   #333330 #333330 #dc143c
    }
-   tray_output eDP1
-   tray_output HDMI2
+   tray_output eDP4
+   tray_output HDMI0
 }
+
+# hard-code workspaces to screens
+# odd-numbered screens on HDMI-0
+# even-numbered screens on DVI-D-0
+workspace "1" output HDMI-0
+workspace "3" output HDMI-0
+workspace "5" output HDMI-0
+workspace "7" output HDMI-0
+workspace "9" output HDMI-0
+workspace "2" output DP-4
+workspace "4" output DP-4
+workspace "6" output DP-4
+workspace "8" output DP-4
 
 # autostart
 #exec --no-startup-id xcompmgr

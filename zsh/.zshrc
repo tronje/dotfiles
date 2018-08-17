@@ -41,6 +41,14 @@ function spectrum_ls () {
     done
 }
 
+function glv () {
+    git log $@ | nvim -R -
+}
+
+function fvi () {
+	nvim $(fd $@ | fzy)
+}
+
 
 ## Prompt customization ##
 
@@ -67,9 +75,9 @@ function git_info () {
 # number of suspended jobs
 function delimiter_jobs () {
     if [[ -n $(jobs) ]]; then
-        REPLY='%B%F{red}*%f%b %# '
+        REPLY='%B%F{red}*%f%b'
     else
-        REPLY='%# '
+        REPLY=''
     fi
 }
 
@@ -78,9 +86,10 @@ grml_theme_add_token virtual_env -f virtual_env_prompt '' ''
 grml_theme_add_token abbreviated-path -f abbr_path_prompt '%B' '%b'
 grml_theme_add_token gitinfo -f git_info '%B' '%b'
 grml_theme_add_token delimiter -f delimiter_jobs '' ''
+grml_theme_add_token arrow '-> '
 
 # and update the left-hand side of the prompt
-zstyle ':prompt:grml:left:setup' items rc user at host virtual_env abbreviated-path gitinfo delimiter
+zstyle ':prompt:grml:left:setup' items rc user at host virtual_env abbreviated-path gitinfo delimiter newline arrow
 
 
 #
