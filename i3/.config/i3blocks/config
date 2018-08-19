@@ -120,8 +120,8 @@ interval=10
 #separator=false
 
 [bandwidth]
-instance=enp5s0
-interval=5
+instance=eno1
+interval=15
 
 #[ssid]
 #command=iw dev wlp4s0 link | grep SSID | cut -d " " -f 2
