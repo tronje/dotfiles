@@ -33,6 +33,7 @@ Plug 'bling/vim-airline'
 "Plug 'luochen1990/rainbow'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'junegunn/goyo.vim'
 
 " Functionality
 "Plug 'Raimondi/delimitMate'
@@ -347,6 +348,21 @@ autocmd FileType python let python_highlight_all = 1
 autocmd FileType python let python_highlight_space_errors = 1
 autocmd FileType python let python_slow_sync = 1
 autocmd Filetype tex,latex :set dictionary=~/.vim/dict/latex.dict
+
+" email editing using Goyo
+au Filetype mail setlocal textwidth=0
+au Filetype mail setlocal wrapmargin=0
+au Filetype mail setlocal linebreak
+au Filetype mail setlocal nobreakindent
+au Filetype mail setlocal showbreak=
+au FileType mail Goyo | 6
+
+" when leaving Goyo, leave vim as well
+function! s:goyo_leave()
+    :q
+endfunction
+
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 
 " cycle through buffers
