@@ -24,6 +24,7 @@ Plug 'mitsuhiko/vim-python-combined'
 Plug 'vim-scripts/django.vim'
 Plug 'solarnz/thrift.vim'
 Plug 'vim-jp/vim-cpp'
+Plug 'Glench/Vim-Jinja2-Syntax'
 
 " Looks
 Plug 'bling/vim-airline'
