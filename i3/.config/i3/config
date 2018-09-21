@@ -36,7 +36,7 @@ for_window [class="Thunar"] border pixel 2
 for_window [class="Spotify"] border pixel 2
 
 #scratchpad
-bindsym $mod+z move scratchpad 
+bindsym $mod+z move scratchpad
 bindsym $mod+a scratchpad show
 
 
