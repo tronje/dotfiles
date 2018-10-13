@@ -104,6 +104,9 @@ syntax on               " enable syntax highlighting
 set cursorline        " highlight cursor line
 " set cursorcolumn      " highlight cursor column
 
+" colored line at 80 characters
+set colorcolumn=80
+
 " wrap like other editors
 set wrap                " word wrap
 "set textwidth=100        "
