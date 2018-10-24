@@ -187,7 +187,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5 && pkill -RTMIN+2 i3blocks
 
 # colors
 # name                  border   background  text     indicator  child border
-client.focused          #fcfbe3  #fcfbe3     #222222  #cef59e    #fcfbe3
+client.focused          #cef59e  #cef59e     #222222  #c49df5    #cef59e
 client.focused_inactive #979688  #969788     #393939
 client.unfocused        #979688  #979688     #393939
 client.urgent           #fcefe3  #fcefe3     #111111
