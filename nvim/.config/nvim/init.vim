@@ -33,6 +33,7 @@ Plug 'bling/vim-airline'
 "Plug 'luochen1990/rainbow'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'junegunn/goyo.vim'
 
 " Functionality
 "Plug 'Raimondi/delimitMate'
@@ -102,6 +103,9 @@ syntax on               " enable syntax highlighting
 set cursorline        " highlight cursor line
 " set cursorcolumn      " highlight cursor column
 
+" colored line at 80 characters
+set colorcolumn=80
+
 " wrap like other editors
 set wrap                " word wrap
 "set textwidth=100        "
@@ -145,7 +149,7 @@ set foldlevelstart=99
 map ; :
 
 " for git log files, K should open a buffer with commit info
-autocmd FileType git nnoremap K
+autocmd FileType git nmap K
             \ :botright new <bar>
             \ :setlocal buftype=nofile bufhidden=wipe nobuflisted <bar>
             \ :read !git show <C-r><C-w><CR>
@@ -347,6 +351,21 @@ autocmd FileType python let python_highlight_all = 1
 autocmd FileType python let python_highlight_space_errors = 1
 autocmd FileType python let python_slow_sync = 1
 autocmd Filetype tex,latex :set dictionary=~/.vim/dict/latex.dict
+
+" email editing using Goyo
+au Filetype mail setlocal textwidth=0
+au Filetype mail setlocal wrapmargin=0
+au Filetype mail setlocal linebreak
+au Filetype mail setlocal nobreakindent
+au Filetype mail setlocal showbreak=
+au FileType mail Goyo | 6
+
+" when leaving Goyo, leave vim as well
+function! s:goyo_leave()
+    :q
+endfunction
+
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 
 " cycle through buffers
