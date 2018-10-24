@@ -41,15 +41,15 @@ markup=none
 # The first parameter sets the step (and units to display)
 # The second parameter overrides the mixer selection
 # See the script for details.
-# [volume]
-# #label=VOL
-# label=♪
-# command=/home/tronje/.config/i3/volume.py
-# #instance=Master
-# #instance=PCM
-# interval=once
-# signal=1
-# color=#fdf6e3
+[volume]
+#label=VOL
+label=♪
+command=/home/tronje/.config/i3/volume.py
+#instance=Master
+#instance=PCM
+interval=once
+signal=1
+color=#fdf6e3
 
 # [brightness]
 # label=☀
