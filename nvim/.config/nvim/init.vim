@@ -220,6 +220,12 @@ let g:syntastic_check_on_wq = 0
 autocmd FileType c let g:syntastic_auto_loc_list = 0
 
 "" language-specific stuff
+" c
+autocmd FileType c setlocal noexpandtab
+autocmd FileType c setlocal tabstop=8
+autocmd FileType c setlocal shiftwidth=8
+autocmd FileType c setlocal softtabstop=8
+
 " python
 let g:syntastic_python_checkers = ['flake8', 'python']
 
