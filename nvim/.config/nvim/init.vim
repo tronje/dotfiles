@@ -221,6 +221,7 @@ autocmd FileType c let g:syntastic_auto_loc_list = 0
 
 "" language-specific stuff
 " c
+autocmd BufNewFile,BufRead *.h setlocal filetype=c
 autocmd FileType c setlocal noexpandtab
 autocmd FileType c setlocal tabstop=8
 autocmd FileType c setlocal shiftwidth=8
