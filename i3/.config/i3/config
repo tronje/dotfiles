@@ -22,18 +22,10 @@ workspace_auto_back_and_forth yes
 
 # border settings
 # hide_edge_borders smart
-default_border normal 2
+default_border pixel 2
 
 # individual border settings
-for_window [class="Firefox"] border pixel 2
-for_window [class="Chromium"] border pixel 2
-for_window [class="chromium"] border pixel 2
-for_window [class="Thunderbird"] border pixel 2
-# for_window [class="Termite"] border pixel 2
-for_window [class="Alacritty"] border pixel 2
-for_window [class="kitty"] border pixel 2
-for_window [class="Thunar"] border pixel 2
-for_window [class="Spotify"] border pixel 2
+for_window [class="matplotlib"] floating enable
 
 # stupid JRiver crap
 for_window [class="Media_Center_24"] floating enable
