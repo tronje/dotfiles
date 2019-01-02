@@ -35,6 +35,9 @@ for_window [class="kitty"] border pixel 2
 for_window [class="Thunar"] border pixel 2
 for_window [class="Spotify"] border pixel 2
 
+# stupid JRiver crap
+for_window [class="Media_Center_24"] floating enable
+
 #scratchpad
 bindsym $mod+z move scratchpad
 bindsym $mod+a scratchpad show
