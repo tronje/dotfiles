@@ -156,6 +156,7 @@ autocmd FileType git nmap K
             \ gg0d_
             \ :setlocal nomodifiable<CR>
             \ :setlocal filetype=git<CR>
+autocmd FileType git let &titlestring="Git"
 
 " set :grep command to ripgrep
 set grepprg=rg\ --vimgrep
