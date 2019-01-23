@@ -72,19 +72,6 @@ separator=false
 [load_average]
 interval=10
 
-# CPU usage
-#
-# The script may be called with -w and -c switches to specify thresholds,
-# see the script for details.
-[cpu_usage]
-label=cpu
-interval=10
-#min_width=CPU: 100.00%
-#separator=false
-
-#[load_average]
-#interval=10
-
 # Memory usage
 #
 # The type defaults to "mem" if the instance is not specified.
