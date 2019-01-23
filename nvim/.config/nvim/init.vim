@@ -50,7 +50,7 @@ Plug 'rhysd/vim-clang-format'
 Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
 Plug 'qpkorr/vim-bufkill'
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'nixprime/cpsm', {'do': './install.sh'}
 Plug 'tacahiroy/ctrlp-funky'
