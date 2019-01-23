@@ -25,6 +25,9 @@ Plug 'mitsuhiko/vim-python-combined'
 "Plug 'vim-scripts/django.vim'
 Plug 'solarnz/thrift.vim'
 Plug 'kergoth/vim-bitbake'
+Plug 'vim-jp/vim-cpp'
+Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'matze/vim-meson'
 
 " Looks
 Plug 'bling/vim-airline'
@@ -219,6 +222,13 @@ let g:syntastic_check_on_wq = 0
 autocmd FileType c let g:syntastic_auto_loc_list = 0
 
 "" language-specific stuff
+" c
+autocmd BufNewFile,BufRead *.h setlocal filetype=c
+autocmd FileType c setlocal noexpandtab
+autocmd FileType c setlocal tabstop=8
+autocmd FileType c setlocal shiftwidth=8
+autocmd FileType c setlocal softtabstop=8
+
 " python
 let g:syntastic_python_checkers = ['flake8', 'python']
 
