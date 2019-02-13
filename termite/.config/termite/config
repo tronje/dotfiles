@@ -1,7 +1,7 @@
 [options]
 #font = monospace 20
 #font = Input Mono 16
-font = Fira Mono 16
+font = Fira Mono 17
 scrollback_lines = 10000
 cursor_shape = ibeam
 
@@ -10,7 +10,7 @@ cursor_shape = ibeam
 foreground      = #eff0eb
 foreground_bold = #eff0eb
 cursor          = #eff0eb
-background = #282828
+background = #1d2021
 
 # black
 color0 = #000000
