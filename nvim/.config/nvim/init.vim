@@ -105,6 +105,8 @@ set cursorline        " highlight cursor line
 
 " colored line at 80 characters
 set colorcolumn=80
+autocmd FileType rust set colorcolumn=""
+autocmd FileType rust set colorcolumn=100
 
 " wrap like other editors
 set wrap                " word wrap
