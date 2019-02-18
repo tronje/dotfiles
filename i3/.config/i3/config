@@ -239,6 +239,5 @@ workspace "8" output DVI-D-0
 
 # autostart
 #exec --no-startup-id xcompmgr
-#exec --no-startup-id feh --bg-scale pics/wallpapers/amsterdam.jpg
-exec --no-startup-id feh --bg-scale pics/wallpapers/space_guy.jpg
+exec --no-startup-id feh --bg-scale pics/wallpapers/bold_and_brash.png
 exec --no-startup-id compton

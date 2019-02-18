@@ -1,0 +1,9 @@
+[Unit]
+Description=Changes color temperature based on system time
+
+[Service]
+Type=oneshot
+ExecStart=/home/tronje/.config/systemd/user/redshift.py
+
+[Install]
+WantedBy=default.target
