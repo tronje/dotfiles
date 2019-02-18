@@ -30,7 +30,7 @@ Plug 'kergoth/vim-bitbake'
 Plug 'bling/vim-airline'
 "Plug 'flazz/vim-colorschemes'
 "Plug 'gorodinskiy/vim-coloresque' " breaks . keyword
-"Plug 'luochen1990/rainbow'
+Plug 'luochen1990/rainbow'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/goyo.vim'
@@ -325,6 +325,12 @@ let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 0
 let g:cpp_no_function_highlight = 0
 """ /vim-cpp-enhanced-highlight
+
+
+""" rainbow
+let g:rainbow_active = 0 " disable by default
+autocmd FileType html :RainbowToggleOn
+""" /rainbow
 
 
 """ misc
