@@ -33,7 +33,7 @@ Plug 'matze/vim-meson'
 Plug 'bling/vim-airline'
 "Plug 'flazz/vim-colorschemes'
 "Plug 'gorodinskiy/vim-coloresque' " breaks . keyword
-"Plug 'luochen1990/rainbow'
+Plug 'luochen1990/rainbow'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/goyo.vim'
@@ -108,6 +108,8 @@ set cursorline        " highlight cursor line
 
 " colored line at 80 characters
 set colorcolumn=80
+autocmd FileType rust set colorcolumn=""
+autocmd FileType rust set colorcolumn=100
 
 " wrap like other editors
 set wrap                " word wrap
@@ -159,6 +161,7 @@ autocmd FileType git nmap K
             \ gg0d_
             \ :setlocal nomodifiable<CR>
             \ :setlocal filetype=git<CR>
+autocmd FileType git let &titlestring="Git"
 
 " set :grep command to ripgrep
 set grepprg=rg\ --vimgrep
@@ -334,6 +337,12 @@ let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 0
 let g:cpp_no_function_highlight = 0
 """ /vim-cpp-enhanced-highlight
+
+
+""" rainbow
+let g:rainbow_active = 0 " disable by default
+autocmd FileType html :RainbowToggleOn
+""" /rainbow
 
 
 """ misc
