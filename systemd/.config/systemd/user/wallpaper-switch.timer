@@ -1,5 +1,6 @@
 [Unit]
 Description=Run wallpaper switch periodically
+After=graphical.target
 
 [Timer]
 OnUnitActiveSec=30m
