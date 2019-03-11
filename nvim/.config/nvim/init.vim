@@ -108,8 +108,6 @@ set cursorline        " highlight cursor line
 
 " colored line at 80 characters
 set colorcolumn=80
-autocmd FileType rust set colorcolumn=""
-autocmd FileType rust set colorcolumn=100
 
 " wrap like other editors
 set wrap                " word wrap
@@ -178,6 +176,26 @@ nnoremap <leader>ok a <C-k>OK<Esc>
 """ /basics
 
 
+""" lanuage stuff
+" c
+autocmd BufNewFile,BufRead *.h setlocal filetype=c
+autocmd FileType c setlocal noexpandtab
+autocmd FileType c setlocal tabstop=8
+autocmd FileType c setlocal shiftwidth=8
+autocmd FileType c setlocal softtabstop=8
+
+" rust
+autocmd FileType rust setlocal colorcolumn=""
+autocmd FileType rust setlocal colorcolumn=100
+
+" dart
+autocmd FileType dart setlocal expandtab
+autocmd FileType dart setlocal tabstop=2
+autocmd FileType dart setlocal shiftwidth=2
+autocmd FileType dart setlocal softtabstop=2
+""" /language stuff
+
+
 """ vim-clang-format
 let g:clang_format#style_options = {
             \ "AllowShortIfStatementsOnASingleLine" : "true",
@@ -225,13 +243,6 @@ let g:syntastic_check_on_wq = 0
 autocmd FileType c let g:syntastic_auto_loc_list = 0
 
 "" language-specific stuff
-" c
-autocmd BufNewFile,BufRead *.h setlocal filetype=c
-autocmd FileType c setlocal noexpandtab
-autocmd FileType c setlocal tabstop=8
-autocmd FileType c setlocal shiftwidth=8
-autocmd FileType c setlocal softtabstop=8
-
 " python
 let g:syntastic_python_checkers = ['flake8', 'python']
 
