@@ -94,7 +94,7 @@ set cmdheight=1         " set the command height
 set showmatch           " show matching brackets (),{},[]
 set matchpairs+=<:>     " match < and > as well
 set mat=5               " show matching brackets for 0.5 seconds
-set scrolloff=2         " keep 2 lines spacing between cursor and edge"
+set scrolloff=5         " keep 2 lines spacing between cursor and edge"
 set background=dark     " we don't like bright white terminals
 set number              " show line numbers
 syntax on               " enable syntax highlighting
