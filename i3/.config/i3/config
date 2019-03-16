@@ -223,5 +223,5 @@ bar {
 
 # autostart
 #exec --no-startup-id xcompmgr
-exec --no-startup-id feh --bg-scale pics/wallpapers/bold_and_brash.png
+exec --no-startup-id feh --bg-scale pics/wallpapers/t460s.png
 exec --no-startup-id compton
