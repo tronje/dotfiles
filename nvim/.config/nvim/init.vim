@@ -358,7 +358,6 @@ autocmd BufReadPost *
             \ if line("'\"") > 1 && line("'\"") <= line("$") |
             \   exe "normal! g`\"" |
             \ endif
-augroup END
 
 " highlight trailing whitespace
 highlight ExtraWhitespace term=standout ctermbg=red guibg=red
