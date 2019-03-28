@@ -28,6 +28,9 @@ Plug 'kergoth/vim-bitbake'
 Plug 'vim-jp/vim-cpp'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'matze/vim-meson'
+Plug 'tronje/kernel.vim'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'tronje/dart.vim'
 
 " Looks
 Plug 'bling/vim-airline'
@@ -63,8 +66,8 @@ Plug 'w0rp/ale'
 
 " Completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'sebastianmarkow/deoplete-rust'
-Plug 'zchee/deoplete-jedi'
+Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' }
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
 call plug#end()
 
