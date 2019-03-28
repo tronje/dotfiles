@@ -361,6 +361,17 @@ autocmd FileType html :RainbowToggleOn
 """ /rainbow
 
 
+""" ale
+let g:ale_linters = {
+            \    'dart': ['language_server'],
+            \    'rust': ['rls'],
+            \ }
+let g:ale_rust_rls_toolchain = 'stable'
+let g:ale_sign_error = '⨉'
+let g:ale_sign_warning = '⚠'
+""" /ale
+
+
 """ misc
 " spell check
 map <F12> :w<CR>:!aspell -c %<CR><CR>:e<CR><CR>
