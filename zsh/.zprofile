@@ -48,6 +48,8 @@ path=(
   /home/tronje/.cargo/bin
   /home/tronje/.local/bin
   /home/tronje/.node_modules/bin
+  /home/tronje/workspace/flutter/bin
+  /home/tronje/.pub-cache/bin
   $path
 )
 
