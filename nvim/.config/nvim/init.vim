@@ -197,6 +197,7 @@ autocmd FileType dart setlocal expandtab
 autocmd FileType dart setlocal tabstop=2
 autocmd FileType dart setlocal shiftwidth=2
 autocmd FileType dart setlocal softtabstop=2
+autocmd FileType dart RainbowToggleOn
 """ /language stuff
 
 
