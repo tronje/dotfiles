@@ -33,6 +33,9 @@ export GOPATH=/home/tronje/misc/go
 # node
 export npm_config_prefix=/home/tronje/.node_modules
 
+# android
+export ANDROID_HOME=/home/tronje/Android
+
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
