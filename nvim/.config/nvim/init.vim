@@ -366,6 +366,9 @@ let g:ale_linters = {
 let g:ale_rust_rls_toolchain = 'stable'
 let g:ale_sign_error = '⨉'
 let g:ale_sign_warning = '⚠'
+
+" disable ALE in CtrlP windows
+autocmd BufEnter ControlP let b:ale_enabled = 0
 """ /ale
 
 
