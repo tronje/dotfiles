@@ -34,7 +34,7 @@ Plug 'tronje/dart.vim'
 Plug 'bling/vim-airline'
 "Plug 'flazz/vim-colorschemes'
 "Plug 'gorodinskiy/vim-coloresque' " breaks . keyword
-"Plug 'luochen1990/rainbow'
+Plug 'luochen1990/rainbow'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/goyo.vim'
