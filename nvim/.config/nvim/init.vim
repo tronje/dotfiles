@@ -23,6 +23,7 @@ Plug 'cespare/vim-toml'
 "Plug 'elmcast/elm-vim'
 Plug 'mitsuhiko/vim-python-combined'
 "Plug 'vim-scripts/django.vim'
+Plug 'tronje/python.vim'
 Plug 'solarnz/thrift.vim'
 Plug 'kergoth/vim-bitbake'
 Plug 'vim-jp/vim-cpp'
@@ -259,6 +260,7 @@ autocmd FileType c let g:syntastic_auto_loc_list = 0
 "" language-specific stuff
 " python
 let g:syntastic_python_checkers = ['flake8', 'python']
+let g:python_highlight_builtins = 1
 
 " rust
 autocmd FileType rust let g:syntastic_rust_checkers = ['cargo']
