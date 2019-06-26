@@ -35,7 +35,6 @@ alias glg='git log --topo-order --all --graph --pretty=format:"${_git_log_onelin
 
 # cargo
 alias clippy='rustup run nightly cargo clippy'
-alias c='cargo'
 
 # misc
 alias newdir='eval $(/home/tronje/prj/newdir/newdir.py)'
