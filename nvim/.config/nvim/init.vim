@@ -69,6 +69,9 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' }
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
+" custom
+Plug 'git@git.net.jusst.de:tronje.krabbe/nsdk.vim'
+
 call plug#end()
 
 " Required:
@@ -187,6 +190,12 @@ autocmd FileType c setlocal noexpandtab
 autocmd FileType c setlocal tabstop=8
 autocmd FileType c setlocal shiftwidth=8
 autocmd FileType c setlocal softtabstop=8
+
+" c++
+autocmd FileType cpp setlocal noexpandtab
+autocmd FileType cpp setlocal tabstop=4
+autocmd FileType cpp setlocal shiftwidth=4
+autocmd FileType cpp setlocal softtabstop=4
 
 " rust
 autocmd FileType rust setlocal colorcolumn=""
@@ -356,7 +365,9 @@ let g:cpp_no_function_highlight = 0
 
 
 """ rainbow
-let g:rainbow_active = 0 " disable by default
+if !exists("g:rainbow_active")
+    let g:rainbow_active = 0 " disable by default
+endif
 autocmd FileType html :RainbowToggleOn
 """ /rainbow
 
