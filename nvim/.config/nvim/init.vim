@@ -22,12 +22,16 @@ Plug 'cespare/vim-toml'
 "Plug 'neovimhaskell/haskell-vim'
 "Plug 'elmcast/elm-vim'
 Plug 'mitsuhiko/vim-python-combined'
+Plug 'tronje/python.vim'
 "Plug 'vim-scripts/django.vim'
 Plug 'solarnz/thrift.vim'
 Plug 'kergoth/vim-bitbake'
 Plug 'vim-jp/vim-cpp'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'matze/vim-meson'
+Plug 'tronje/kernel.vim'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'tronje/dart.vim'
 
 " Looks
 Plug 'bling/vim-airline'
@@ -47,7 +51,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
 Plug 'xuhdev/vim-latex-live-preview', { 'for':'tex' }
 Plug 'rhysd/vim-clang-format'
 Plug 'godlygeek/tabular'
@@ -59,11 +63,12 @@ Plug 'nixprime/cpsm', {'do': './install.sh'}
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'vim-scripts/a.vim'
 Plug 'romainl/vim-qf'
+Plug 'w0rp/ale'
 
 " Completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'sebastianmarkow/deoplete-rust'
-Plug 'zchee/deoplete-jedi'
+Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' }
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
 call plug#end()
 
@@ -94,7 +99,7 @@ set cmdheight=1         " set the command height
 set showmatch           " show matching brackets (),{},[]
 set matchpairs+=<:>     " match < and > as well
 set mat=5               " show matching brackets for 0.5 seconds
-set scrolloff=2         " keep 2 lines spacing between cursor and edge"
+set scrolloff=5         " keep 2 lines spacing between cursor and edge"
 set background=dark     " we don't like bright white terminals
 set number              " show line numbers
 syntax on               " enable syntax highlighting
@@ -178,6 +183,27 @@ nnoremap <leader>ok a <C-k>OK<Esc>
 """ /basics
 
 
+""" lanuage stuff
+" c
+autocmd BufNewFile,BufRead *.h setlocal filetype=c
+autocmd FileType c setlocal noexpandtab
+autocmd FileType c setlocal tabstop=8
+autocmd FileType c setlocal shiftwidth=8
+autocmd FileType c setlocal softtabstop=8
+
+" rust
+autocmd FileType rust setlocal colorcolumn=""
+autocmd FileType rust setlocal colorcolumn=100
+
+" dart
+autocmd FileType dart setlocal expandtab
+autocmd FileType dart setlocal tabstop=2
+autocmd FileType dart setlocal shiftwidth=2
+autocmd FileType dart setlocal softtabstop=2
+autocmd FileType dart RainbowToggleOn
+""" /language stuff
+
+
 """ vim-clang-format
 let g:clang_format#style_options = {
             \ "AllowShortIfStatementsOnASingleLine" : "true",
@@ -213,9 +239,9 @@ let g:airline#extensions#tabline#left_alt_sep = ''
 
 
 """ syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
@@ -225,15 +251,9 @@ let g:syntastic_check_on_wq = 0
 autocmd FileType c let g:syntastic_auto_loc_list = 0
 
 "" language-specific stuff
-" c
-autocmd BufNewFile,BufRead *.h setlocal filetype=c
-autocmd FileType c setlocal noexpandtab
-autocmd FileType c setlocal tabstop=8
-autocmd FileType c setlocal shiftwidth=8
-autocmd FileType c setlocal softtabstop=8
-
 " python
 let g:syntastic_python_checkers = ['flake8', 'python']
+let g:python_highlight_builtins = 1
 
 " rust
 autocmd FileType rust let g:syntastic_rust_checkers = ['cargo']
@@ -345,6 +365,20 @@ autocmd FileType html :RainbowToggleOn
 """ /rainbow
 
 
+""" ale
+let g:ale_linters = {
+            \    'dart': ['language_server'],
+            \    'rust': ['rls'],
+            \ }
+let g:ale_rust_rls_toolchain = 'stable'
+let g:ale_sign_error = '⨉'
+let g:ale_sign_warning = '⚠'
+
+" disable ALE in CtrlP windows
+autocmd BufEnter ControlP let b:ale_enabled = 0
+""" /ale
+
+
 """ misc
 " spell check
 map <F12> :w<CR>:!aspell -c %<CR><CR>:e<CR><CR>
@@ -355,7 +389,6 @@ autocmd BufReadPost *
             \ if line("'\"") > 1 && line("'\"") <= line("$") |
             \   exe "normal! g`\"" |
             \ endif
-augroup END
 
 " highlight trailing whitespace
 highlight ExtraWhitespace term=standout ctermbg=red guibg=red
@@ -398,27 +431,5 @@ nmap <silent> <s-tab> :bprevious<CR>
 " map <PageDown> <Nop>
 " imap <PageUp> <Nop>
 " imap <PageDown> <Nop>
-
-" Kernel stuff
-" TODO make a plugin out of this when I can be bothered...
-function LoadKernelConf()
-    " turn off Syntastic
-    " TODO possibly make Syntastic work with Kernel stuff
-    "      e.g. with this: https://github.com/vladimiroltean/blog/wiki
-    :SyntasticToggleMode
-
-    " unsigned integers
-    syn keyword Type u8 u16 u32 u64
-
-    " signed integers
-    syn keyword Type s8 s16 s32 s64
-
-    " debug levels
-    syn keyword Constant KERN_EMERG KERN_ALERT KERN_CRIT KERN_ERR KERN_WARNING
-    syn keyword Constant KERN_NOTICE KERN_INFO KERN_DEBUG KERN_DEFAULT KERN_CONT
-
-    " kernel functions
-    syn keyword Function printk
-endfunction
 
 """ the end
