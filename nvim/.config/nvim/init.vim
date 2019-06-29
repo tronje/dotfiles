@@ -397,13 +397,6 @@ match ExtraWhitespace /\s\+$/
 " don't highlight in git logs
 autocmd FileType git call clearmatches()
 
-
-" file types
-autocmd FileType python let python_highlight_all = 1
-autocmd FileType python let python_highlight_space_errors = 1
-autocmd FileType python let python_slow_sync = 1
-autocmd Filetype tex,latex :set dictionary=~/.vim/dict/latex.dict
-
 " email editing using Goyo
 au Filetype mail setlocal textwidth=0
 au Filetype mail setlocal wrapmargin=0
