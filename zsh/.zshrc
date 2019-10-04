@@ -50,6 +50,16 @@ function glv () {
     git log $@ | nvim -R -
 }
 
+function reboot () {
+    read "rebootanswer?Are you sure? (y/n) "
+    if [[ $rebootanswer == 'y' ]]; then
+        echo "Rebooting..."
+        reboot
+    else
+        echo "Not rebooting."
+    fi
+}
+
 
 ## Prompt customization ##
 
