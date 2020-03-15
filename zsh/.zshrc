@@ -26,7 +26,7 @@ export FZF_CTRL_T_COMMAND="fd -H" # use fd with hidden files for this command
 source /home/tronje/.alias.sh
 
 
-export MAKEFLAGS="-j4"
+export MAKEFLAGS="-j12"
 export LESS="-RI"
 
 # history settings
