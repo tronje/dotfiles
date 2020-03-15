@@ -11,8 +11,8 @@ fi
 # enables Vi mode when hitting ESC
 bindkey -v
 
-# autojump allows jumping to directories with 'j'
-source /usr/share/autojump/autojump.zsh
+# zoxide allows jumping to directories with 'z'
+eval "$(zoxide init zsh)"
 
 # this enables syntax highlighting, as the name suggests
 source /home/tronje/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
