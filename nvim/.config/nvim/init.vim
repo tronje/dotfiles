@@ -61,7 +61,7 @@ Plug 'nixprime/cpsm', {'do': './install.sh'}
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'vim-scripts/a.vim'
 Plug 'romainl/vim-qf'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 
 " Completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
