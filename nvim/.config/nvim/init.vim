@@ -343,7 +343,13 @@ inoremap <silent> <F6> <esc>:NERDTreeToggle<CR>a
 
 
 """ CtrlP
-let g:ctrlp_map = '<c-p>'
+
+" use FZF instead of Ctrlp on Ctrl+p
+nnoremap <silent> <C-p> :F<CR>
+
+" put Ctrlp on Ctrl+shift+[ instead
+let g:ctrlp_map = '<c-{>'
+
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = 'rg %s --files -i --color=never --glob ''!.git'' --glob ''!.DS_Store'' --glob ''!node_modules'' --hidden --no-messages -g ""'
