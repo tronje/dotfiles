@@ -372,6 +372,8 @@ autocmd FileType html :RainbowToggleOn
 let g:ale_linters = {
             \    'dart': ['language_server'],
             \    'rust': ['rls'],
+            \    'c': ['gcc'],
+            \    'java': []
             \ }
 let g:ale_rust_rls_toolchain = 'stable'
 let g:ale_sign_error = '⨉'
