@@ -200,6 +200,9 @@ autocmd FileType dart setlocal shiftwidth=2
 autocmd FileType dart setlocal softtabstop=2
 autocmd FileType dart RainbowToggleOn
 autocmd BufWritePre *.dart DartFmt
+
+" arb
+autocmd BufNewFile,BufRead *.arb setlocal filetype=json
 """ /language stuff
 
 
