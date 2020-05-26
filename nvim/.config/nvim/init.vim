@@ -63,6 +63,7 @@ Plug 'tacahiroy/ctrlp-funky'
 Plug 'vim-scripts/a.vim'
 Plug 'romainl/vim-qf'
 Plug 'dense-analysis/ale'
+Plug 'junegunn/fzf.vim'
 
 " Completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -325,7 +326,7 @@ let g:tagbar_type_rust = {
 """ CtrlP
 
 " use FZF instead of Ctrlp on Ctrl+p
-nnoremap <silent> <C-p> :F<CR>
+nnoremap <silent> <C-p> :Files<CR>
 
 " put Ctrlp on Ctrl+shift+[ instead
 let g:ctrlp_map = '<c-{>'
