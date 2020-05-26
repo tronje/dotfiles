@@ -56,7 +56,7 @@ Plug 'rhysd/vim-clang-format'
 Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
 Plug 'qpkorr/vim-bufkill'
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'nixprime/cpsm', {'do': './install.sh'}
 Plug 'tacahiroy/ctrlp-funky'
@@ -305,21 +305,21 @@ inoremap <silent> <F6> <esc>:NERDTreeToggle<CR>a
 
 
 """ Tagbar
-nmap <F8> :TagbarToggle<CR>
-
-let g:tagbar_type_rust = {
-            \ 'ctagstype' : 'rust',
-            \ 'kinds' : [
-            \'T:types,type definitions',
-            \'f:functions,function definitions',
-            \'g:enum,enumeration names',
-            \'s:structure names',
-            \'m:modules,module names',
-            \'c:consts,static constants',
-            \'t:traits',
-            \'i:impls,trait implementations',
-            \]
-            \}
+" nmap <F8> :TagbarToggle<CR>
+"
+" let g:tagbar_type_rust = {
+"             \ 'ctagstype' : 'rust',
+"             \ 'kinds' : [
+"             \'T:types,type definitions',
+"             \'f:functions,function definitions',
+"             \'g:enum,enumeration names',
+"             \'s:structure names',
+"             \'m:modules,module names',
+"             \'c:consts,static constants',
+"             \'t:traits',
+"             \'i:impls,trait implementations',
+"             \]
+"             \}
 """ /Tagbar
 
 
