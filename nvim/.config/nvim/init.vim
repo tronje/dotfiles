@@ -30,6 +30,7 @@ Plug 'matze/vim-meson'
 Plug 'tronje/kernel.vim'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'tronje/dart.vim'
+Plug 'lifepillar/pgsql.vim'
 
 " Looks
 Plug 'bling/vim-airline'
@@ -378,6 +379,11 @@ let g:ale_sign_warning = '⚠'
 " disable ALE in CtrlP windows
 autocmd BufEnter ControlP let b:ale_enabled = 0
 """ /ale
+
+
+""" pgsql
+let g:sql_type_default = 'pgsql'
+""" /pgsql
 
 
 """ misc
