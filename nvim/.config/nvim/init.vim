@@ -203,6 +203,7 @@ autocmd FileType cpp setlocal softtabstop=4
 " rust
 autocmd FileType rust setlocal colorcolumn=""
 autocmd FileType rust setlocal colorcolumn=100
+autocmd BufWritePre *.rs RustFmt
 
 " dart
 autocmd FileType dart setlocal expandtab
@@ -210,6 +211,7 @@ autocmd FileType dart setlocal tabstop=2
 autocmd FileType dart setlocal shiftwidth=2
 autocmd FileType dart setlocal softtabstop=2
 autocmd FileType dart RainbowToggleOn
+autocmd BufWritePre *.dart DartFmt
 """ /language stuff
 
 
