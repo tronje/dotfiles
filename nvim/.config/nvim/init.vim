@@ -64,6 +64,7 @@ Plug 'tacahiroy/ctrlp-funky'
 Plug 'vim-scripts/a.vim'
 Plug 'romainl/vim-qf'
 Plug 'dense-analysis/ale'
+Plug 'junegunn/fzf.vim'
 
 " Completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -345,7 +346,7 @@ inoremap <silent> <F6> <esc>:NERDTreeToggle<CR>a
 """ CtrlP
 
 " use FZF instead of Ctrlp on Ctrl+p
-nnoremap <silent> <C-p> :F<CR>
+nnoremap <silent> <C-p> :Files<CR>
 
 " put Ctrlp on Ctrl+shift+[ instead
 let g:ctrlp_map = '<c-{>'
