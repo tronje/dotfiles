@@ -290,7 +290,7 @@ let g:syntastic_style_warning_symbol = '‽'
 " auto completion stuff
 set ofu=syntaxcomplete#Complete
 set complete+=k         " enable dictionary completion
-set completeopt=menuone,menu,longest,preview
+set completeopt=menuone,menu,longest,preview,noselect
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#disable_auto_complete = 0
