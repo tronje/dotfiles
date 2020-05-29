@@ -269,6 +269,14 @@ autocmd FileType rust let g:syntastic_rust_checkers = ['cargo']
 " latex
 autocmd FileType tex,latex let g:syntastic_auto_loc_list = 0
 
+" html
+autocmd FileType html setlocal expandtab
+autocmd FileType html setlocal tabstop=2
+autocmd FileType html setlocal shiftwidth=2
+autocmd FileType jinja.html setlocal expandtab
+autocmd FileType jinja.html setlocal tabstop=2
+autocmd FileType jinja.html setlocal shiftwidth=2
+
 "" eye candy
 let g:syntastic_error_symbol = '✘'
 let g:syntastic_style_error_symbol = '!'
