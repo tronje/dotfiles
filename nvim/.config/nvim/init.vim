@@ -58,9 +58,6 @@ Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
 Plug 'qpkorr/vim-bufkill'
 " Plug 'majutsushi/tagbar'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'nixprime/cpsm', {'do': './install.sh'}
-Plug 'tacahiroy/ctrlp-funky'
 Plug 'vim-scripts/a.vim'
 Plug 'romainl/vim-qf'
 Plug 'dense-analysis/ale'
@@ -345,31 +342,21 @@ inoremap <silent> <F6> <esc>:NERDTreeToggle<CR>a
 """ /Tagbar
 
 
-""" CtrlP
+""" FZF
 
-" use FZF instead of Ctrlp on Ctrl+p
-nnoremap <silent> <C-p> :Files<CR>
+" GFiles searches only files checked into git
+nnoremap <silent> <C-p> :GFiles --recurse-submodules<CR>
 
-" put Ctrlp on Ctrl+shift+[ instead
-let g:ctrlp_map = '<c-{>'
+" fallback on Ctrl+[ for when not within a git repo
+nnoremap <silent> <C-[> :Files<CR>
 
-let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_user_command = 'rg %s --files -i --color=never --glob ''!.git'' --glob ''!.DS_Store'' --glob ''!node_modules'' --hidden --no-messages -g ""'
-let g:ctrlp_extensions = ['funky']
-let g:ctrlp_use_caching = 0
+" FZF's buffer search
+nnoremap <C-b> :Buffers<CR>
 
-" ctrlp's buffer search
-nnoremap <C-b> :CtrlPBuffer<cr>
+" FZF's line search of current buffer
+nnoremap <C-l> :BLines<CR>
 
-" cpsm
-let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
-
-" ctrlp-funky
-nnoremap <C-l> :CtrlPFunky<cr>
-let g:ctrlp_funky_matchtype = 'path'
-let g:ctrlp_funky_syntax_highlight = 1
-""" /CtrlP
+""" /FZF
 
 
 """ a.vim
@@ -400,10 +387,6 @@ let g:ale_linters = {
 let g:ale_rust_rls_toolchain = 'stable'
 let g:ale_sign_error = '⨉'
 let g:ale_sign_warning = '⚠'
-
-" disable ALE in CtrlP windows
-autocmd BufEnter ControlP let b:ale_enabled = 0
-""" /ale
 
 
 """ misc
