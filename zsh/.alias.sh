@@ -37,7 +37,6 @@ alias glg='git log --topo-order --all --graph --pretty=format:"${_git_log_onelin
 alias clippy='rustup run nightly cargo clippy'
 
 # misc
-alias newdir='eval $(/home/tronje/prj/newdir/newdir.py)'
 alias py='python'
 alias weather='curl -s wttr.in/Hamburg'
 alias icat='kitty icat --align=left'
