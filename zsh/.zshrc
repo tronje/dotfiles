@@ -25,6 +25,9 @@ export FZF_CTRL_T_COMMAND="fd -H" # use fd with hidden files for this command
 # .alias.sh just contains some aliases, nothing fancy
 source /home/tronje/.alias.sh
 
+# enable friendly newdir script
+source /home/tronje/prj/newdir/newdir.sh
+
 
 export MAKEFLAGS="-j16"
 export LESS="-RI"
