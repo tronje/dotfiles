@@ -32,6 +32,7 @@ Plug 'matze/vim-meson'
 Plug 'tronje/kernel.vim'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'tronje/dart.vim'
+Plug 'jparise/vim-graphql'
 
 " Looks
 Plug 'bling/vim-airline'
