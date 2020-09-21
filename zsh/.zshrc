@@ -54,7 +54,7 @@ function reboot () {
     read "rebootanswer?Are you sure? (y/n) "
     if [[ $rebootanswer == 'y' ]]; then
         echo "Rebooting..."
-        reboot
+        /bin/reboot
     else
         echo "Not rebooting."
     fi
