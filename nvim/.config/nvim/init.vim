@@ -210,6 +210,13 @@ autocmd FileType dart setlocal shiftwidth=2
 autocmd FileType dart setlocal softtabstop=2
 autocmd FileType dart RainbowToggleOn
 autocmd BufWritePre *.dart DartFmt
+
+" device tree
+autocmd FileType dts setlocal noexpandtab
+autocmd FileType dts setlocal tabstop=8
+autocmd FileType dts setlocal shiftwidth=8
+autocmd FileType dts setlocal softtabstop=8
+
 """ /language stuff
 
 
