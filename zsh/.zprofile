@@ -76,6 +76,12 @@ fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
 
+#
+# bat
+#
+
+export BAT_THEME=gruvbox
+
 # unlock ssh key
 #eval `ssh-agent`
 #ssh-add /home/tronje/.ssh/id_rsa
