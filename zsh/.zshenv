@@ -6,6 +6,10 @@ export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 export VISUAL=nvim
 export EDITOR=nvim
+export PAGER=less
+export BROWSER=firefox
+export LESS='-i -M -R'
+export BAT_THEME=gruvbox
 
 # rust stuff
 export RUST_SRC_PATH=/home/tronje/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src

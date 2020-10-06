@@ -3,35 +3,12 @@
 #
 
 #
-# Browser
-#
-
-export BROWSER='firefox'
-
-#
-# Editors
-#
-
-export EDITOR='nvim'
-export VISUAL='nvim'
-export PAGER='less'
-
-#
 # Language
 #
 
 if [[ -z "$LANG" ]]; then
   export LANG='en_US.UTF-8'
 fi
-
-# rust stuff
-export RUST_SRC_PATH=/home/tronje/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
-
-# go
-export GOPATH=/home/tronje/misc/go
-
-# node
-export npm_config_prefix=/home/tronje/.node_modules
 
 
 # Ensure path arrays do not contain duplicates.
@@ -53,12 +30,6 @@ path=(
   $path
 )
 
-#
-# Less
-#
-
-export LESS='-i -M -R'
-
 # Set the Less input preprocessor.
 # Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
 if (( $#commands[(i)lesspipe(|.sh)] )); then
@@ -75,12 +46,6 @@ if [[ ! -d "$TMPDIR" ]]; then
 fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
-
-#
-# bat
-#
-
-export BAT_THEME=gruvbox
 
 # unlock ssh key
 #eval `ssh-agent`
