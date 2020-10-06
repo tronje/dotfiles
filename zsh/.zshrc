@@ -30,7 +30,6 @@ source /home/tronje/prj/newdir/newdir.sh
 
 
 export MAKEFLAGS="-j16"
-export LESS="-RI"
 
 # history settings
 export HISTFILE=/home/tronje/.zsh_history
