@@ -34,7 +34,7 @@ export GOPATH=/home/tronje/misc/go
 export npm_config_prefix=/home/tronje/.node_modules
 
 # android
-export ANDROID_HOME=/home/tronje/Android
+export ANDROID_HOME=/home/tronje/misc/android-home
 
 
 # Ensure path arrays do not contain duplicates.
@@ -51,7 +51,7 @@ path=(
   /home/tronje/.cargo/bin
   /home/tronje/.local/bin
   /home/tronje/.node_modules/bin
-  /home/tronje/workspace/flutter/bin
+  /home/tronje/misc/flutter/bin
   /home/tronje/.pub-cache/bin
   $path
 )
