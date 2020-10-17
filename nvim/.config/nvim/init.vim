@@ -163,6 +163,9 @@ autocmd FileType git nmap K
             \ :setlocal nomodifiable<CR>
             \ :setlocal filetype=git<CR>
 
+" turn on spellcheck for git commits
+autocmd FileType gitcommit set spell
+
 " set :grep command to ripgrep
 set grepprg=rg\ --vimgrep
 
