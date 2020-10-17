@@ -29,7 +29,6 @@ source /home/tronje/prj/newdir/newdir.sh
 
 
 export MAKEFLAGS="-j12"
-export LESS="-RI"
 
 # history settings
 export HISTFILE=/home/tronje/.zsh_history
@@ -52,6 +51,28 @@ function glv () {
     git log $@ | nvim -R -
 }
 
+function reboot () {
+    read "rebootanswer?Are you sure? (y/n) "
+    if [[ $rebootanswer == 'y' ]]; then
+        echo "Rebooting..."
+        /bin/reboot
+    else
+        echo "Not rebooting."
+    fi
+}
+
+
+function kapa () {
+    if [ ! -d /nas/projects/9000-jusst-internal/02-project-management/resource-planning/`date +%Y` ]; then
+        sudo mount -a
+    fi
+
+    if [ -z $1 ]; then
+        evince /nas/projects/9000-jusst-internal/02-project-management/resource-planning/`date +%Y`/`date +%yW%V`-resource-planning.pdf
+    else
+        evince /nas/projects/9000-jusst-internal/02-project-management/resource-planning/`date +%Y`/`date +%yW$1`-resource-planning.pdf
+    fi
+}
 
 ## Prompt customization ##
 

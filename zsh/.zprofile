@@ -3,39 +3,12 @@
 #
 
 #
-# Browser
-#
-
-export BROWSER='firefox'
-
-#
-# Editors
-#
-
-export EDITOR='nvim'
-export VISUAL='nvim'
-export PAGER='less'
-
-#
 # Language
 #
 
 if [[ -z "$LANG" ]]; then
   export LANG='en_US.UTF-8'
 fi
-
-# rust stuff
-export RUST_SRC_PATH=/home/tronje/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
-
-# go
-export GOPATH=/home/tronje/misc/go
-
-# node
-export npm_config_prefix=/home/tronje/.node_modules
-
-# android
-export ANDROID_HOME=/home/tronje/misc/android-home
-
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
@@ -55,15 +28,6 @@ path=(
   /home/tronje/.pub-cache/bin
   $path
 )
-
-#
-# Less
-#
-
-# Set the default Less options.
-# Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
-# Remove -X and -F (exit if the content fits on one screen) to enable it.
-export LESS='-F -g -i -M -R -S -w -X -z-4'
 
 # Set the Less input preprocessor.
 # Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.

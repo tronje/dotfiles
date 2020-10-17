@@ -11,19 +11,21 @@ call plug#begin(expand('~/.config/nvim/plug'))
 " Language support
 Plug 'plasticboy/vim-markdown', {'depends': 'godlygeek/tabular'}
 Plug 'lervag/vim-latex'
-"Plug 'pangloss/vim-javascript'
-"Plug 'othree/html5.vim'
-"Plug 'hail2u/vim-css3-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'othree/html5.vim'
+Plug 'hail2u/vim-css3-syntax'
 Plug 'rust-lang/rust.vim'
+Plug 'vim-jp/vim-cpp'
 Plug 'octol/vim-cpp-enhanced-highlight'
-" Plug 'fatih/vim-go'
+"Plug 'fatih/vim-go'
 Plug 'cespare/vim-toml'
 "Plug 'neovimhaskell/haskell-vim'
-Plug 'elmcast/elm-vim'
+"Plug 'elmcast/elm-vim'
 Plug 'mitsuhiko/vim-python-combined'
+"Plug 'vim-scripts/django.vim'
 Plug 'tronje/python.vim'
-Plug 'vim-scripts/django.vim'
 Plug 'solarnz/thrift.vim'
+Plug 'kergoth/vim-bitbake'
 Plug 'vim-jp/vim-cpp'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'matze/vim-meson'
@@ -32,6 +34,7 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'tronje/dart.vim'
 Plug 'lifepillar/pgsql.vim'
 Plug 'kergoth/vim-bitbake'
+Plug 'jparise/vim-graphql'
 
 " Looks
 Plug 'bling/vim-airline'
@@ -162,6 +165,7 @@ autocmd FileType git nmap K
             \ gg0d_
             \ :setlocal nomodifiable<CR>
             \ :setlocal filetype=git<CR>
+autocmd FileType git let &titlestring="Git"
 
 " turn on spellcheck for git commits
 autocmd FileType gitcommit set spell
@@ -189,6 +193,12 @@ autocmd FileType c setlocal tabstop=8
 autocmd FileType c setlocal shiftwidth=8
 autocmd FileType c setlocal softtabstop=8
 
+" c++
+autocmd FileType cpp setlocal noexpandtab
+autocmd FileType cpp setlocal tabstop=4
+autocmd FileType cpp setlocal shiftwidth=4
+autocmd FileType cpp setlocal softtabstop=4
+
 " rust
 autocmd FileType rust setlocal colorcolumn=""
 autocmd FileType rust setlocal colorcolumn=100
@@ -204,6 +214,13 @@ autocmd BufWritePre *.dart DartFmt
 
 " arb
 autocmd BufNewFile,BufRead *.arb setlocal filetype=json
+
+" device tree
+autocmd FileType dts setlocal noexpandtab
+autocmd FileType dts setlocal tabstop=8
+autocmd FileType dts setlocal shiftwidth=8
+autocmd FileType dts setlocal softtabstop=8
+
 """ /language stuff
 
 
@@ -263,6 +280,14 @@ autocmd FileType rust let g:syntastic_rust_checkers = ['cargo']
 
 " latex
 autocmd FileType tex,latex let g:syntastic_auto_loc_list = 0
+
+" html
+autocmd FileType html setlocal expandtab
+autocmd FileType html setlocal tabstop=2
+autocmd FileType html setlocal shiftwidth=2
+autocmd FileType jinja.html setlocal expandtab
+autocmd FileType jinja.html setlocal tabstop=2
+autocmd FileType jinja.html setlocal shiftwidth=2
 
 "" eye candy
 let g:syntastic_error_symbol = '✘'
@@ -350,13 +375,15 @@ nmap <silent> <C-a> :A<cr>
 
 """ vim-cpp-enhanced-highlight
 let g:cpp_class_scope_highlight = 1
-let g:cpp_experimental_template_highlight = 1
+let g:cpp_experimental_template_highlight = 0
 let g:cpp_no_function_highlight = 0
 """ /vim-cpp-enhanced-highlight
 
 
 """ rainbow
-let g:rainbow_active = 0 " disable by default
+if !exists("g:rainbow_active")
+    let g:rainbow_active = 0 " disable by default
+endif
 autocmd FileType html :RainbowToggleOn
 """ /rainbow
 
