@@ -334,9 +334,6 @@ inoremap <silent> <F6> <esc>:NERDTreeToggle<CR>a
 " GFiles searches only files checked into git
 nnoremap <silent> <C-p> :GFiles --recurse-submodules<CR>
 
-" fallback on Ctrl+[ for when not within a git repo
-nnoremap <silent> <C-[> :Files<CR>
-
 " FZF's buffer search
 nnoremap <C-b> :Buffers<CR>
 
