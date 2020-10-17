@@ -65,6 +65,7 @@ Plug 'vim-scripts/a.vim'
 Plug 'romainl/vim-qf'
 Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf.vim'
+Plug 'mbbill/undotree'
 
 " Completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -406,6 +407,12 @@ let g:sql_type_default = 'pgsql'
 """ /pgsql
 
 
+""" undotree
+nnoremap <silent> <F5> :UndotreeToggle<CR>
+inoremap <silent> <F5> <esc>:UndotreeToggle<CR>a
+""" /undotree
+
+
 """ misc
 " spell check
 map <F12> :w<CR>:!aspell -c %<CR><CR>:e<CR><CR>
@@ -443,5 +450,11 @@ nmap <silent> <s-tab> :bprevious<CR>
 " map <PageDown> <Nop>
 " imap <PageUp> <Nop>
 " imap <PageDown> <Nop>
+
+
+" persist undo information
+" TODO can't decide if I really want this
+" set undofile
+" set undodir=~/.config/nvim/undo//
 
 """ the end
