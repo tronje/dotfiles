@@ -168,6 +168,9 @@ autocmd FileType git nmap K
             \ :setlocal filetype=git<CR>
 autocmd FileType git let &titlestring="Git"
 
+" turn on spellcheck for git commits
+autocmd FileType gitcommit set spell
+
 " set :grep command to ripgrep
 set grepprg=rg\ --vimgrep
 
