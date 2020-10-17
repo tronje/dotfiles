@@ -3,7 +3,7 @@ alias ls='ls --group-directories-first --color=auto'
 alias cp='cp -v'
 alias clip='xclip -selection clipboard'
 alias sido='sudo'
-alias df='sudo btrfs filesystem usage -h /'
+alias df='btrfs filesystem usage -h /'
 
 # systemd
 alias sc='sudo systemctl'
