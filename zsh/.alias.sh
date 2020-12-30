@@ -4,6 +4,7 @@ alias cp='cp -v'
 alias clip='xclip -selection clipboard'
 alias sido='sudo'
 alias df='btrfs filesystem usage -h /'
+alias o='xdg-open'
 
 # systemd
 alias sc='sudo systemctl'
