@@ -204,7 +204,6 @@ autocmd FileType cpp setlocal softtabstop=4
 " rust
 autocmd FileType rust setlocal colorcolumn=""
 autocmd FileType rust setlocal colorcolumn=100
-autocmd BufWritePre *.rs RustFmt
 
 " dart
 autocmd FileType dart setlocal expandtab
@@ -289,6 +288,7 @@ let g:python_highlight_builtins = 1
 
 " rust
 autocmd FileType rust let g:syntastic_rust_checkers = ['cargo']
+let g:rustfmt_autosave = 1
 
 " latex
 autocmd FileType tex,latex let g:syntastic_auto_loc_list = 0
