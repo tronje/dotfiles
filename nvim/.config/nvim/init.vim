@@ -71,8 +71,8 @@ Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' }
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
 " custom
-Plug 'git@git.net.jusst.de:tronje.krabbe/nsdk.vim'
-Plug 'git@git.net.jusst.de:tronje.krabbe/aldrin.vim'
+Plug 'git@gitlab.ms.jusst.de:tronje.krabbe/nsdk.vim'
+Plug 'git@gitlab.ms.jusst.de:tronje.krabbe/aldrin.vim'
 
 call plug#end()
 
