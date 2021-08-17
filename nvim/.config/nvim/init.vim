@@ -181,6 +181,8 @@ tnoremap <Esc> <C-\><C-n>
 
 " insert a checkmark
 nnoremap <leader>ok a <C-k>OK<Esc>
+
+nnoremap <leader>/ :Rg <C-r><C-w><CR>
 """ /basics
 
 
