@@ -373,7 +373,8 @@ inoremap <silent> <F6> <esc>:NERDTreeToggle<CR>a
 nnoremap <silent> <C-p> :GFiles --recurse-submodules<CR>
 
 " fallback on Ctrl+[ for when not within a git repo
-nnoremap <silent> <C-[> :Files<CR>
+" (doesn't work because Ctrl+[ is just Escape :/)
+" nnoremap <silent> <C-[> :Files<CR>
 
 " FZF's buffer search
 nnoremap <C-b> :Buffers<CR>
