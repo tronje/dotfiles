@@ -220,6 +220,19 @@ autocmd FileType dts setlocal tabstop=8
 autocmd FileType dts setlocal shiftwidth=8
 autocmd FileType dts setlocal softtabstop=8
 
+" Dockerfiles
+autocmd BufNewFile,BufRead Dockerfile.* setfiletype dockerfile
+autocmd FileType dockerfile setlocal expandtab
+autocmd FileType dockerfile setlocal tabstop=4
+autocmd FileType dockerfile setlocal shiftwidth=4
+autocmd FileType dockerfile setlocal softtabstop=4
+
+" YAML
+autocmd FileType yaml setlocal expandtab
+autocmd FileType yaml setlocal tabstop=2
+autocmd FileType yaml setlocal shiftwidth=2
+autocmd FileType yaml setlocal softtabstop=2
+
 """ /language stuff
 
 
