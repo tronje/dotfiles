@@ -292,6 +292,7 @@ autocmd FileType rust let g:syntastic_rust_checkers = ['cargo']
 
 " latex
 autocmd FileType tex,latex let g:syntastic_auto_loc_list = 0
+let g:tex_flavor = 'latex'
 
 " html
 autocmd FileType html setlocal expandtab
