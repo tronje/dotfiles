@@ -62,7 +62,6 @@ Plug 'qpkorr/vim-bufkill'
 " Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/a.vim'
 Plug 'romainl/vim-qf'
-Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf.vim'
 
 " Completion
@@ -335,7 +334,7 @@ local on_attach = function(client, bufnr)
 
     -- Use a loop to conveniently call 'setup' on multiple servers and
     -- map buffer local keybindings when the language server attaches
-    local servers = { "rust_analyzer" }
+    local servers = { "rust_analyzer", "texlab", "dartls", "clangd" }
     for _, lsp in ipairs(servers) do
         nvim_lsp[lsp].setup {
             on_attach = on_attach,
@@ -458,16 +457,6 @@ if !exists("g:rainbow_active")
 endif
 autocmd FileType html :RainbowToggleOn
 """ /rainbow
-
-
-""" ale
-let g:ale_linters = {
-            \    'dart': ['language_server'],
-            \    'rust': ['rls'],
-            \ }
-let g:ale_rust_rls_toolchain = 'stable'
-let g:ale_sign_error = '⨉'
-let g:ale_sign_warning = '⚠'
 
 
 """ misc
