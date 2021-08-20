@@ -10,7 +10,7 @@ call plug#begin(expand('~/.config/nvim/plug'))
 
 " Language support
 Plug 'plasticboy/vim-markdown', {'depends': 'godlygeek/tabular'}
-Plug 'lervag/vim-latex'
+Plug 'lervag/vimtex'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
