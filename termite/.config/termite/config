@@ -1,45 +1,50 @@
 [options]
-#font = monospace 20
-#font = Input Mono 16
-font = Fira Mono 17
+font = Fira Mono 10
 scrollback_lines = 10000
 cursor_shape = ibeam
+clickable_url = false
 
 [colors]
-# special
-foreground      = #eff0eb
-foreground_bold = #eff0eb
-cursor          = #eff0eb
-background = #1d2021
+# hard contrast
+# background = #1d2021
 
-# black
-color0 = #000000
-color8 = #686868
+# medium contrast:
+background = #282828
 
-# red
-color1 = #f5525a
-color9 = #f5525a
+# soft contrast:
+# background = #32302f
 
-# green
-color2 = #5af552
-color10 = #5af552
+foreground = #fbf1c7
+foreground_bold = #ebdbb2
 
-# yellow
-color3 = #f5ee52
-color11 = #f5ee52
+# dark0 + gray
+color0 = #282828
+color8 = #928374
 
-# blue
-color4 = #52abf5
-color12 = #52abf5
+# neutral_red + bright_red
+color1 = #cc241d
+color9 = #fb4934
 
-# magenta
-color5 = #f552ab
-color13 = #f552ab
+# neutral_green + bright_green
+color2 = #98971a
+color10 = #b8bb26
 
-# cyan
-color6 = #52f5ee
-color14 = #52f5ee
+# neutral_yellow + bright_yellow
+color3 = #d79921
+color11 = #fabd2f
 
-# white
-color7 = #fcfbe8
-color15 = #fcfbe8
+# neutral_blue + bright_blue
+color4 = #458588
+color12 = #83a598
+
+# neutral_purple + bright_purple
+color5 = #b16286
+color13 = #d3869b
+
+# neutral_aqua + faded_aqua
+color6 = #689d6a
+color14 = #8ec07c
+
+# light4 + light1
+color7 = #a89984
+color15 = #ebdbb2

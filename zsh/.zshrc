@@ -11,8 +11,8 @@ fi
 # enables Vi mode when hitting ESC
 bindkey -v
 
-# autojump allows jumping to directories with 'j'
-source /usr/share/autojump/autojump.zsh
+# zoxide allows jumping to directories with 'z'
+eval "$(zoxide init zsh)"
 
 # this enables syntax highlighting, as the name suggests
 source /home/tronje/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -20,14 +20,15 @@ source /home/tronje/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # enable fzf keybindings
 # ^T is quite useful, in particular
 source /usr/share/fzf/key-bindings.zsh
-export FZF_CTRL_T_COMMAND="fd -H" # use fd with hidden files for this command
 
 # .alias.sh just contains some aliases, nothing fancy
 source /home/tronje/.alias.sh
 
+# enable friendly newdir script
+source /home/tronje/prj/newdir/newdir.sh
 
-export MAKEFLAGS="-j4"
-export LESS="-RI"
+
+export MAKEFLAGS="-j12"
 
 # history settings
 export HISTFILE=/home/tronje/.zsh_history
@@ -38,7 +39,7 @@ setopt HIST_EXPIRE_DUPS_FIRST
 
 autoload -U colors && colors
 
-eval $(dircolors ~/.dircolors)
+eval $(TERM=xterm-256color dircolors ~/.dircolors)
 
 function spectrum_ls () {
     for code in {000..255}; do
@@ -50,6 +51,28 @@ function glv () {
     git log $@ | nvim -R -
 }
 
+function reboot () {
+    read "rebootanswer?Are you sure? (y/n) "
+    if [[ $rebootanswer == 'y' ]]; then
+        echo "Rebooting..."
+        /bin/reboot
+    else
+        echo "Not rebooting."
+    fi
+}
+
+
+function kapa () {
+    if [ ! -d /nas/projects/9000-jusst-internal/02-project-management/resource-planning/`date +%Y` ]; then
+        sudo mount -a
+    fi
+
+    if [ -z $1 ]; then
+        evince /nas/projects/9000-jusst-internal/02-project-management/resource-planning/`date +%Y`/`date +%yW%V`-resource-planning.pdf
+    else
+        evince /nas/projects/9000-jusst-internal/02-project-management/resource-planning/`date +%Y`/`date +%yW$1`-resource-planning.pdf
+    fi
+}
 
 ## Prompt customization ##
 

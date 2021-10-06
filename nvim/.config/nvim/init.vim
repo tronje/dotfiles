@@ -10,26 +10,31 @@ call plug#begin(expand('~/.config/nvim/plug'))
 
 " Language support
 Plug 'plasticboy/vim-markdown', {'depends': 'godlygeek/tabular'}
-Plug 'lervag/vim-latex'
-"Plug 'pangloss/vim-javascript'
-"Plug 'othree/html5.vim'
-"Plug 'hail2u/vim-css3-syntax'
+Plug 'lervag/vimtex'
+Plug 'pangloss/vim-javascript'
+Plug 'othree/html5.vim'
+Plug 'hail2u/vim-css3-syntax'
 Plug 'rust-lang/rust.vim'
+Plug 'vim-jp/vim-cpp'
 Plug 'octol/vim-cpp-enhanced-highlight'
-" Plug 'fatih/vim-go'
+"Plug 'fatih/vim-go'
 Plug 'cespare/vim-toml'
 "Plug 'neovimhaskell/haskell-vim'
-Plug 'elmcast/elm-vim'
+"Plug 'elmcast/elm-vim'
 Plug 'mitsuhiko/vim-python-combined'
+"Plug 'vim-scripts/django.vim'
 Plug 'tronje/python.vim'
-Plug 'vim-scripts/django.vim'
 Plug 'solarnz/thrift.vim'
+Plug 'kergoth/vim-bitbake'
 Plug 'vim-jp/vim-cpp'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'matze/vim-meson'
 Plug 'tronje/kernel.vim'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'tronje/dart.vim'
+Plug 'lifepillar/pgsql.vim'
+Plug 'kergoth/vim-bitbake'
+Plug 'jparise/vim-graphql'
 
 " Looks
 Plug 'bling/vim-airline'
@@ -55,18 +60,15 @@ Plug 'rhysd/vim-clang-format'
 Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
 Plug 'qpkorr/vim-bufkill'
-Plug 'majutsushi/tagbar'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'nixprime/cpsm', {'do': './install.sh'}
-Plug 'tacahiroy/ctrlp-funky'
+" Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/a.vim'
 Plug 'romainl/vim-qf'
-Plug 'w0rp/ale'
+Plug 'junegunn/fzf.vim'
+Plug 'mbbill/undotree'
 
 " Completion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' }
-Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
 
 call plug#end()
 
@@ -162,6 +164,10 @@ autocmd FileType git nmap K
             \ gg0d_
             \ :setlocal nomodifiable<CR>
             \ :setlocal filetype=git<CR>
+autocmd FileType git let &titlestring="Git"
+
+" turn on spellcheck for git commits
+autocmd FileType gitcommit set spell
 
 " set :grep command to ripgrep
 set grepprg=rg\ --vimgrep
@@ -186,6 +192,12 @@ autocmd FileType c setlocal tabstop=8
 autocmd FileType c setlocal shiftwidth=8
 autocmd FileType c setlocal softtabstop=8
 
+" c++
+autocmd FileType cpp setlocal noexpandtab
+autocmd FileType cpp setlocal tabstop=4
+autocmd FileType cpp setlocal shiftwidth=4
+autocmd FileType cpp setlocal softtabstop=4
+
 " rust
 autocmd FileType rust setlocal colorcolumn=""
 autocmd FileType rust setlocal colorcolumn=100
@@ -196,6 +208,17 @@ autocmd FileType dart setlocal tabstop=2
 autocmd FileType dart setlocal shiftwidth=2
 autocmd FileType dart setlocal softtabstop=2
 autocmd FileType dart RainbowToggleOn
+autocmd BufWritePre *.dart DartFmt
+
+" arb
+autocmd BufNewFile,BufRead *.arb setlocal filetype=json
+
+" device tree
+autocmd FileType dts setlocal noexpandtab
+autocmd FileType dts setlocal tabstop=8
+autocmd FileType dts setlocal shiftwidth=8
+autocmd FileType dts setlocal softtabstop=8
+
 """ /language stuff
 
 
@@ -252,9 +275,18 @@ let g:python_highlight_builtins = 1
 
 " rust
 autocmd FileType rust let g:syntastic_rust_checkers = ['cargo']
+let g:rustfmt_autosave = 1
 
 " latex
 autocmd FileType tex,latex let g:syntastic_auto_loc_list = 0
+
+" html
+autocmd FileType html setlocal expandtab
+autocmd FileType html setlocal tabstop=2
+autocmd FileType html setlocal shiftwidth=2
+autocmd FileType jinja.html setlocal expandtab
+autocmd FileType jinja.html setlocal tabstop=2
+autocmd FileType jinja.html setlocal shiftwidth=2
 
 "" eye candy
 let g:syntastic_error_symbol = '✘'
@@ -264,31 +296,81 @@ let g:syntastic_style_warning_symbol = '‽'
 """ /syntastic
 
 
-""" deoplete
+""" nvim-lsp / compe
+lua << EOF
+local nvim_lsp = require'lspconfig'
+
+local on_attach = function(client, bufnr)
+    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+    -- Mappings.
+    local opts = { noremap=true, silent=true }
+
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+
+    end
+
+    -- Use a loop to conveniently call 'setup' on multiple servers and
+    -- map buffer local keybindings when the language server attaches
+    local servers = { "rust_analyzer", "texlab", "dartls", "clangd" }
+    for _, lsp in ipairs(servers) do
+        nvim_lsp[lsp].setup {
+            on_attach = on_attach,
+            flags = {
+                debounce_text_changes = 150,
+                }
+            }
+end
+EOF
+
 " auto completion stuff
-set ofu=syntaxcomplete#Complete
 set complete+=k         " enable dictionary completion
-set completeopt=menuone,menu,longest,preview
+set completeopt=menuone,noselect
 
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#disable_auto_complete = 0
-let g:deoplete#sources#rust#racer_binary='/home/tronje/.cargo/bin/racer'
-let g:deoplete#sources#rust#rust_source_path='/home/tronje/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
-
-" inoremap <silent><expr> <TAB> deoplete#mappings#manual_complete()
-inoremap <silent><expr> <TAB>
-            \ pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ deoplete#mappings#manual_complete()
-function! s:check_back_space() abort "{{{
+function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~ '\s'
-endfunction"}}}
+endfunction
 
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ compe#complete()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-""" /deoplete
+
+let g:compe = {}
+let g:compe.enabled = v:true
+let g:compe.autocomplete = v:true
+let g:compe.debug = v:false
+let g:compe.min_length = 1
+let g:compe.preselect = 'enable'
+let g:compe.throttle_time = 80
+let g:compe.source_timeout = 200
+let g:compe.resolve_timeout = 800
+let g:compe.incomplete_delay = 400
+let g:compe.max_abbr_width = 100
+let g:compe.max_kind_width = 100
+let g:compe.max_menu_width = 100
+let g:compe.documentation = v:true
+
+let g:compe.source = {}
+let g:compe.source.path = v:true
+let g:compe.source.buffer = v:true
+let g:compe.source.calc = v:false
+let g:compe.source.nvim_lsp = v:true
+let g:compe.source.nvim_lua = v:true
+let g:compe.source.vsnip = v:false
+let g:compe.source.ultisnips = v:false
+let g:compe.source.luasnip = v:false
+let g:compe.source.emoji = v:false
+""" /nvim-lsp / compe
 
 
 """ vim-latex-live-preview
@@ -303,43 +385,36 @@ inoremap <silent> <F6> <esc>:NERDTreeToggle<CR>a
 
 
 """ Tagbar
-nmap <F8> :TagbarToggle<CR>
-
-let g:tagbar_type_rust = {
-            \ 'ctagstype' : 'rust',
-            \ 'kinds' : [
-            \'T:types,type definitions',
-            \'f:functions,function definitions',
-            \'g:enum,enumeration names',
-            \'s:structure names',
-            \'m:modules,module names',
-            \'c:consts,static constants',
-            \'t:traits',
-            \'i:impls,trait implementations',
-            \]
-            \}
+" nmap <F8> :TagbarToggle<CR>
+"
+" let g:tagbar_type_rust = {
+"             \ 'ctagstype' : 'rust',
+"             \ 'kinds' : [
+"             \'T:types,type definitions',
+"             \'f:functions,function definitions',
+"             \'g:enum,enumeration names',
+"             \'s:structure names',
+"             \'m:modules,module names',
+"             \'c:consts,static constants',
+"             \'t:traits',
+"             \'i:impls,trait implementations',
+"             \]
+"             \}
 """ /Tagbar
 
 
-""" CtrlP
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_user_command = 'rg %s --files -i --color=never --glob ''!.git'' --glob ''!.DS_Store'' --glob ''!node_modules'' --hidden --no-messages -g ""'
-let g:ctrlp_extensions = ['funky']
-let g:ctrlp_use_caching = 0
+""" FZF
 
-" ctrlp's buffer search
-nnoremap <C-b> :CtrlPBuffer<cr>
+" GFiles searches only files checked into git
+nnoremap <silent> <C-p> :GFiles --recurse-submodules<CR>
 
-" cpsm
-let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
+" FZF's buffer search
+nnoremap <C-b> :Buffers<CR>
 
-" ctrlp-funky
-nnoremap <C-l> :CtrlPFunky<cr>
-let g:ctrlp_funky_matchtype = 'path'
-let g:ctrlp_funky_syntax_highlight = 1
-""" /CtrlP
+" FZF's line search of current buffer
+nnoremap <C-l> :BLines<CR>
+
+""" /FZF
 
 
 """ a.vim
@@ -349,29 +424,29 @@ nmap <silent> <C-a> :A<cr>
 
 """ vim-cpp-enhanced-highlight
 let g:cpp_class_scope_highlight = 1
-let g:cpp_experimental_template_highlight = 1
+let g:cpp_experimental_template_highlight = 0
 let g:cpp_no_function_highlight = 0
 """ /vim-cpp-enhanced-highlight
 
 
 """ rainbow
-let g:rainbow_active = 0 " disable by default
+if !exists("g:rainbow_active")
+    let g:rainbow_active = 0 " disable by default
+endif
 autocmd FileType html :RainbowToggleOn
 """ /rainbow
 
 
-""" ale
-let g:ale_linters = {
-            \    'dart': ['language_server'],
-            \    'rust': ['rls'],
-            \ }
-let g:ale_rust_rls_toolchain = 'stable'
-let g:ale_sign_error = '⨉'
-let g:ale_sign_warning = '⚠'
 
-" disable ALE in CtrlP windows
-autocmd BufEnter ControlP let b:ale_enabled = 0
-""" /ale
+""" pgsql
+let g:sql_type_default = 'pgsql'
+""" /pgsql
+
+
+""" undotree
+nnoremap <silent> <F5> :UndotreeToggle<CR>
+inoremap <silent> <F5> <esc>:UndotreeToggle<CR>a
+""" /undotree
 
 
 """ misc
@@ -399,21 +474,6 @@ autocmd FileType python let python_highlight_space_errors = 1
 autocmd FileType python let python_slow_sync = 1
 autocmd Filetype tex,latex :set dictionary=~/.vim/dict/latex.dict
 
-" email editing using Goyo
-au Filetype mail setlocal textwidth=0
-au Filetype mail setlocal wrapmargin=0
-au Filetype mail setlocal linebreak
-au Filetype mail setlocal nobreakindent
-au Filetype mail setlocal showbreak=
-au FileType mail Goyo | 6
-
-" when leaving Goyo, leave vim as well
-function! s:goyo_leave()
-    :q
-endfunction
-
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
 
 " cycle through buffers
 nmap <silent> <tab> :bnext<CR>
@@ -426,5 +486,11 @@ nmap <silent> <s-tab> :bprevious<CR>
 " map <PageDown> <Nop>
 " imap <PageUp> <Nop>
 " imap <PageDown> <Nop>
+
+
+" persist undo information
+" TODO can't decide if I really want this
+" set undofile
+" set undodir=~/.config/nvim/undo//
 
 """ the end
