@@ -231,6 +231,12 @@ autocmd FileType yaml setlocal tabstop=2
 autocmd FileType yaml setlocal shiftwidth=2
 autocmd FileType yaml setlocal softtabstop=2
 
+" systemd
+autocmd BufNewFile,BufRead *.service setlocal filetype=systemd
+autocmd BufNewFile,BufRead *.target setlocal filetype=systemd
+autocmd BufNewFile,BufRead *.timer setlocal filetype=systemd
+autocmd BufNewFile,BufRead *.unit setlocal filetype=systemd
+
 """ /language stuff
 
 
