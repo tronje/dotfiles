@@ -70,8 +70,8 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 
 " custom
-Plug 'git@gitlab.ms.jusst.de:tronje.krabbe/nsdk.vim'
-Plug 'git@gitlab.ms.jusst.de:tronje.krabbe/aldrin.vim'
+Plug '~/prj/nsdk.vim'
+Plug '~/prj/aldrin.vim'
 
 call plug#end()
 
