@@ -23,6 +23,9 @@ export npm_config_prefix=/home/tronje/.node_modules
 # make xz use all available cores for parallelization
 export XZ_DEFAULTS=-T0
 
+# SSH agent socket location
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 # Ensure that a non-login, non-interactive shell has a defined environment.
 if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
