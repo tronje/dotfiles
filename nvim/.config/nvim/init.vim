@@ -53,7 +53,6 @@ Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-" Plug 'scrooloose/syntastic'
 Plug 'xuhdev/vim-latex-live-preview', { 'for':'tex' }
 Plug 'rhysd/vim-clang-format'
 Plug 'godlygeek/tabular'
@@ -188,7 +187,7 @@ nnoremap <leader>/ :Rg <C-r><C-w><CR>
 """ /basics
 
 
-""" lanuage stuff
+""" language stuff
 " c
 autocmd BufNewFile,BufRead *.h setlocal filetype=c
 autocmd FileType c setlocal noexpandtab
@@ -205,11 +204,13 @@ autocmd FileType cpp setlocal softtabstop=4
 " rust
 autocmd FileType rust setlocal colorcolumn=""
 autocmd FileType rust setlocal colorcolumn=100
+let g:rustfmt_autosave = 1
 
 " python
 autocmd FileType python setlocal colorcolumn=""
 autocmd FileType python setlocal colorcolumn=88
 autocmd BufWritePre *.py Black
+let g:python_highlight_builtins = 1
 
 " dart
 autocmd FileType dart setlocal expandtab
@@ -243,6 +244,17 @@ autocmd BufNewFile,BufRead *.service setlocal filetype=systemd
 autocmd BufNewFile,BufRead *.target setlocal filetype=systemd
 autocmd BufNewFile,BufRead *.timer setlocal filetype=systemd
 autocmd BufNewFile,BufRead *.unit setlocal filetype=systemd
+
+" latex
+let g:tex_flavor = 'latex'
+
+" html
+autocmd FileType html setlocal expandtab
+autocmd FileType html setlocal tabstop=2
+autocmd FileType html setlocal shiftwidth=2
+autocmd FileType jinja.html setlocal expandtab
+autocmd FileType jinja.html setlocal tabstop=2
+autocmd FileType jinja.html setlocal shiftwidth=2
 
 """ /language stuff
 
@@ -279,47 +291,6 @@ let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#left_alt_sep = ''
 """ /vim-airline
-
-
-""" syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-
-autocmd FileType c let g:syntastic_auto_loc_list = 0
-
-"" language-specific stuff
-" python
-let g:syntastic_python_checkers = ['flake8', 'python']
-let g:python_highlight_builtins = 1
-
-" rust
-autocmd FileType rust let g:syntastic_rust_checkers = ['cargo']
-let g:rustfmt_autosave = 1
-
-" latex
-autocmd FileType tex,latex let g:syntastic_auto_loc_list = 0
-let g:tex_flavor = 'latex'
-
-" html
-autocmd FileType html setlocal expandtab
-autocmd FileType html setlocal tabstop=2
-autocmd FileType html setlocal shiftwidth=2
-autocmd FileType jinja.html setlocal expandtab
-autocmd FileType jinja.html setlocal tabstop=2
-autocmd FileType jinja.html setlocal shiftwidth=2
-
-"" eye candy
-let g:syntastic_error_symbol = '✘'
-let g:syntastic_style_error_symbol = '!'
-let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_style_warning_symbol = '‽'
-""" /syntastic
 
 
 """ nvim-lsp / compe
