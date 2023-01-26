@@ -334,7 +334,7 @@ nvim_lsp.pylsp.setup {
         pylsp = {
             plugins = {
                 pycodestyle = {
-                    enabled = false
+                    ignore = {'E501'}
                     }
                 }
             }
