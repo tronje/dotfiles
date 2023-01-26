@@ -315,31 +315,31 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
     buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
     buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+end
 
-    -- Use a loop to conveniently call 'setup' on multiple servers and
-    -- map buffer local keybindings when the language server attaches
-    local servers = { "rust_analyzer", "texlab", "dartls", "clangd", "pylsp" }
-    for _, lsp in ipairs(servers) do
-        nvim_lsp[lsp].setup {
-            on_attach = on_attach,
-            flags = {
-                debounce_text_changes = 150,
-                }
+-- Use a loop to conveniently call 'setup' on multiple servers and
+-- map buffer local keybindings when the language server attaches
+local servers = { "rust_analyzer", "texlab", "dartls", "clangd", "pylsp" }
+for _, lsp in ipairs(servers) do
+    nvim_lsp[lsp].setup {
+        on_attach = on_attach,
+        flags = {
+            debounce_text_changes = 150,
             }
-    end
+        }
+end
 
-    nvim_lsp.pylsp.setup {
-        settings = {
-            pylsp = {
-                plugins = {
-                    pycodestyle = {
-                        enable = false
-                        }
+nvim_lsp.pylsp.setup {
+    settings = {
+        pylsp = {
+            plugins = {
+                pycodestyle = {
+                    enable = false
                     }
                 }
             }
         }
-end
+    }
 EOF
 
 " auto completion stuff
