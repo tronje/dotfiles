@@ -210,6 +210,11 @@ autocmd FileType rust setlocal colorcolumn=100
 autocmd FileType cpp setlocal colorcolumn=""
 autocmd FileType cpp setlocal colorcolumn=100
 
+" python
+autocmd FileType python setlocal colorcolumn=""
+autocmd FileType python setlocal colorcolumn=88
+autocmd BufWritePre *.py Black
+
 " dart
 autocmd FileType dart setlocal expandtab
 autocmd FileType dart setlocal tabstop=2
@@ -320,11 +325,9 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
     buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
 
-    end
-
     -- Use a loop to conveniently call 'setup' on multiple servers and
     -- map buffer local keybindings when the language server attaches
-    local servers = { "rust_analyzer", "texlab", "dartls", "clangd" }
+    local servers = { "rust_analyzer", "texlab", "dartls", "clangd", "pylsp" }
     for _, lsp in ipairs(servers) do
         nvim_lsp[lsp].setup {
             on_attach = on_attach,
@@ -332,6 +335,19 @@ local on_attach = function(client, bufnr)
                 debounce_text_changes = 150,
                 }
             }
+    end
+
+    nvim_lsp.pylsp.setup {
+        settings = {
+            pylsp = {
+                plugins = {
+                    pycodestyle = {
+                        enable = false
+                        }
+                    }
+                }
+            }
+        }
 end
 EOF
 
