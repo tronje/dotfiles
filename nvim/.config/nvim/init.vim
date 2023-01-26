@@ -327,7 +327,7 @@ nvim_lsp.pylsp.setup {
         pylsp = {
             plugins = {
                 pycodestyle = {
-                    enable = false
+                    enabled = false
                     }
                 }
             }
