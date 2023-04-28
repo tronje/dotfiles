@@ -204,6 +204,9 @@ autocmd FileType cpp setlocal softtabstop=4
 " rust
 autocmd FileType rust setlocal colorcolumn=""
 autocmd FileType rust setlocal colorcolumn=100
+" Fix semantic highlighting for doc comments
+" (it's highlighted as just a regular comment by default)
+hi! link @lsp.typemod.comment.documentation.rust GruvboxOrange
 let g:rustfmt_autosave = 1
 
 " python
