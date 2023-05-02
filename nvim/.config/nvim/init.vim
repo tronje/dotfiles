@@ -54,7 +54,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 " Plug 'scrooloose/syntastic'
-Plug 'xuhdev/vim-latex-live-preview', { 'for':'tex' }
+" Plug 'xuhdev/vim-latex-live-preview', { 'for':'tex' }
 Plug 'rhysd/vim-clang-format'
 Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
@@ -375,7 +375,7 @@ let g:compe.source.emoji = v:false
 
 
 """ vim-latex-live-preview
-let g:livepreview_previewer = 'evince'
+" let g:livepreview_previewer = 'evince'
 """ /vim-latex-live-preview
 
 
