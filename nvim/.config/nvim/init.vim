@@ -34,6 +34,7 @@ Plug 'tronje/dart.vim'
 Plug 'lifepillar/pgsql.vim'
 Plug 'kergoth/vim-bitbake'
 Plug 'jparise/vim-graphql'
+Plug 'pest-parser/pest.vim'
 
 " Looks
 Plug 'bling/vim-airline'
