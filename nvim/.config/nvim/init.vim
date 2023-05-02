@@ -480,7 +480,7 @@ autocmd FileType git call clearmatches()
 autocmd FileType python let python_highlight_all = 1
 autocmd FileType python let python_highlight_space_errors = 1
 autocmd FileType python let python_slow_sync = 1
-autocmd Filetype tex,latex :set dictionary=~/.vim/dict/latex.dict
+" autocmd Filetype tex,latex :set dictionary=~/.vim/dict/latex.dict
 
 
 " cycle through buffers
