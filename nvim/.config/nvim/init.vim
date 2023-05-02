@@ -206,6 +206,10 @@ autocmd FileType cpp setlocal softtabstop=4
 autocmd FileType rust setlocal colorcolumn=""
 autocmd FileType rust setlocal colorcolumn=100
 
+" c++
+autocmd FileType cpp setlocal colorcolumn=""
+autocmd FileType cpp setlocal colorcolumn=100
+
 " dart
 autocmd FileType dart setlocal expandtab
 autocmd FileType dart setlocal tabstop=2
