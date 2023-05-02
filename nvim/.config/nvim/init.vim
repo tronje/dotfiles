@@ -183,6 +183,8 @@ tnoremap <Esc> <C-\><C-n>
 nnoremap <leader>ok a <C-k>OK<Esc>
 
 nnoremap <leader>/ :Rg <C-r><C-w><CR>
+
+nnoremap <C-m> :make <CR>
 """ /basics
 
 
