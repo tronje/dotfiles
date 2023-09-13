@@ -20,8 +20,7 @@ for_window [class="Media_Center_24"] floating enable
 
 for_window [class="1Password"] floating enable
 
-# temp fix, should no longer be necessary in next i3 release
-for_window [class="Alacritty"] border pixel 3
+for_window [app_id="ulauncher"] border none
 
 #scratchpad
 bindsym $mod+z move scratchpad
