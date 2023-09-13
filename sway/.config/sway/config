@@ -145,6 +145,11 @@ bar {
     position top
 }
 
+input * {
+    xkb_layout "us"
+    xkb_variant "altgr-intl"
+}
+
 # hard-code workspaces to screens
 # odd-numbered screens on HDMI-0
 # even-numbered screens on DVI-D-0
