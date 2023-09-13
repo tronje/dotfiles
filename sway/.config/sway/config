@@ -34,7 +34,10 @@ bindsym $mod+Shift+Return exec thunar
 # kill focused window
 bindsym $mod+q kill
 
-bindsym $mod+d exec ulauncher
+# TODO try ulauncher again once it's no longer broken beyond imagination
+# bindsym $mod+d exec ulauncher-toggle
+bindsym $mod+d exec rofi -theme /usr/share/rofi/themes/gruvbox-dark-soft.rasi -show combi
+bindsym $mod+Shift+D exec rofi -theme /usr/share/rofi/themes/gruvbox-dark-soft.rasi -show calc
 
 # change focus
 bindsym $mod+h focus left
