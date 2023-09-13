@@ -1,0 +1,171 @@
+set $mod Mod4
+
+font pango: FiraMono Nerd Font 12
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# go back to last workspace when 'switching' to current workspace
+workspace_auto_back_and_forth yes
+
+# border settings
+# hide_edge_borders smart
+default_border pixel 3
+
+# individual border settings
+for_window [class="matplotlib"] floating enable
+
+# stupid JRiver crap
+for_window [class="Media_Center_24"] floating enable
+
+for_window [class="1Password"] floating enable
+
+# temp fix, should no longer be necessary in next i3 release
+for_window [class="Alacritty"] border pixel 3
+
+#scratchpad
+bindsym $mod+z move scratchpad
+bindsym $mod+a scratchpad show
+
+
+#background change
+# start a terminal
+bindsym $mod+Return exec alacritty
+bindsym $mod+Shift+Return exec thunar
+# kill focused window
+bindsym $mod+q kill
+
+bindsym $mod+d exec ulauncher
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+H move left
+bindsym $mod+Shift+J move down
+bindsym $mod+Shift+K move up
+bindsym $mod+Shift+L move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+p split h
+
+# split in vertical orientation
+bindsym $mod+o split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, default)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+#bindsym $mod+e layout toggle
+
+# toggle tiling / floating
+bindsym $mod+space floating toggle
+# change focus between tiling / floating windows
+
+# next/previous workspace
+bindsym $mod+Tab workspace back_and_forth
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+
+# reload the configuration file
+bindsym $mod+Shift+C reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+R restart
+# exit i3 (logs you out of your X session)
+#bindsym $mod+Shift+E exit
+
+# exit sway
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+popup_during_fullscreen leave_fullscreen
+
+# multimedia
+bindsym XF86AudioPlay        exec playerctl play-pause
+bindsym XF86AudioNext        exec playerctl next
+bindsym XF86AudioPrev        exec playerctl previous
+bindsym XF86AudioLowerVolume exec playerctl volume 0.05-
+bindsym XF86AudioRaiseVolume exec playerctl volume 0.05+
+
+# bindsym XF86AudioMute        exec ponymix toggle && pkill -RTMIN+1 i3blocks
+# bindsym XF86AudioLowerVolume exec ponymix decrease 5 && pkill -RTMIN+1 i3blocks
+# bindsym XF86AudioRaiseVolume exec ponymix increase 5 && pkill -RTMIN+1 i3blocks
+
+bindsym XF86MonBrightnessUp   exec xbacklight -inc 5 && pkill -RTMIN+2 i3blocks
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 && pkill -RTMIN+2 i3blocks
+
+# colors
+# name                  border   background  text     indicator  child border
+client.focused          #fcfbe3  #cef59e     #222222  #c49df5    #fcfbe3
+client.focused_inactive #979688  #969788     #393939
+client.unfocused        #979688  #979688     #393939
+client.urgent           #fcefe3  #fcefe3     #111111
+
+bar {
+    swaybar_command waybar
+    position top
+    # font FiraMono Nerd Font 10
+
+   #  colors {
+   #      background #333330
+   #      statusline #ffffff
+   #
+   #      focused_workspace  #333330 #fcfbe3 #333330
+   #      active_workspace   #333330 #333330 #fcfbe3
+   #      inactive_workspace #333330 #333330 #fcfbe3
+   #      urgent_workspace   #333330 #333330 #dc143c
+   # }
+}
+
+# hard-code workspaces to screens
+# odd-numbered screens on HDMI-0
+# even-numbered screens on DVI-D-0
+# workspace "1" output HDMI-0
+# workspace "3" output HDMI-0
+# workspace "5" output HDMI-0
+# workspace "7" output HDMI-0
+# workspace "9" output HDMI-0
+# workspace "2" output DVI-D-0
+# workspace "4" output DVI-D-0
+# workspace "6" output DVI-D-0
+# workspace "8" output DVI-D-0
+
+# autostart
+output "*" bg /home/tronje/pics/wallpapers/wallpaper_abstract_shapes.jpg fill
