@@ -143,17 +143,6 @@ client.urgent           #fcefe3  #fcefe3     #111111
 bar {
     swaybar_command waybar
     position top
-    # font FiraMono Nerd Font 10
-
-   #  colors {
-   #      background #333330
-   #      statusline #ffffff
-   #
-   #      focused_workspace  #333330 #fcfbe3 #333330
-   #      active_workspace   #333330 #333330 #fcfbe3
-   #      inactive_workspace #333330 #333330 #fcfbe3
-   #      urgent_workspace   #333330 #333330 #dc143c
-   # }
 }
 
 # hard-code workspaces to screens
