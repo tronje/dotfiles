@@ -162,4 +162,9 @@ input * {
 # workspace "8" output DVI-D-0
 
 # autostart
-output "*" bg /home/tronje/pics/wallpapers/wallpaper_abstract_shapes.jpg fill
+output "*" bg /home/tronje/pics/wallpapers/gruvbox_jusst.png fill
+exec dunst
+exec swayidle -w \
+    timeout 300 'swaylock' \
+    timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock'
