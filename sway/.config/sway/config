@@ -133,10 +133,10 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5 && pkill -RTMIN+2 i3blocks
 
 # colors
 # name                  border   background  text     indicator  child border
-client.focused          #fcfbe3  #cef59e     #222222  #c49df5    #fcfbe3
-client.focused_inactive #979688  #969788     #393939
-client.unfocused        #979688  #979688     #393939
-client.urgent           #fcefe3  #fcefe3     #111111
+client.focused          #ebdbb2  #8ec07c     #1d2021  #d3869b    #ebdbb2
+client.focused_inactive #a89984  #a89984     #282828
+client.unfocused        #928374  #928374     #282828
+client.urgent           #fb4934  #fb4934     #1d2021
 
 bar {
     swaybar_command waybar
