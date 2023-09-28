@@ -5,9 +5,9 @@
     // "width": 1280, // Waybar width
     "spacing": 10, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "custom/media"],
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "disk", "clock", "tray"],
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "disk", "clock", "custom/lock", "tray"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -43,6 +43,10 @@
         "format-icons": ["", ""],
         "tooltip": true,
         "tooltip-format": "{app}: {title}"
+    },
+    "sway/window": {
+        "max-length": 50,
+        "format": "{title}"
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
@@ -83,11 +87,11 @@
     },
     "clock": {
         // "timezone": "America/New_York",
-        "format": " {:%H:%M :%d.%m.%Y}",
+        "format": " {:%H:%M  %d.%m.%Y}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "{usage}%  ",
         "tooltip": false
     },
     "memory": {
@@ -95,7 +99,7 @@
     },
     "temperature": {
         // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
@@ -152,19 +156,20 @@
         "on-click": "pavucontrol"
     },
     "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
+        "format": " {}",
         "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
         "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+        "interval": 5,
+        "exec-if": "/usr/bin/playerctl -p spotify status",
+        "exec": "$HOME/.config/waybar/playerctl.sh",
+        "on-click": "/usr/bin/playerctl play-pause"
     },
     "disk": {
         "interval": 60,
         "format": "{free} free"
+    },
+    "custom/lock": {
+        "format": "",
+        "on-click": "swaylock"
     }
 }
