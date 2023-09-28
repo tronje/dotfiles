@@ -1,6 +1,6 @@
 set $mod Mod4
 
-font pango: FiraMono Nerd Font 12
+font pango: FiraMono Nerd Font Medium 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -10,7 +10,7 @@ workspace_auto_back_and_forth yes
 
 # border settings
 # hide_edge_borders smart
-default_border pixel 3
+default_border pixel 5
 
 # individual border settings
 for_window [class="matplotlib"] floating enable
