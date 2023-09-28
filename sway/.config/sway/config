@@ -109,10 +109,8 @@ bindsym $mod+Shift+9 move container to workspace 9
 
 # reload the configuration file
 bindsym $mod+Shift+C reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+R restart
-# exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+E exit
+# sway can't restart, so bind mod+shift+r to also reload... why not
+bindsym $mod+Shift+R reload
 
 # exit sway
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
