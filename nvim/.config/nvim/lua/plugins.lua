@@ -1,6 +1,6 @@
 local Plug = vim.fn['plug#']
 
-vim.call('plug#begin', vim.fn.expand('~/.config/nvim/plug'))
+vim.fn['plug#begin'](vim.fn.expand('~/.config/nvim/plug'))
 
 -- Language support
 Plug('plasticboy/vim-markdown', {depends = 'godlygeek/tabular'})
@@ -55,7 +55,7 @@ Plug('~/prj/nsdk.vim')
 Plug('~/prj/aldrin.vim')
 Plug('~/prj/kernel.vim')
 
-vim.call('plug#end')
+vim.fn['plug#end']()
 
 -- Required:
 vim.cmd.filetype('plugin', 'indent', 'on')
