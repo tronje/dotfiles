@@ -44,7 +44,9 @@ Plug('jiangmiao/auto-pairs')
 Plug('qpkorr/vim-bufkill')
 Plug('vim-scripts/a.vim')
 Plug('romainl/vim-qf')
-Plug('junegunn/fzf.vim')
+Plug('nvim-lua/plenary.nvim')
+Plug('nvim-telescope/telescope-fzf-native.nvim')
+Plug('nvim-telescope/telescope.nvim', { branch = '0.1.x' })
 
 -- Completion
 Plug('neovim/nvim-lspconfig')

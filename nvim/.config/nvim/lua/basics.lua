@@ -66,9 +66,6 @@ vim.keymap.set('n', '<s-tab>', ':bprevious<CR>', { silent = true })
 -- insert a checkmark with ,ok
 vim.keymap.set('n', '<leader>ok', 'a<C-k>OK<ESC>')
 
--- use FZF's :Rg to search for word under cursor with ,/
-vim.keymap.set('n', '<leader>/', ':Rg <C-r><C-w><CR>')
-
 -- use Ctrl-a to open header file for current buffer
 vim.keymap.set('n', '<C-a>', ':A<CR>')
 
