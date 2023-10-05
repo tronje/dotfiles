@@ -47,6 +47,8 @@ Plug('romainl/vim-qf')
 Plug('nvim-lua/plenary.nvim')
 Plug('nvim-telescope/telescope-fzf-native.nvim')
 Plug('nvim-telescope/telescope.nvim', { branch = '0.1.x' })
+Plug('rmagatti/auto-session')
+Plug('rmagatti/session-lens')
 
 -- Completion
 Plug('neovim/nvim-lspconfig')
