@@ -3,7 +3,7 @@ local Plug = vim.fn['plug#']
 vim.fn['plug#begin'](vim.fn.expand('~/.config/nvim/plug'))
 
 -- Language support
-Plug('plasticboy/vim-markdown', {depends = 'godlygeek/tabular'})
+Plug('plasticboy/vim-markdown')
 Plug('lervag/vim-latex')
 Plug('pangloss/vim-javascript')
 Plug('othree/html5.vim')
