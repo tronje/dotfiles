@@ -121,8 +121,10 @@ popup_during_fullscreen leave_fullscreen
 bindsym XF86AudioPlay        exec playerctl play-pause
 bindsym XF86AudioNext        exec playerctl next
 bindsym XF86AudioPrev        exec playerctl previous
-bindsym XF86AudioLowerVolume exec playerctl volume 0.05-
-bindsym XF86AudioRaiseVolume exec playerctl volume 0.05+
+bindsym XF86AudioLowerVolume exec pamixer -d 5
+bindsym XF86AudioRaiseVolume exec pamixer -i 5
+bindsym XF86AudioMute        exec pamixer -t
+bindsym XF86AudioMicMute     exec pamixer --default-source -t
 
 # bindsym XF86AudioMute        exec ponymix toggle && pkill -RTMIN+1 i3blocks
 # bindsym XF86AudioLowerVolume exec ponymix decrease 5 && pkill -RTMIN+1 i3blocks
