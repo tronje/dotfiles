@@ -163,8 +163,11 @@ input * {
 # workspace "6" output DVI-D-0
 # workspace "8" output DVI-D-0
 
+# HiDPI support
+output eDP-1 scale 1
+output eDP-1 bg /home/tronje/pics/wallpapers/solar_system/jupiter.png fill
+
 # autostart
-output "*" bg /home/tronje/pics/wallpapers/gruvbox_jusst.png fill
 exec dunst
 exec swayidle -w \
     timeout 300 'swaylock' \
