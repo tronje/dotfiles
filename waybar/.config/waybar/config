@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "disk", "clock", "custom/lock", "tray"],
+    "modules-right": ["pulseaudio", "network", "clock", "clock#date", "battery", "battery#bat2", "custom/lock", "tray"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -86,8 +86,10 @@
         "spacing": 10
     },
     "clock": {
-        // "timezone": "America/New_York",
-        "format": " {:%H:%M  %d.%m.%Y}",
+        "format": "{:%H:%M}"
+    },
+    "clock#date": {
+        "format": "{:%d.%m.%Y}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "cpu": {
