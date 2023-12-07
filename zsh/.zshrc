@@ -62,6 +62,9 @@ function reboot () {
     fi
 }
 
+function clog () {
+    ~/.local/bin/clog $@ | less
+}
 
 function kapa () {
     if [ ! -d /nas/projects/9000-jusst-internal/02-project-management/resource-planning/`date +%Y` ]; then
