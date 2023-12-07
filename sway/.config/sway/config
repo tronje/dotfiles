@@ -130,8 +130,8 @@ bindsym XF86AudioMicMute     exec pamixer --default-source -t
 # bindsym XF86AudioLowerVolume exec ponymix decrease 5 && pkill -RTMIN+1 i3blocks
 # bindsym XF86AudioRaiseVolume exec ponymix increase 5 && pkill -RTMIN+1 i3blocks
 
-bindsym XF86MonBrightnessUp   exec xbacklight -inc 5 && pkill -RTMIN+2 i3blocks
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 && pkill -RTMIN+2 i3blocks
+bindsym XF86MonBrightnessUp   exec brightnessctl set 5%+
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 # colors
 # name                  border   background  text     indicator  child border
