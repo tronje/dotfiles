@@ -50,8 +50,3 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 # unlock ssh key
 #eval `ssh-agent`
 #ssh-add /home/tronje/.ssh/id_rsa
-
-# auto start xinit on login
-if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-  exec startx
-fi
