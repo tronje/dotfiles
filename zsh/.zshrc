@@ -39,7 +39,7 @@ setopt HIST_EXPIRE_DUPS_FIRST
 
 autoload -U colors && colors
 
-eval $(TERM=xterm-256color dircolors ~/.dircolors)
+eval $(dircolors ~/.dircolors)
 
 function spectrum_ls () {
     for code in {000..255}; do
