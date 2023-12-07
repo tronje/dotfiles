@@ -62,6 +62,13 @@ function reboot () {
 }
 
 
+function cargo-tmp () {
+    local crate=$(friendly-animal)
+    cd $TMPDIR
+    cargo new --bin --vcs none $crate
+    cd $crate
+}
+
 ## Prompt customization ##
 
 # virtualenv info
