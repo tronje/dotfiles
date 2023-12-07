@@ -33,7 +33,7 @@ export MAKEFLAGS="-j16"
 
 # history settings
 export HISTFILE=/home/tronje/.zsh_history
-export HISTSIZE=25000
+export HISTSIZE=50000
 setopt HIST_IGNORE_DUPS
 setopt HIST_EXPIRE_DUPS_FIRST
 
