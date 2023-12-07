@@ -9,7 +9,7 @@ require('basics')
 require('airline')
 require('lsp_stuff')
 require('nerdtree')
-require('telescope')
+require('telescope_stuff')
 require('git')
 require('trailing_whitespace')
 

@@ -1,3 +1,13 @@
+local telescope = require('telescope')
+
+telescope.setup({
+	pickers = {
+		git_files = {
+			recurse_submodules = true
+		}
+	}
+})
+
 local builtin = require('telescope.builtin')
 
 -- git file search
@@ -12,8 +22,11 @@ vim.keymap.set('n', '<C-b>', builtin.buffers, {})
 -- lines in a buffer
 vim.keymap.set('n', '<C-l>', builtin.current_buffer_fuzzy_find, {})
 
--- use 's :Rg to search for word under cursor with ,/
+-- search for word under cursor with ,/
 vim.keymap.set('n', '<leader>/', builtin.grep_string, {})
+
+-- use :Rg to start ripgrepping as you type
+vim.api.nvim_create_user_command('Rg', builtin.live_grep, { bang = true })
 
 -- ,rf to search references known to the LSP to the word under the cursor
 vim.keymap.set('n', '<leader>rf', builtin.lsp_references, {})
