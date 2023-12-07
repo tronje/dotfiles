@@ -62,18 +62,6 @@ function reboot () {
 }
 
 
-function kapa () {
-    if [ ! -d /nas/projects/9000-jusst-internal/02-project-management/resource-planning/`date +%Y` ]; then
-        sudo mount -a
-    fi
-
-    if [ -z $1 ]; then
-        evince /nas/projects/9000-jusst-internal/02-project-management/resource-planning/`date +%Y`/`date +%yW%V`-resource-planning.pdf
-    else
-        evince /nas/projects/9000-jusst-internal/02-project-management/resource-planning/`date +%Y`/`date +%yW$1`-resource-planning.pdf
-    fi
-}
-
 ## Prompt customization ##
 
 # virtualenv info
