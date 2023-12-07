@@ -9,7 +9,9 @@ export EDITOR=nvim
 export PAGER=less
 export BROWSER=firefox
 export LESS='-i -M -R'
-export BAT_THEME=gruvbox
+export BAT_THEME=gruvbox-dark
+export MOZ_ENABLE_WAYLAND=1
+export TMPDIR="/tmp/$USER"
 
 # rust stuff
 export RUST_SRC_PATH=/home/tronje/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
