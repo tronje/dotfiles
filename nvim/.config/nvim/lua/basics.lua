@@ -83,3 +83,6 @@ vim.api.nvim_create_autocmd(
 		end
 	}
 )
+
+-- setup fidget
+require("fidget").setup({})
