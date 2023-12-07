@@ -4,7 +4,6 @@ vim.fn['plug#begin'](vim.fn.expand('~/.config/nvim/plug'))
 
 -- Language support
 Plug('plasticboy/vim-markdown')
-Plug('lervag/vim-latex')
 Plug('pangloss/vim-javascript')
 Plug('othree/html5.vim')
 Plug('hail2u/vim-css3-syntax')
