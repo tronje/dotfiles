@@ -15,7 +15,7 @@ bindkey -v
 eval "$(zoxide init zsh)"
 
 # this enables syntax highlighting, as the name suggests
-source /home/tronje/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # enable fzf keybindings
 # ^T is quite useful, in particular
