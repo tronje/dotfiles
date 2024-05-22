@@ -50,6 +50,9 @@ vim.opt.wildmode = 'list:longest,full'
 vim.opt.wrap = true
 vim.opt.ww = '<,>,[,]'
 
+-- unbind F1, because I keep accidentally opening the help menu
+vim.keymap.set({'n', 'i'}, '<F1>', '<nop>')
+
 -- search for selected string in visual mode with //
 vim.keymap.set('v', '//', 'y/<C-R>"<CR>"')
 
