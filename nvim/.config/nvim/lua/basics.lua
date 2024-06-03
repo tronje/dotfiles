@@ -88,5 +88,14 @@ vim.api.nvim_create_autocmd(
 	}
 )
 
+-- scratch buffers
+local function scratchbuf()
+	vim.cmd.e('SCRATCH')
+	vim.opt_local.buftype = 'nofile'
+	vim.opt_local.bufhidden = 'hide'
+	-- vim.opt_local.buflisted = false
+end
+vim.api.nvim_create_user_command('Scratch', scratchbuf, {})
+
 -- setup fidget
 require("fidget").setup({})
