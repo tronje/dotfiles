@@ -14,6 +14,7 @@ require('git')
 require('trailing_whitespace')
 
 -- language-specific settings
+require('arb')
 require('c')
 require('cpp')
 require('dart')
