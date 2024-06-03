@@ -169,6 +169,6 @@ input * {
 output "*" bg /home/tronje/pics/wallpapers/gruvbox_jusst.png fill
 exec dunst
 exec swayidle -w \
-    timeout 450 'swaylock' \
-    timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+    timeout 600 'swaylock' \
+    timeout 900 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock'
