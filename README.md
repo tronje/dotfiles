@@ -1,7 +1,9 @@
 # dotfiles
+
 My various config files.
 
 ## Installation
+
 * Install GNU stow
 * Install the configuration for any of the programs the directories are named after.
 
@@ -12,36 +14,35 @@ $ stow nvim
 ```
 
 ## Dependencies
-I most likely forgot a whole bunch of stuff here. You will notice if something is needed but hasn't been installed...
 
-### i3
-* [i3blocks](https://github.com/vivien/i3blocks)
-* [kitty](https://github.com/kovidgoyal/kitty)
-* [rofi](https://github.com/DaveDavenport/rofi)
-* ponymix
-* compton
+A rough list of dependencies. These are hard to keep track of.
+
+### sway
+* sway
+* swaybg
+* swayidle
+* swaylock
+* waybar
+* alacritty
 
 ### nvim
 * neovim, not vim
 * python-neovim
-* python2-neovim
 * [vim-plug](https://github.com/junegunn/vim-plug)
-* [ripgrep](https://github.com/BurntSushi/ripgrep)
-* a [NERDFont](https://github.com/ryanoasis/nerd-fonts), I have ttf-nerd-fonts-symbols from the AUR
-* rust-src (`rustup component add rust-src`)
-* racer (`cargo install racer`)
-* flake8
 
-### systemd
-* redshift-gtk
-* [wallpaper-switcher](https://github.com/tronje/wallpaper-switcher)
-
-### termite & kitty
+### alacritty
 * (the corresponding terminal of course)
-* Fira Mono font
+* Fira Mono Nerd font
 
 ### zsh
 * grml-zsh-config
+* starship
 
-### conky
-* [this script](https://gist.github.com/tronje/21c4c1ecf7a9afb133f1814336ac3d48)
+### starship
+* [dir-prompt-helper](https://github.com/tronje/dir-prompt-helper)
+
+### cargo
+* the `mold` linker
+
+### tmux
+* Clone [tpm](https://github.com/tmux-plugins/tpm) to `.config/tmux/plugins/tpm`
