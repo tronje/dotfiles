@@ -73,48 +73,6 @@ function cargo-tmp () {
     cd $crate
 }
 
-## Prompt customization ##
-
-# virtualenv info
-function virtual_env_prompt () {
-    REPLY=${VIRTUAL_ENV+${VIRTUAL_ENV:t} }
-}
-
-# disables prompt mangling in virtual_env/bin/activate
-export VIRTUAL_ENV_DISABLE_PROMPT=1
-
-# abbreviated path in prompt
-# if $PWD is longer than 15 symbols, it's abbreviated with '...'
-function abbr_path_prompt () {
-  # REPLY='%15<...<%~%<<%  '
-  REPLY="`dir-prompt-helper` "
-}
-
-# git status indicator
-function git_info () {
-    REPLY=`git-prompt-helper`
-}
-
-# number of suspended jobs
-function delimiter_jobs () {
-    if [[ -n $(jobs) ]]; then
-        REPLY='%B%F{red}*%f%b'
-    else
-        REPLY=''
-    fi
-}
-
-# add the custom tokens to the theme
-grml_theme_add_token virtual_env -f virtual_env_prompt '' ''
-grml_theme_add_token abbreviated-path -f abbr_path_prompt '%B' '%b'
-grml_theme_add_token gitinfo -f git_info '%B' '%b'
-grml_theme_add_token delimiter -f delimiter_jobs '' ''
-grml_theme_add_token arrow '-> '
-
-# and update the left-hand side of the prompt
-zstyle ':prompt:grml:left:setup' items rc user at host virtual_env abbreviated-path gitinfo delimiter newline arrow
-
-
 #
 # Completion stuff, mostly stolen from
 # https://github.com/sorin-ionescu/prezto/blob/master/modules/completion/init.zsh
@@ -164,3 +122,13 @@ zstyle ':completion:*:approximate:*' max-errors 1 numeric
 # Increase the number of errors based on the length of the typed word. But make
 # sure to cap (at 7) the max-errors to avoid hanging.
 zstyle -e ':completion:*:approximate:*' max-errors 'reply=($((($#PREFIX+$#SUFFIX)/3>7?7:($#PREFIX+$#SUFFIX)/3))numeric)'
+
+#
+# Prompt customization
+#
+
+# reset grml prompt configuration
+prompt default
+
+# activate starship prompt
+eval "$(starship init zsh)"
