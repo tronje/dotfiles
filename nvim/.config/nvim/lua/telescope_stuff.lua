@@ -30,7 +30,3 @@ vim.api.nvim_create_user_command('Rg', builtin.live_grep, { bang = true })
 
 -- ,rf to search references known to the LSP to the word under the cursor
 vim.keymap.set('n', '<leader>rf', builtin.lsp_references, {})
-
--- search sessions
-local session_lens = require('session-lens')
-vim.keymap.set('n', '<C-s>', session_lens.search_session, {})

@@ -25,5 +25,3 @@ require('python')
 require('rust')
 require('systemd')
 require('yaml')
-
-require('sessions')
