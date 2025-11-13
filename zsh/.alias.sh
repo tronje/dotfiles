@@ -17,12 +17,11 @@ alias smctl='sudo machinectl'
 alias pac='pacman'
 alias spac='sudo pacman'
 
-# neovim
-alias vi='nvim'
-alias vim='nvim'
-alias gvi='nvim $(git status --porcelain | cut -s -f 2 -d M)'
-alias svi='sudo -E nvim'
-alias svim='sudo -E nvim'
+# helix
+alias hx='helix'
+alias vi='helix'
+alias shx='sudo -E helix'
+alias svi='sudo -E helix'
 
 # git aliases
 alias g='git'

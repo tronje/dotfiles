@@ -2,10 +2,8 @@
 # Defines environment variables.
 #
 
-export NVIM_TUI_ENABLE_TRUE_COLOR=1
-export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-export VISUAL=nvim
-export EDITOR=nvim
+export VISUAL=helix
+export EDITOR=helix
 export PAGER=less
 export BROWSER=firefox
 export LESS='-i -M -R'
