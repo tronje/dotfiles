@@ -46,10 +46,6 @@ function spectrum_ls () {
     done
 }
 
-function glv () {
-    git log $@ | nvim -R -
-}
-
 function reboot () {
     read "rebootanswer?Are you sure? (y/n) "
     if [[ $rebootanswer == 'y' ]]; then
