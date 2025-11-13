@@ -5,8 +5,8 @@
     // "width": 1280, // Waybar width
     "spacing": 10, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
-    "modules-center": ["sway/window"],
+    "modules-left": ["niri/workspaces"],
+    "modules-center": ["niri/window"],
     "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "disk", "clock", "tray"],
     // Modules configuration
     // "sway/workspaces": {
@@ -44,9 +44,8 @@
         "tooltip": true,
         "tooltip-format": "{app}: {title}"
     },
-    "sway/window": {
-        "max-length": 50,
-        "format": "{title}"
+    "niri/window": {
+        "max-length": 30
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
